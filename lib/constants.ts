@@ -1,0 +1,179 @@
+export const siteConfig = {
+  name: "Malohn Capital Group",
+  description: "Build a Portfolio of Cash-Flowing Rentals",
+  tagline: "For investors with $50k+ in liquid capital targeting 30%+ cash-on-cash returns in high-yield markets.",
+}
+
+export const navLinks = [
+  { href: "/", label: "Home" },
+  { href: "/about", label: "About" },
+  { href: "/services", label: "Services" },
+]
+
+export const stats = [
+  { value: "85+", label: "Years Combined Experience" },
+  { value: "$500M+", label: "Funded Volume" },
+  { value: "6.5%", label: "Current Rate" },
+]
+
+export const productCards = [
+  {
+    title: "Syndicated DSCR Loans",
+    description: "Multi-tranche debt financing for real estate investors",
+    benefits: [
+      "Invest with as little as 10% down",
+      "Competitive rates, minimal paperwork",
+      "3-4 week closings",
+      "Full capital structure handled for you",
+    ],
+  },
+  {
+    title: "Working Capital Support",
+    description: "Unsecured funding to scale your portfolio",
+    benefits: [
+      "Up to $500K unsecured funding",
+      "No collateral required",
+      "Funding in as fast as 2 weeks",
+      "Leverage to scale your portfolio",
+    ],
+  },
+]
+
+export const fundedDeals = [
+  {
+    id: 1,
+    amount: "$425,000",
+    downPayment: "10%",
+    cashOnCash: "32%",
+    location: "Cleveland, OH",
+  },
+  {
+    id: 2,
+    amount: "$312,000",
+    downPayment: "15%",
+    cashOnCash: "28%",
+    location: "Detroit, MI",
+  },
+  {
+    id: 3,
+    amount: "$275,000",
+    downPayment: "10%",
+    cashOnCash: "35%",
+    location: "Memphis, TN",
+  },
+  {
+    id: 4,
+    amount: "$198,000",
+    downPayment: "12%",
+    cashOnCash: "30%",
+    location: "Indianapolis, IN",
+  },
+  {
+    id: 5,
+    amount: "$385,000",
+    downPayment: "10%",
+    cashOnCash: "29%",
+    location: "Kansas City, MO",
+  },
+]
+
+export const mediaLogos = [
+  "Forbes",
+  "BiggerPockets",
+  "Yahoo Finance",
+  "NBC",
+  "BBB",
+]
+
+export const footerLinks = {
+  navigation: navLinks,
+  contact: {
+    phone: "(555) 123-4567",
+    email: "info@malohncapital.com",
+    address: "123 Financial District, Suite 100, New York, NY 10004",
+  },
+  social: [
+    { platform: "Instagram", href: "#" },
+    { platform: "Facebook", href: "#" },
+    { platform: "LinkedIn", href: "#" },
+  ],
+}
+
+export const valueCards = [
+  {
+    icon: "Lightbulb",
+    title: "Innovation",
+    description: "Creative financing structures others don't offer",
+  },
+  {
+    icon: "DoorOpen",
+    title: "Accessibility",
+    description: "Low barriers—10% down, minimal paperwork",
+  },
+  {
+    icon: "Zap",
+    title: "Speed",
+    description: "3-4 week closings, fast funding decisions",
+  },
+  {
+    icon: "Award",
+    title: "Expertise",
+    description: "85+ years combined mortgage experience",
+  },
+]
+
+export const services = {
+  dscrLoans: {
+    icon: "Building2",
+    title: "Syndicated DSCR Loans",
+    description: "We structure debt financing that helps real estate investors scale faster. With our multi-tranche DSCR loans, you can invest with as little as 10% down while keeping capital free for new opportunities.",
+    benefits: [
+      "As little as 10% down payment",
+      "No income verification required",
+      "30-year fixed terms available",
+      "No limit on number of properties",
+      "Competitive rates starting at 6.5%",
+      "3-4 week closings",
+      "Full capital structure handled by our advisors",
+    ],
+    requirements: [
+      "$50K+ liquid capital",
+      "Investment property only (no owner-occupied)",
+    ],
+  },
+  workingCapital: {
+    icon: "Wallet",
+    title: "Working Capital Support Loan",
+    description: "Up to $500,000 in unsecured funding, eliminating lack of capital as a barrier to buying real estate, starting a business, or pursuing new opportunities.",
+    benefits: [
+      "Up to $500K unsecured funding",
+      "No collateral required",
+      "Funding available in 2 weeks",
+      "Use for real estate, business, or investments",
+      "Fast, reliable approval process",
+    ],
+    requirements: [
+      "Minimum 680 credit score",
+      "Strong business plan or investment thesis",
+    ],
+    scarcityLine: "Due to limited capital, funding is reserved for the most motivated individuals with clear vision for growth.",
+  },
+  insurance: {
+    icon: "Shield",
+    title: "Real Estate Investment Insurance",
+    description: "Comprehensive property and casualty coverage designed for first-time investors, professional investors, REITs, and owners of vacant properties.",
+    benefits: [
+      "Rental income protection",
+      "Liability coverage",
+      "Property safeguards",
+      "Tailored policies for your portfolio",
+      "White-glove service experience",
+    ],
+    forTypes: [
+      "First-time rental investors",
+      "Professional investors with multiple properties",
+      "REITs and institutional holders",
+      "Vacant property owners",
+    ],
+  },
+}
