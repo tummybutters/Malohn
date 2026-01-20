@@ -88,12 +88,12 @@ export default function HomePage() {
           initial={{ opacity: 0, scale: 0.96, y: 20 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
           transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-          className="relative flex-1 max-h-[65vh] overflow-hidden shadow-[0_25px_80px_-12px_rgba(0,0,0,0.3)]"
+          className="relative flex-1 max-h-[85vh] overflow-hidden shadow-[0_25px_80px_-12px_rgba(0,0,0,0.3)] bg-white"
           style={{
             clipPath: 'url(#folderClip)',
           }}
         >
-          {/* Video Background - Scaled slightly to crop black edges */}
+          {/* Video Background - Scaled to crop black edges */}
           <div className="absolute inset-0 overflow-hidden">
             <video
               autoPlay
@@ -102,7 +102,7 @@ export default function HomePage() {
               loop
               className="w-full h-full object-cover"
               style={{
-                transform: 'scale(1.02)',
+                transform: 'scale(1.05)',
                 transformOrigin: 'center center',
               }}
             >
@@ -112,10 +112,11 @@ export default function HomePage() {
         </motion.div>
 
         {/* Hero Text Content - Below the folder */}
-        <div className="pt-6 md:pt-8 pb-4">
-          <div className="grid grid-cols-[60%_40%] gap-4 items-start">
-            {/* Left Side - Headline (fits in non-flap area ~60%) */}
-            <div className="pr-8">
+        <div className="pt-8 md:pt-10 pb-4">
+          {/* Main content row - headline left, description right */}
+          <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 lg:gap-12">
+            {/* Left Side - Headline */}
+            <div className="lg:max-w-[55%]">
               <motion.p
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -125,7 +126,7 @@ export default function HomePage() {
                 A Space for Wealth Building
               </motion.p>
 
-              <h1 className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-light leading-[1.1] tracking-tight text-white">
+              <h1 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-light leading-[1.05] tracking-tight text-white">
                 <motion.span
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -145,13 +146,13 @@ export default function HomePage() {
               </h1>
             </div>
 
-            {/* Right Side - Description + CTAs (fits in flap area ~40%) */}
-            <div className="text-right">
+            {/* Right Side - Description + CTAs, aligned to baseline */}
+            <div className="lg:max-w-[380px]">
               <motion.p
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.6, duration: 0.4 }}
-                className="text-sm md:text-base text-white/80 mb-5 leading-relaxed"
+                className="text-sm md:text-base text-white/75 mb-5 leading-relaxed"
               >
                 We build portfolios powered by creative financing, strategic acquisitions, and designed for generational wealth.
               </motion.p>
@@ -160,7 +161,7 @@ export default function HomePage() {
                 initial={{ opacity: 0, y: 15 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.7, duration: 0.4 }}
-                className="flex flex-row items-center justify-end gap-3"
+                className="flex flex-row items-center gap-3"
               >
                 <ActionButton>Explore the Future</ActionButton>
                 <ActionButton>See Our Process</ActionButton>
@@ -169,8 +170,8 @@ export default function HomePage() {
           </div>
         </div>
 
-        {/* Bottom Spacing / Mute Button Area */}
-        <div className="flex items-center justify-end">
+        {/* Mute Button - positioned at bottom right */}
+        <div className="flex items-center justify-end mt-auto">
           <motion.button
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
