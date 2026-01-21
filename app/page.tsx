@@ -77,7 +77,7 @@ export default function HomePage() {
     }
 
     const duration = 2.2
-    const ease = [0.16, 1, 0.3, 1] as const
+    const ease: [number, number, number, number] = [0.16, 1, 0.3, 1]
 
     const controls = [
       animate(0, 110, {
@@ -220,6 +220,10 @@ export default function HomePage() {
             >
               <source src="/videos/tommyb3__Cinematic_drone_shot_moving_slowly_forward_at_a_cons_ecaac372-605b-4bff-a8eb-ed7bf403821d_0.mp4" type="video/mp4" />
             </video>
+            <motion.div
+              aria-hidden="true"
+              className="pointer-events-none absolute inset-0 bg-black/30"
+            />
             <motion.div
               aria-hidden="true"
               className="pointer-events-none absolute inset-0 bg-black"
@@ -533,6 +537,234 @@ export default function HomePage() {
                 />
                 <FormSubmitButton text="Get Free Guide" sentText="Sent!" />
               </div>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Proof Stack Section */}
+      <section
+        className="px-6 md:px-12 lg:px-20 py-18 md:py-24"
+        style={{
+          background: 'linear-gradient(180deg, #0b1320 0%, #0a0f15 60%, #07080b 100%)',
+        }}
+      >
+        <div className="max-w-6xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+            className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-10"
+          >
+            <div>
+              <p className="text-[10px] md:text-xs tracking-[0.28em] uppercase text-white/60 font-medium">
+                Proof Stack
+              </p>
+              <h3 className="mt-4 text-2xl md:text-3xl lg:text-4xl font-light text-white font-serif">
+                Why this model works in real markets
+              </h3>
+            </div>
+            <p className="text-sm md:text-base text-white/70 max-w-xl">
+              We engineer the deal structure first, then match capital to the property. That removes the bottleneck that
+              stalls most investors.
+            </p>
+          </motion.div>
+
+          <div className="grid gap-6 md:grid-cols-3">
+            {[
+              {
+                title: 'Structure-first underwriting',
+                body: 'We validate exit strategies, cash flow, and resale paths before your docs ever hit a lender.',
+              },
+              {
+                title: 'Capital stack matched',
+                body: 'We align DSCR, seller terms, and private capital so no single capital source can kill the deal.',
+              },
+              {
+                title: 'Closing velocity',
+                body: 'Clear steps, fewer surprises, and a weekly check-in cadence so you always know what is next.',
+              },
+            ].map((item) => (
+              <motion.div
+                key={item.title}
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
+                className="rounded-2xl border border-white/15 bg-white/5 p-6 md:p-7"
+              >
+                <div className="h-10 w-10 rounded-full bg-accent-warm/90 text-[#1a1408] flex items-center justify-center text-sm font-semibold mb-5">
+                  ✓
+                </div>
+                <h4 className="text-lg font-semibold text-white">{item.title}</h4>
+                <p className="mt-3 text-sm text-white/70 leading-relaxed">{item.body}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Case Studies Section */}
+      <section
+        className="px-6 md:px-12 lg:px-20 py-18 md:py-24"
+        style={{
+          background: 'linear-gradient(180deg, #07080b 0%, #0a111b 100%)',
+        }}
+      >
+        <div className="max-w-6xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+            className="text-center mb-12"
+          >
+            <p className="text-[10px] md:text-xs tracking-[0.28em] uppercase text-white/60 font-medium">
+              Success Stories
+            </p>
+            <h3 className="mt-4 text-2xl md:text-3xl lg:text-4xl font-light text-white font-serif">
+              The strategy working in the wild
+            </h3>
+          </motion.div>
+
+          <div className="grid gap-6 lg:grid-cols-3">
+            {[
+              {
+                location: 'Phoenix, AZ',
+                headline: '3 doors closed in 24 days',
+                metric: '+$2.4k/mo net cash flow',
+                body: 'Hybrid DSCR + seller carry combo. Repeatable after property #1.',
+              },
+              {
+                location: 'Tampa, FL',
+                headline: 'Duplex refi in 5 months',
+                metric: 'Pulled $62k equity',
+                body: 'Short-term bridge → long-term DSCR with a clean exit path.',
+              },
+              {
+                location: 'Cincinnati, OH',
+                headline: '12-unit stabilized',
+                metric: 'Vacancy cut by 40%',
+                body: 'Renovation + operational reboot with weekly check-ins.',
+              },
+            ].map((story) => (
+              <motion.div
+                key={story.location}
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
+                className="rounded-2xl border border-white/15 bg-white/5 p-6 md:p-7 flex flex-col"
+              >
+                <div className="flex items-center justify-between text-xs uppercase tracking-[0.2em] text-white/50">
+                  <span>{story.location}</span>
+                  <span className="text-accent-warm">Closed</span>
+                </div>
+                <h4 className="mt-4 text-lg font-semibold text-white">{story.headline}</h4>
+                <p className="mt-2 text-sm text-accent-warm">{story.metric}</p>
+                <p className="mt-4 text-sm text-white/70 leading-relaxed">{story.body}</p>
+                <div className="mt-6 h-px w-full bg-white/10" />
+                <div className="mt-4 flex items-center justify-between text-xs text-white/50">
+                  <span>Capital Stack</span>
+                  <span>DSCR + Creative</span>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section
+        className="px-6 md:px-12 lg:px-20 py-18 md:py-24"
+        style={{
+          background: 'linear-gradient(180deg, #0a111b 0%, #07080b 100%)',
+        }}
+      >
+        <div className="max-w-5xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+            className="text-center mb-10"
+          >
+            <p className="text-[10px] md:text-xs tracking-[0.28em] uppercase text-white/60 font-medium">
+              FAQ
+            </p>
+            <h3 className="mt-4 text-2xl md:text-3xl lg:text-4xl font-light text-white font-serif">
+              Quick answers before you book
+            </h3>
+          </motion.div>
+
+          <div className="grid gap-4">
+            {[
+              {
+                q: 'How fast can we close?',
+                a: 'Most term sheets go out within 7–10 business days after we lock the structure.',
+              },
+              {
+                q: 'What capital do I need?',
+                a: 'We can start with $50k liquid, but we match the plan to your liquidity and risk profile.',
+              },
+              {
+                q: 'Is this only DSCR?',
+                a: 'No. We blend DSCR, seller terms, and private capital when it makes the deal stronger.',
+              },
+              {
+                q: 'Do you manage the property?',
+                a: 'We stay involved through stabilization and can introduce vetted operators if needed.',
+              },
+            ].map((item) => (
+              <motion.div
+                key={item.q}
+                initial={{ opacity: 0, y: 10 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
+                className="rounded-2xl border border-white/15 bg-white/5 px-6 py-5"
+              >
+                <div className="flex items-start justify-between gap-6">
+                  <div>
+                    <h4 className="text-sm md:text-base font-semibold text-white">{item.q}</h4>
+                    <p className="mt-2 text-sm text-white/70 leading-relaxed">{item.a}</p>
+                  </div>
+                  <span className="text-accent-warm text-lg">+</span>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Final CTA Section */}
+      <section
+        className="px-6 md:px-12 lg:px-20 py-20 md:py-28"
+        style={{
+          background: 'linear-gradient(180deg, #07080b 0%, #050608 100%)',
+        }}
+      >
+        <div className="max-w-6xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+            className="rounded-3xl border border-white/15 bg-gradient-to-br from-white/10 via-white/5 to-transparent px-8 py-12 md:px-12 md:py-16 text-center"
+          >
+            <p className="text-[10px] md:text-xs tracking-[0.28em] uppercase text-white/60 font-medium">
+              Ready to move?
+            </p>
+            <h3 className="mt-4 text-2xl md:text-3xl lg:text-4xl font-light text-white font-serif">
+              Your next closing starts with a 15-minute call.
+            </h3>
+            <p className="mt-4 text-sm md:text-base text-white/70 max-w-2xl mx-auto">
+              We review your goals, structure the plan, and tell you exactly what happens next. No pressure—just clarity.
+            </p>
+            <div className="mt-8 flex flex-col sm:flex-row justify-center gap-3">
+              <ActionButton>Book the Strategy Call</ActionButton>
+              <ActionButton>Download the Playbook</ActionButton>
             </div>
           </motion.div>
         </div>
