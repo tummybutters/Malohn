@@ -1,13 +1,16 @@
 export const siteConfig = {
   name: "Malohn Capital Group",
-  description: "Build a Portfolio of Cash-Flowing Rentals",
-  tagline: "For investors with $50k+ in liquid capital targeting 30%+ cash-on-cash returns in high-yield markets.",
+  description: "Institutional structuring for sophisticated real estate investors.",
+  tagline: "Disciplined capital architecture for long-term portfolio growth.",
 }
 
 export const navLinks = [
   { href: "/", label: "Home" },
+  { href: "/capital-solutions", label: "Capital Solutions" },
+  { href: "/transactions", label: "Transactions" },
   { href: "/about", label: "About" },
-  { href: "/services", label: "Services" },
+  { href: "/capital-group", label: "Capital Group" },
+  { href: "/schedule", label: "Schedule a Meeting" },
 ]
 
 export const stats = [
@@ -108,7 +111,7 @@ export const valueCards = [
   {
     icon: "DoorOpen",
     title: "Accessibility",
-    description: "Low barriers—10% down, minimal paperwork",
+    description: "Low barriers - 10% down, minimal paperwork",
   },
   {
     icon: "Zap",

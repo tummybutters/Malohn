@@ -27,8 +27,8 @@ export default function Footer() {
           <div className="md:col-span-2">
             <h3 className="font-semibold text-xl mb-4 text-white">{siteConfig.name}</h3>
             <p className="text-white/60 text-sm max-w-md leading-relaxed">
-              A hand-holding creative finance solution for real estate investors.
-              Building wealth through cash-flowing properties.
+              Institutional-grade capital structuring for sophisticated real estate investors.
+              Disciplined leverage built for long-term portfolio growth.
             </p>
           </div>
 
@@ -81,7 +81,7 @@ export default function Footer() {
 
           {/* Copyright */}
           <p className="text-white/50 text-sm">
-            © 2026 {siteConfig.name}. All rights reserved.
+            (c) 2026 {siteConfig.name}. All rights reserved.
           </p>
         </div>
 
