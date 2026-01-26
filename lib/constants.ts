@@ -1,7 +1,9 @@
 export const siteConfig = {
   name: "Malohn Capital Group",
-  description: "Institutional structuring for sophisticated real estate investors.",
+  description: "DSCR loans and working capital structuring for real estate investors built for disciplined leverage and long-term portfolio growth.",
   tagline: "Disciplined capital architecture for long-term portfolio growth.",
+  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://malohncapital.com",
+  ogImage: "/images/logo.png",
 }
 
 export const navLinks = [
