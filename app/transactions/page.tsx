@@ -235,7 +235,7 @@ const transactions = [
   },
 ]
 
-const filters = ['All', 'DSCR', 'Working Capital', 'Multi-Family'] as const
+const filters = ['DSCR Transactions', 'Working Capital'] as const
 
 type Filter = typeof filters[number]
 
@@ -263,17 +263,16 @@ const allItems: Transaction[] = transactions.map((item) => ({
 }))
 
 const filterTransactions = (filter: Filter) => {
-  if (filter === 'All') return allItems
-  if (filter === 'Multi-Family') {
-    return allItems.filter((t) => t.title.toLowerCase().includes('multifamily') || t.title.toLowerCase().includes('portfolio'))
+  if (filter === 'DSCR Transactions') {
+    return allItems.filter((t) => t.category === 'DSCR')
   }
-  return allItems.filter((t) => t.category === filter)
+  return allItems.filter((t) => t.category === 'Working Capital')
 }
 
 export default function TransactionsPage() {
-  const [activeFilter, setActiveFilter] = useState<Filter>('All')
+  const [activeFilter, setActiveFilter] = useState<Filter>('DSCR Transactions')
   const [items, setItems] = useState<RenderItem[]>(() =>
-    filterTransactions('All').map((item) => ({ ...item, state: 'enter' }))
+    filterTransactions('DSCR Transactions').map((item) => ({ ...item, state: 'enter' }))
   )
   const [exitItems, setExitItems] = useState<ExitItem[]>([])
 
@@ -404,10 +403,10 @@ export default function TransactionsPage() {
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row md:items-end justify-between gap-8">
           <div className="max-w-2xl">
             <p className="text-[10px] md:text-xs tracking-[0.3em] uppercase text-white/50 font-medium mb-4 animate-fade-up">
-              Munoz Ghezlan Transactions
+              Malohn Capital Group Transactions
             </p>
             <h1 className="text-4xl md:text-5xl lg:text-7xl font-light tracking-tight text-white font-serif leading-[0.9] animate-fade-up delay-100">
-              Capital <span className="text-accent-warm italic">Deployed.</span>
+              Malohn Capital Group Transactions
             </h1>
           </div>
 

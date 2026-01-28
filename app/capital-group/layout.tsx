@@ -2,8 +2,8 @@ import type { Metadata } from 'next'
 import { buildPageMetadata } from '@/lib/seo'
 
 export const metadata: Metadata = buildPageMetadata({
-  title: 'Capital Advisory Team',
-  description: 'Meet the Malohn Capital Group advisory team providing disciplined structuring, underwriting clarity, and execution guidance.',
+  title: 'Capital Group',
+  description: 'Miles Malohn - Managing Partner',
   path: '/capital-group',
 })
 

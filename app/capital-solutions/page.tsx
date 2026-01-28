@@ -6,24 +6,24 @@ import { FocusCards } from '@/components/ui/FocusCards'
 const solutions = [
   {
     title: 'Working Capital',
-    description: 'Investment-focused liquidity to bridge down payments, reserves, and execution timing.',
+    description: 'Investment focused, unsecured liquidity and credit for down payments, renovations, reserves, bridge loans, and execution timing.',
     href: '/capital-solutions/working-capital',
     icon: <Coins className="w-10 h-10" />,
     action: <span className="text-sm font-medium text-accent-warm">Explore Working Capital -&gt;</span>
   },
   {
-    title: 'DSCR Cash Out Loan',
-    description: 'Asset-based underwriting designed to recycle equity without personal income constraints.',
+    title: 'DSCR Purchase Loan',
+    description: 'Asset based underwriting designed to recycle equity without personal income constraints.',
     href: '/capital-solutions/dscr-cash-out-loan',
     icon: <Building2 className="w-10 h-10" />,
     action: <span className="text-sm font-medium text-accent-warm">Explore DSCR Purchase -&gt;</span>
   },
   {
     title: 'DSCR Cash Out',
-    description: 'Structured capital that unlocks liquidity while protecting long-term portfolio performance.',
+    description: 'Structured capital that unlocks liquidity while protecting long term portfolio performance.',
     href: '/capital-solutions/dscr-cash-out',
     icon: <Landmark className="w-10 h-10" />,
-    action: <span className="text-sm font-medium text-accent-warm">Explore Refinance -&gt;</span>
+    action: <span className="text-sm font-medium text-accent-warm">Explore DSCR Refinance -&gt;</span>
   },
 ]
 
@@ -40,8 +40,7 @@ export default function CapitalSolutionsPage() {
             Leverage built for <span className="text-accent-warm italic">scale.</span>
           </h1>
           <p className="mt-6 text-sm md:text-base text-white/60 max-w-2xl leading-relaxed animate-fade-up delay-200">
-            We align DSCR financing with investment-focused working capital to unlock scalable liquidity, preserve
-            equity efficiency, and build a capital architecture designed for long-term portfolio growth.
+            We align DSCR financing with unsecured working capital to unlock scalable liquidity, preserve equity efficiency, and build a capital architecture designed for long term portfolio growth.
           </p>
         </div>
       </section>
@@ -68,9 +67,9 @@ export default function CapitalSolutionsPage() {
 
             <div className="space-y-6">
               {[
-                { title: 'Multi-Tranche Integration', desc: 'Seamlessly blending senior debt with mezzanine working capital.', icon: <Layers className="w-5 h-5" /> },
-                { title: 'Cash Flow Durability', desc: 'Stress-tested DSCR requirements to ensure portfolio resilience.', icon: <ShieldCheck className="w-5 h-5" /> },
-                { title: 'Execution Speed', desc: ' streamlined underwriting designed for acquisition timelines.', icon: <Zap className="w-5 h-5" /> }
+                { title: 'Multi-Tranche Integration', desc: 'Seamlessly blending unsecured working capital with DSCR loans.', icon: <Layers className="w-5 h-5" /> },
+                { title: 'Cash Flow Durability', desc: 'Stress tested DSCR requirements to ensure portfolio resilience.', icon: <ShieldCheck className="w-5 h-5" /> },
+                { title: 'Execution Speed', desc: 'Streamlined underwriting designed for acquisition timelines.', icon: <Zap className="w-5 h-5" /> }
               ].map((item, i) => (
                 <div key={i} className="flex gap-4 p-6 border border-white/5 bg-white/[0.02] hover:bg-white/[0.04] transition-colors rounded-none">
                   <div className="text-accent-warm mt-1">{item.icon}</div>
@@ -87,7 +86,7 @@ export default function CapitalSolutionsPage() {
           <div className="relative">
             <div className="absolute inset-0 bg-gradient-to-br from-accent-warm/5 to-transparent opacity-20 pointer-events-none" />
             <div className="border border-white/10 bg-[#0a0f15] p-8 h-full relative">
-              <p className="text-xs font-mono text-white/40 mb-8 border-b border-white/10 pb-4">FIG 1.0 — CAPITAL STACK STRUCTURE</p>
+              <p className="text-xs font-mono text-white/40 mb-8 border-b border-white/10 pb-4">FIG 1.0 — CAPITAL STRUCTURE</p>
 
               <div className="space-y-1">
                 {/* Senior Debt */}
@@ -95,8 +94,8 @@ export default function CapitalSolutionsPage() {
                   <div className="flex items-center gap-4">
                     <span className="text-xs font-mono text-white/30">01</span>
                     <div>
-                      <p className="text-white font-medium">Senior DSCR Debt</p>
-                      <p className="text-xs text-white/50">LTV: 65-80%</p>
+                      <p className="text-white font-medium">DSCR Loan</p>
+                      <p className="text-xs text-white/50">LTV: 70-90%</p>
                     </div>
                   </div>
                   <Building2 className="text-white/20 group-hover:text-accent-warm transition-colors" size={24} />
@@ -109,7 +108,7 @@ export default function CapitalSolutionsPage() {
                     <span className="text-xs font-mono text-accent-warm/50">02</span>
                     <div>
                       <p className="text-accent-warm font-medium">Working Capital Tranche</p>
-                      <p className="text-xs text-accent-warm/60">Gap Funding / Reserves</p>
+                      <p className="text-xs text-accent-warm/60">Down Payments / Renovations / Gap Funding / Reserves</p>
                     </div>
                   </div>
                   <Layers className="text-accent-warm/60" size={20} />
@@ -132,7 +131,7 @@ export default function CapitalSolutionsPage() {
                 <div className="grid grid-cols-2 gap-4">
                   <div>
                     <p className="text-[10px] uppercase text-white/40 mb-1">Total Leverage</p>
-                    <p className="text-xl text-white font-mono">Up to 85%</p>
+                    <p className="text-xl text-white font-mono">Up to 100%</p>
                   </div>
                   <div>
                     <p className="text-[10px] uppercase text-white/40 mb-1">Blended Rate</p>
@@ -152,11 +151,12 @@ export default function CapitalSolutionsPage() {
             <h2 className="text-3xl font-serif text-white">Ideal Partner Profile</h2>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {[
-              { title: 'Portfolio Builders', text: 'Investors scaling from 5 to 50+ units requiring repeatable capital structures.' },
-              { title: 'BRRRR Operators', text: 'Teams needing agile bridge debt with committed takeout financing.' },
-              { title: 'Full-Time Pros', text: 'Sponsors who value execution certainty over maximized leverage.' },
+              { title: 'Portfolio Builders', text: 'Investors scaling from 1 to 50+ units to acquire income producing properties optimized for cash flow, appreciation, and flexible capital structures.' },
+              { title: 'BRRRR Operators', text: 'Investors executing value-add acquisitions requiring short term bridge capital with pre arranged cash out financing.' },
+              { title: 'Fix & Flippers', text: 'Operators executing short term value add projects requiring fast acquisition capital and flexible rehab funding.' },
+              { title: 'Full Time Pros', text: 'Investors and business owners who value tailored capital funding to scale their portfolios and businesses efficiently.' },
             ].map((profile, i) => (
               <div key={i} className="group p-6 border-t border-white/10 hover:border-accent-warm transition-colors duration-300">
                 <h3 className="text-lg text-white font-medium mb-3 group-hover:text-accent-warm transition-colors">{profile.title}</h3>

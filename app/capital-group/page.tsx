@@ -75,7 +75,7 @@ export default function CapitalGroupPage() {
             </h2>
             <p className="text-sm text-white/60 leading-relaxed mb-6">
               We advise investors who understand that disciplined leverage is a strategic tool. Our role is to
-              translate market dynamics, underwriting assumptions, and capital stack behavior into clear decisions that
+              translate market dynamics, underwriting assumptions, and capital structuring behavior into clear decisions that
               protect the portfolio and unlock growth.
             </p>
             <div className="p-6 border border-white/10 bg-[#0a0f15]">

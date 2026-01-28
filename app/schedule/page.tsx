@@ -3,7 +3,7 @@ import ActionButton from '@/components/ActionButton'
 const expectations = [
   {
     title: 'Structure Review',
-    body: 'We review your portfolio objectives, liquidity needs, and risk profile to align the right capital stack.',
+    body: 'We review your portfolio objectives, liquidity needs, and risk profile to align the right capital structuring.',
   },
   {
     title: 'Strategy Alignment',

@@ -2,8 +2,8 @@ import type { Metadata } from 'next'
 import { buildPageMetadata } from '@/lib/seo'
 
 export const metadata: Metadata = buildPageMetadata({
-  title: 'DSCR Cash-Out Loans',
-  description: 'Asset-based underwriting to unlock equity with property-cash-flow qualification and disciplined leverage planning for rental portfolios.',
+  title: 'DSCR Purchase Loan',
+  description: 'Asset based underwriting designed to recycle equity without personal income constraints.',
   path: '/capital-solutions/dscr-cash-out-loan',
 })
 

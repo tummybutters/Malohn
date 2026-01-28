@@ -3,7 +3,7 @@ import { buildPageMetadata } from '@/lib/seo'
 
 export const metadata: Metadata = buildPageMetadata({
   title: 'About Malohn Capital Group',
-  description: 'Institutional-grade capital structuring for lower-middle-market real estate investors with disciplined leverage and long-term performance focus.',
+  description: 'At Malohn Capital Group, we are redefining lower-middle market finance. Our mission is to deliver institutional grade financial strategy to everyday investors introducing Wall Street level structuring, discipline, and sophistication to markets that have long been underserved.',
   path: '/about',
 })
 

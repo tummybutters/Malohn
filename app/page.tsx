@@ -8,7 +8,7 @@ const PROCESS_STEPS = [
   {
     step: '01',
     title: 'Strategy & Objectives',
-    body: 'We review your portfolio goals, capital stack requirements, and liquidity targets to define the optimal structure.',
+    body: 'We review your strategy, portfolio goals, capital requirements, and liquidity targets to define the optimal deal structure.',
   },
   {
     step: '02',
@@ -34,14 +34,13 @@ export default function HomePage() {
                 Malohn Capital Group
               </p>
               <h1 className="text-4xl md:text-5xl lg:text-7xl font-light tracking-tight text-white font-serif leading-[0.95] animate-fade-up delay-100">
-                Build a cash flowing portfolio without the <span className="text-accent-warm italic">roadblocks.</span>
+                Build a Cash Flowing Real Estate Empire Without the Traditional <span className="text-accent-warm italic">Roadblocks</span>
               </h1>
             </div>
 
             <div className="max-w-sm pb-2 animate-fade-up delay-200">
               <p className="text-sm text-white/60 leading-relaxed mb-6">
-                Unlock powerful working capital that lets you scale faster, with less money down and fewer income docs.
-                DSCR structuring for sophisticated investors.
+                Unlock powerful working capital that lets you scale faster with less money down, no collateral, and fewer income docs for real estate investors and business owners.
               </p>
               <div className="flex gap-4">
                 <ActionButton href="/schedule">Get Started</ActionButton>
@@ -139,12 +138,12 @@ export default function HomePage() {
 
             <div>
               <span className="text-accent-warm font-mono text-xs mb-4 block">04 // RESOURCES</span>
-              <h2 className="text-3xl md:text-5xl font-serif text-white mb-6">The Smarter Way to Buy with &lt;15% Down</h2>
+              <h2 className="text-3xl md:text-5xl font-serif text-white mb-6">The Smarter Way to Buy Real Estate with Less Than 15% Down</h2>
               <p className="text-white/60 leading-relaxed mb-8 max-w-md">
-                Traditional options are limiting. Learn how DSCR loans + working capital tranches can help you bypass income hurdles.
+                Traditional financing is working against investors. Learn how working capital coupled with DSCR Loans allows you to bypass traditional lending hurdles and acquire cash flowing rentals with little to no money down.
               </p>
               <ul className="space-y-3 mb-8">
-                {['No personal income required', 'Scale faster with less equity', 'Protect reserves'].map((item) => (
+                {['No collateral required', 'Scale faster with more leverage', 'Protect liquid cash reserves'].map((item) => (
                   <li key={item} className="flex items-center gap-3 text-sm text-white/80">
                     <div className="w-1 h-1 bg-accent-warm" /> {item}
                   </li>
@@ -178,9 +177,10 @@ export default function HomePage() {
           </div>
           <div className="space-y-px bg-white/10 border border-white/10">
             {[
-              { q: 'What qualifies for a strategy call?', a: 'Active investors looking to deploy capital in the next 30-60 days.' },
-              { q: 'Do you work with new investors?', a: 'Yes, provided there is a clear liquidity plan and strong credit profile.' },
-              { q: 'How fast can we close?', a: 'Typical DSCR timelines are 21-30 days. Bridge deals can close in 7-14 days.' },
+              { q: 'What qualifies for a strategy call?', a: 'Active investors looking to deploy capital in the next 7-90 days.' },
+              { q: 'Do you work with new investors?', a: 'Yes, we work with new and seasoned investors provided there is a clear strategy and strong credit profile.' },
+              { q: 'How fast can we fund?', a: 'Working capital can be funded in as soon as 7-14 days. Typical DSCR funding timelines are 7-21 days.' },
+              { q: 'How much can we fund?', a: 'We can fund $50 to $500k in working capital for your first round and $10M+ in DSCR loans.' },
             ].map((faq) => (
               <div key={faq.q} className="bg-[#050608] p-6 flex flex-col md:flex-row gap-4 md:items-center justify-between group hover:bg-[#0a0f15] transition-colors">
                 <p className="text-white font-medium">{faq.q}</p>

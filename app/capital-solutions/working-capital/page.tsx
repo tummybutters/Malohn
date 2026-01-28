@@ -11,7 +11,7 @@ const useCases = [
 const structurePoints = [
   {
     title: 'Liquidity without property liens',
-    body: 'Unsecured working capital designed to layer cleanly within the capital stack.',
+    body: 'Unsecured working capital designed to layer cleanly within the capital structuring.',
   },
   {
     title: 'Flexible deployment',
@@ -32,7 +32,7 @@ const qualifications = [
 
 const faqItems = [
   {
-    q: 'How is working capital used in the capital stack?',
+    q: 'How is working capital used in the capital structuring?',
     a: 'Working capital is positioned as a supplemental tranche to support reserves, down payments, or execution timing without over-levering the asset.',
   },
   {
@@ -64,7 +64,7 @@ export default function WorkingCapitalPage() {
           </h1>
           <p className="mt-5 text-sm md:text-base text-white/70 max-w-3xl leading-relaxed animate-fade-up delay-200">
             Working capital solutions provide a strategic liquidity layer that supports acquisitions, reserves, and
-            execution timing without compromising the integrity of the capital stack.
+            execution timing without compromising the integrity of the capital structuring.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
             <ActionButton>Schedule a Strategy Call</ActionButton>

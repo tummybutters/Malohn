@@ -76,9 +76,9 @@ export default function StatsStrip() {
       <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-20 py-12">
         <div ref={statsRef} className="grid grid-cols-3 gap-8">
           {[
-            { label: 'Founded', value: counts.years, suffix: ' Years Ago' },
-            { label: 'Funded Vol', value: '$' + counts.volume, suffix: 'M+' },
-            { label: 'Current Rate', value: counts.rate.toFixed(2), suffix: '%' },
+            { label: 'Founded', value: counts.years, suffix: ' Years ago' },
+            { label: 'Funded', value: '$' + counts.volume, suffix: 'M+ funded' },
+            { label: 'Current DSCR Rate', value: counts.rate.toFixed(2), suffix: '%' },
           ].map((stat) => (
             <div key={stat.label} className="flex flex-col border-l border-white/10 pl-6 first:border-l-0 first:pl-0">
               <p className="text-[10px] uppercase tracking-wider text-white/40 mb-2">{stat.label}</p>

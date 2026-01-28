@@ -23,10 +23,15 @@ const playfair = Playfair_Display({
 export const metadata: Metadata = {
   metadataBase,
   title: {
-    default: 'DSCR Loans & Working Capital for Investors',
+    default: siteConfig.name,
     template: `%s | ${siteConfig.name}`,
   },
   description: siteConfig.description,
+  icons: {
+    icon: '/favicon.png',
+    shortcut: '/favicon.png',
+    apple: '/favicon.png',
+  },
   alternates: {
     canonical: '/',
   },
