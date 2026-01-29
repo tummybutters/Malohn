@@ -203,7 +203,7 @@ export default function DscrCashOutPage() {
             Plan DSCR cash-out liquidity with precision.
           </h2>
           <p className="mt-4 text-sm md:text-base text-white/70 leading-relaxed max-w-3xl mx-auto">
-            Connect with our advisory team to align cash-out structuring with your portfolio growth strategy.
+            Connect with our capital advisory group to align cash-out structuring with your portfolio growth strategy.
           </p>
           <div className="mt-8 flex justify-center">
             <ActionButton>Schedule a Strategy Call</ActionButton>

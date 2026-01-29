@@ -29,7 +29,7 @@ export const productCards = [
       "Invest with as little as 10% down",
       "Competitive rates, minimal paperwork",
       "3-4 week closings",
-      "Full capital structure handled for you",
+      "Full capital structuring handled for you",
     ],
   },
   {
@@ -139,7 +139,7 @@ export const services = {
       "No limit on number of properties",
       "Competitive rates starting at 6.5%",
       "3-4 week closings",
-      "Full capital structure handled by our advisors",
+      "Full capital structuring handled by our advisors",
     ],
     requirements: [
       "$50K+ liquid capital",

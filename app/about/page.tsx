@@ -6,7 +6,7 @@ import { Layers, TrendingUp, Target, ShieldCheck } from 'lucide-react'
 const separators = [
   {
     title: 'Structured Capital',
-    body: "We don't push products. We design capital structures engineered around cash-flow durability, downside protection, and equity efficiency.",
+    body: "We don't push products. We design capital structuring strategies engineered around cash-flow durability, downside protection, and equity efficiency.",
     icon: <Layers className="w-10 h-10" />,
   },
   {

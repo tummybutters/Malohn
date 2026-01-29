@@ -11,7 +11,7 @@ const expectations = [
   },
   {
     title: 'Case Study Access',
-    body: 'Qualified investors receive relevant case studies and capital structure examples.',
+    body: 'Qualified investors receive relevant case studies and capital structuring examples.',
   },
 ]
 
@@ -33,7 +33,7 @@ export default function SchedulePage() {
             Connect with our capital advisory group.
           </h1>
           <p className="mt-5 text-sm md:text-base text-white/70 max-w-3xl leading-relaxed animate-fade-up delay-200">
-            Schedule a strategy call to review your next acquisition, capital structure, or portfolio growth plan.
+            Schedule a strategy call to review your next acquisition, capital structuring, or portfolio growth plan.
             Expect a disciplined, advisory-first conversation focused on long-term performance.
           </p>
         </div>
@@ -104,7 +104,7 @@ export default function SchedulePage() {
             <div className="mt-8 rounded-none border border-white/15 bg-white/5 p-6">
               <p className="text-[10px] md:text-xs tracking-[0.28em] uppercase text-white/50 font-medium">Response Time</p>
               <p className="mt-3 text-sm text-white/70 leading-relaxed">
-                Our team responds within 1 business day to confirm next steps and schedule availability.
+                Our capital advisory group responds within 1 business day to confirm next steps and schedule availability.
               </p>
             </div>
           </div>

@@ -66,7 +66,7 @@ export default function ServicesPage() {
               />
               <div className="absolute bottom-4 right-4 flex items-center gap-2 rounded-none bg-black/55 px-3 py-1.5 text-[10px] uppercase tracking-[0.2em] text-white/80">
                 <Play size={12} className="text-white/80" />
-                Service Reel
+                Capital Solutions Reel
               </div>
             </div>
           </div>
@@ -78,7 +78,7 @@ export default function ServicesPage() {
               <div className="max-w-xl animate-fade-up delay-400">
                 {/* Small label */}
                 <p className="text-[10px] md:text-xs tracking-[0.3em] uppercase text-text-muted mb-3 md:mb-4">
-                  Services
+                  Capital Solutions
                 </p>
 
                 {/* Main headline */}

@@ -241,7 +241,7 @@ export default function DscrCashOutLoanPage() {
             Evaluate DSCR purchase structuring with confidence.
           </h2>
           <p className="mt-4 text-sm md:text-base text-white/70 leading-relaxed max-w-3xl mx-auto">
-            Connect with our advisory team to review DSCR purchase strategies aligned to your portfolio objectives.
+            Connect with our capital advisory group to review DSCR purchase strategies aligned to your portfolio objectives.
           </p>
           <div className="mt-8 flex justify-center">
             <ActionButton>Schedule a Strategy Call</ActionButton>

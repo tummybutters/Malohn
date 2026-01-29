@@ -132,7 +132,7 @@ export default function WorkingCapitalPage() {
       >
         <div className="max-w-6xl mx-auto">
           <div className="max-w-2xl">
-            <p className="text-[10px] md:text-xs tracking-[0.28em] uppercase text-white/50 font-medium">Capital Structure</p>
+            <p className="text-[10px] md:text-xs tracking-[0.28em] uppercase text-white/50 font-medium">Capital Structuring</p>
             <h2 className="mt-4 text-2xl md:text-3xl lg:text-4xl font-light text-white font-serif">
               Built to complement DSCR financing.
             </h2>
@@ -256,7 +256,7 @@ export default function WorkingCapitalPage() {
             Evaluate liquidity solutions designed for scalable growth.
           </h2>
           <p className="mt-4 text-sm md:text-base text-white/70 leading-relaxed max-w-3xl mx-auto">
-            Connect with our advisory team to review working capital options aligned to your portfolio objectives.
+            Connect with our capital advisory group to review working capital options aligned to your portfolio objectives.
           </p>
           <div className="mt-8 flex justify-center">
             <ActionButton>Schedule a Strategy Call</ActionButton>

@@ -86,7 +86,7 @@ export default function CapitalSolutionsPage() {
           <div className="relative">
             <div className="absolute inset-0 bg-gradient-to-br from-accent-warm/5 to-transparent opacity-20 pointer-events-none" />
             <div className="border border-white/10 bg-[#0a0f15] p-8 h-full relative">
-              <p className="text-xs font-mono text-white/40 mb-8 border-b border-white/10 pb-4">FIG 1.0 — CAPITAL STRUCTURE</p>
+              <p className="text-xs font-mono text-white/40 mb-8 border-b border-white/10 pb-4">FIG 1.0 — CAPITAL STRUCTURING</p>
 
               <div className="space-y-1">
                 {/* Senior Debt */}
@@ -153,7 +153,7 @@ export default function CapitalSolutionsPage() {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {[
-              { title: 'Portfolio Builders', text: 'Investors scaling from 1 to 50+ units to acquire income producing properties optimized for cash flow, appreciation, and flexible capital structures.' },
+              { title: 'Portfolio Builders', text: 'Investors scaling from 1 to 50+ units to acquire income producing properties optimized for cash flow, appreciation, and flexible capital structuring.' },
               { title: 'BRRRR Operators', text: 'Investors executing value-add acquisitions requiring short term bridge capital with pre arranged cash out financing.' },
               { title: 'Fix & Flippers', text: 'Operators executing short term value add projects requiring fast acquisition capital and flexible rehab funding.' },
               { title: 'Full Time Pros', text: 'Investors and business owners who value tailored capital funding to scale their portfolios and businesses efficiently.' },

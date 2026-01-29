@@ -1,3 +1,4 @@
+import type { Metadata } from 'next'
 import ActionButton from '@/components/ActionButton'
 import FormSubmitButton from '@/components/FormSubmitButton'
 import AutoScrollCarousel from '@/components/home/AutoScrollCarousel'
@@ -21,6 +22,12 @@ const PROCESS_STEPS = [
     body: 'We confirm terms, coordinate underwriting, and manage the closing process with disciplined precision.',
   },
 ]
+
+export const metadata: Metadata = {
+  title: {
+    absolute: 'Malohn Capital Group',
+  },
+}
 
 export default function HomePage() {
   return (
