@@ -75,7 +75,7 @@ export default function Navbar() {
           {/* Center Logo - Unboxed */}
           <Link href="/" className="relative mx-0 group">
             <div
-              className={`relative ${isHome ? 'w-[72px] h-[72px]' : 'w-14 h-14'
+              className={`relative ${isHome ? 'w-24 h-24' : 'w-14 h-14'
                 } opacity-90 group-hover:opacity-100 transition-opacity`}
             >
               <Image

@@ -3,7 +3,7 @@ import { buildPageMetadata } from '@/lib/seo'
 
 export const metadata: Metadata = buildPageMetadata({
   title: 'Capital Group',
-  description: 'Miles Malohn - Managing Partner',
+  description: 'Leadership and advisory team.',
   path: '/capital-group',
 })
 
