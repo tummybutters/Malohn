@@ -10,6 +10,7 @@ export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isMenuVisible, setIsMenuVisible] = useState(false)
   const pathname = usePathname()
+  const isHome = pathname === '/'
 
   const leftLinks = [
     { href: '/', label: 'Home' },
@@ -73,7 +74,10 @@ export default function Navbar() {
 
           {/* Center Logo - Unboxed */}
           <Link href="/" className="relative mx-0 group">
-            <div className="relative w-14 h-14 opacity-90 group-hover:opacity-100 transition-opacity">
+            <div
+              className={`relative ${isHome ? 'w-16 h-16' : 'w-14 h-14'
+                } opacity-90 group-hover:opacity-100 transition-opacity`}
+            >
               <Image
                 src="/images/logo.png"
                 alt="Malohn Capital Group"
@@ -130,7 +134,7 @@ export default function Navbar() {
         <div className="flex items-center justify-between px-4 py-3 rounded-none bg-[#0b111a]/95 border border-white/10 shadow-[0_12px_28px_rgba(0,0,0,0.5)] backdrop-blur-md">
           {/* Mobile Logo - Unboxed Link */}
           <Link href="/" className="flex items-center gap-3">
-            <div className="relative w-8 h-8">
+            <div className={`relative ${isHome ? 'w-9 h-9' : 'w-8 h-8'}`}>
               <Image
                 src="/images/logo.png"
                 alt="Malohn Capital Group"

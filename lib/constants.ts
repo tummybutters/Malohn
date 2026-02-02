@@ -93,9 +93,9 @@ export const mediaLogos = [
 export const footerLinks = {
   navigation: navLinks,
   contact: {
-    phone: "(555) 123-4567",
-    email: "info@malohncapital.com",
-    address: "123 Financial District, Suite 100, New York, NY 10004",
+    phone: "(646) 809-5505",
+    email: "support@malohncapital.com",
+    address: "48 Wall Street, Suite 1100, New York, NY 10005",
   },
   social: [
     { platform: "Instagram", href: "#" },

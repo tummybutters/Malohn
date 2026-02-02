@@ -2,16 +2,6 @@ import ActionButton from '@/components/ActionButton'
 import { FocusCards } from '@/components/ui/FocusCards'
 import { Building2, ShieldCheck, Zap } from 'lucide-react'
 
-const teamMembers = [
-  {
-    name: 'Miles Malohn',
-    title: 'Managing Partner',
-    experience: '39 years in mortgage and working capital structuring',
-    focus: 'Capital architecture, portfolio strategy, and disciplined leverage design.',
-    image: '/images/logo.png', // Placeholder (should ideally be a real headshot)
-  },
-]
-
 const pillars = [
   {
     title: 'Capital Advisory',
@@ -102,24 +92,12 @@ export default function CapitalGroupPage() {
               <div className="absolute top-0 right-0 p-4">
                 <span className="text-6xl font-serif text-white/5 font-bold">01</span>
               </div>
-              <p className="text-[10px] uppercase tracking-[0.2em] text-white/40 mb-8">Managing Partner</p>
-
-              {teamMembers.map((member) => (
-                <div key={member.name} className="flex flex-col md:flex-row gap-8 items-start">
-                  <div className="w-24 h-24 relative overflow-hidden bg-white/5 border border-white/10 shrink-0">
-                    {/* Placeholder for real image */}
-                    <div className="absolute inset-0 flex items-center justify-center text-white/20 font-serif text-2xl">
-                      MM
-                    </div>
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-medium text-white mb-1">{member.name}</h3>
-                    <p className="text-sm text-accent-warm mb-4">{member.title}</p>
-                    <p className="text-sm text-white/70 leading-relaxed mb-2">{member.experience}</p>
-                    <p className="text-sm text-white/50 leading-relaxed italic border-l-2 border-white/10 pl-4">{member.focus}</p>
-                  </div>
-                </div>
-              ))}
+              <p className="text-[10px] uppercase tracking-[0.2em] text-white/40 mb-6">Capital Group</p>
+              <h3 className="text-2xl font-serif text-white mb-4">Leadership team in formation.</h3>
+              <p className="text-sm text-white/60 leading-relaxed max-w-xl">
+                We are assembling a full advisory roster. Updates and introductions will be shared here as the
+                capital group expands.
+              </p>
 
               <div className="mt-8 pt-6 border-t border-white/5">
                 <p className="text-xs text-white/30 text-center">
