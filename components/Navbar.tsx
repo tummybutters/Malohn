@@ -70,29 +70,25 @@ export default function Navbar() {
           </div>
 
           {/* Divider 1 */}
-          <div className="h-4 w-px bg-white/10 mx-2" />
+          <div className="h-4 w-px bg-white/10 mx-6" />
 
           {/* Center Logo - Unboxed */}
           <Link href="/" className="relative mx-0 group">
-            {/* Spacer for layout dimensions */}
-            <div className={`${isHome ? 'w-24 h-10' : 'w-14 h-14'}`} />
-
-            {/* Actual Logo - Positioned Absolute to overflow */}
             <div
-              className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 ${isHome ? 'w-64 h-64' : 'w-14 h-14'
+              className={`relative ${isHome ? 'w-40 h-16' : 'w-14 h-14'
                 } opacity-90 group-hover:opacity-100 transition-opacity`}
             >
               <Image
                 src="/images/logo.png"
                 alt="Malohn Capital Group"
                 fill
-                className="object-contain"
+                className={`object-contain ${isHome ? 'scale-[1.7]' : ''}`}
               />
             </div>
           </Link>
 
           {/* Divider 2 */}
-          <div className="h-4 w-px bg-white/10 mx-2" />
+          <div className="h-4 w-px bg-white/10 mx-6" />
 
           {/* Right Links */}
           <div className="flex items-center">
