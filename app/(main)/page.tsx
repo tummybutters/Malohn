@@ -50,7 +50,7 @@ export default function HomePage() {
                 Unlock powerful working capital that lets you scale faster with less money down, no collateral, and fewer income docs for real estate investors and business owners.
               </p>
               <div className="flex gap-4">
-                <ActionButton href="/schedule">Get Started</ActionButton>
+                <ActionButton href="/workingcapital">Get Started</ActionButton>
                 <a href="#process" className="px-5 py-3 text-xs uppercase tracking-wider text-white/50 hover:text-white border border-transparent hover:border-white/10 transition-all">
                   How it Works
                 </a>

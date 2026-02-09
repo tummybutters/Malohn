@@ -349,7 +349,7 @@ export default function SecretLandingPage() {
               WATCH THE VIDEO BELOW TO SEE HOW THE PROGRAM WORKS
             </div>
 
-            <div className="relative aspect-video bg-gradient-to-br from-[#0c0e12] to-[#08090c] rounded-lg border border-white/[0.08] overflow-hidden shadow-2xl shadow-black/50">
+	            <div className="relative aspect-video bg-gradient-to-br from-[#0c0e12] to-[#08090c] rounded-lg border border-white/[0.08] overflow-hidden shadow-2xl shadow-black/50">
               {/* Video element */}
               <video
                 ref={videoRef}
@@ -395,14 +395,22 @@ export default function SecretLandingPage() {
                   </span>
                 </div>
               )}
-              {isUnlocked && (
-                <div className="absolute top-4 right-4 bg-amber-500/20 backdrop-blur-md border border-amber-500/30 rounded-full px-3 py-1.5 flex items-center gap-2">
-                  <Check className="w-3 h-3 text-amber-400" />
-                  <span className="text-xs text-amber-200 font-[family-name:var(--font-outfit)]">Unlocked</span>
-                </div>
-              )}
-            </div>
-          </div>
+	              {isUnlocked && (
+	                <div className="absolute top-4 right-4 bg-amber-500/20 backdrop-blur-md border border-amber-500/30 rounded-full px-3 py-1.5 flex items-center gap-2">
+	                  <Check className="w-3 h-3 text-amber-400" />
+	                  <span className="text-xs text-amber-200 font-[family-name:var(--font-outfit)]">Unlocked</span>
+	                </div>
+	              )}
+	            </div>
+	            <div className="mt-3 flex justify-center">
+	              <a
+	                href="/schedule"
+	                className="btn-primary inline-flex items-center justify-center rounded-lg px-8 py-3 text-sm tracking-[0.04em] font-[family-name:var(--font-outfit)]"
+	              >
+	                Schedule a Meeting
+	              </a>
+	            </div>
+	          </div>
 
           {/* Subheadline */}
           <p className="text-center text-slate-400 max-w-2xl mx-auto mt-8 md:mt-10 text-sm md:text-base leading-relaxed">
