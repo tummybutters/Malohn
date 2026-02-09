@@ -20,7 +20,7 @@ export default function SchedulePage() {
     <div className="min-h-screen bg-[#07080b] selection:bg-white/15">
       {/* Hero */}
       <section
-        className="px-6 md:px-12 lg:px-20 pt-28 md:pt-32 pb-16"
+        className="px-6 md:px-12 lg:px-20 pt-32 md:pt-32 pb-16"
         style={{
           background: 'linear-gradient(180deg, #050608 0%, #0a1018 70%, #0b1320 100%)',
         }}

@@ -12,7 +12,7 @@ export const navLinks = [
   { href: "/transactions", label: "Transactions" },
   { href: "/about", label: "About" },
   { href: "/capital-group", label: "Capital Group" },
-  { href: "/schedule", label: "Schedule a Meeting" },
+  { href: "/workingcapital", label: "Schedule a Meeting" },
 ]
 
 export const stats = [

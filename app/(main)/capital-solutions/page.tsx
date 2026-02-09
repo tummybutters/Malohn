@@ -7,9 +7,13 @@ const solutions = [
   {
     title: 'Working Capital',
     description: 'Investment focused, unsecured liquidity and credit for down payments, renovations, reserves, bridge loans, and execution timing.',
-    href: '/capital-solutions/working-capital',
+    href: '/workingcapital',
     icon: <Coins className="w-10 h-10" />,
-    action: <span className="text-sm font-medium text-accent-warm">Explore Working Capital -&gt;</span>
+    action: (
+      <Link href="/workingcapital" className="text-sm font-medium text-accent-warm hover:text-[#d8b773] transition-colors">
+        Explore Working Capital -&gt;
+      </Link>
+    )
   },
   {
     title: 'DSCR Purchase Loan',
@@ -31,7 +35,7 @@ export default function CapitalSolutionsPage() {
   return (
     <div className="min-h-screen bg-[#07080b] selection:bg-white/15">
       {/* Hero */}
-      <section className="pt-28 md:pt-36 pb-16 px-6 md:px-12 lg:px-20 border-b border-white/5 bg-[#050608]">
+      <section className="pt-32 md:pt-36 pb-16 px-6 md:px-12 lg:px-20 border-b border-white/5 bg-[#050608]">
         <div className="max-w-7xl mx-auto">
           <p className="text-[10px] md:text-xs tracking-[0.3em] uppercase text-white/50 font-medium mb-4 animate-fade-up">
             Capital Solutions
@@ -172,7 +176,7 @@ export default function CapitalSolutionsPage() {
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-3xl md:text-4xl font-serif text-white mb-6">Precision financing for your next deal.</h2>
           <div className="flex justify-center gap-6">
-            <ActionButton>Get a Strategy Review</ActionButton>
+            <ActionButton href="/workingcapital">Get a Strategy Review</ActionButton>
             <Link
               href="/transactions"
               className="px-6 py-3 border border-white/15 text-white/60 text-sm hover:text-white hover:border-white transition-colors duration-300"

@@ -11,7 +11,7 @@ const TESTIMONIALS = [
     quote: "Malohn Capital helped me secure $350K in working capital. Closed on my first triplex within 3 weeks.",
     reviewer: "Marcus D.",
     location: "Houston, TX",
-    image: "/images/testimonials/marcus-d.png",
+    image: "/images/skyline-drone.png",
     imageAlt: "Portrait of Marcus D., real estate investor from Houston, TX",
     amount: "$350K"
   },
@@ -20,7 +20,7 @@ const TESTIMONIALS = [
     quote: "The team walked me through every step. Got funded faster than I thought possible.",
     reviewer: "Jennifer R.",
     location: "Phoenix, AZ",
-    image: "/images/testimonials/jennifer-r.png",
+    image: "/images/skyline-drone.png",
     imageAlt: "Portrait of Jennifer R., real estate investor from Phoenix, AZ",
     amount: "$180K"
   },
@@ -29,7 +29,7 @@ const TESTIMONIALS = [
     quote: "Finally found capital partners who understand real estate investors. Game changer.",
     reviewer: "David K.",
     location: "Atlanta, GA",
-    image: "/images/testimonials/david-k.png",
+    image: "/images/skyline-drone.png",
     imageAlt: "Portrait of David K., real estate investor from Atlanta, GA",
     amount: "$425K"
   },
@@ -38,7 +38,7 @@ const TESTIMONIALS = [
     quote: "No collateral needed. No property liens. This is how capital should work.",
     reviewer: "Sarah M.",
     location: "Dallas, TX",
-    image: "/images/testimonials/sarah-m.png",
+    image: "/images/skyline-drone.png",
     imageAlt: "Portrait of Sarah M., real estate investor from Dallas, TX",
     amount: "$275K"
   },
@@ -47,7 +47,7 @@ const TESTIMONIALS = [
     quote: "Scaled from 2 to 8 units in under a year using their capital stack strategy.",
     reviewer: "Brandon T.",
     location: "Miami, FL",
-    image: "/images/testimonials/brandon-t.png",
+    image: "/images/skyline-drone.png",
     imageAlt: "Portrait of Brandon T., real estate investor from Miami, FL",
     amount: "$500K"
   },
@@ -56,7 +56,7 @@ const TESTIMONIALS = [
     quote: "The 0% working capital changed everything for my portfolio growth.",
     reviewer: "Michelle W.",
     location: "Charlotte, NC",
-    image: "/images/testimonials/michelle-w.png",
+    image: "/images/skyline-drone.png",
     imageAlt: "Portrait of Michelle W., real estate investor from Charlotte, NC",
     amount: "$220K"
   },
@@ -65,7 +65,7 @@ const TESTIMONIALS = [
     quote: "Professional team. Fast funding. Exactly what I needed to close my deal.",
     reviewer: "Kevin L.",
     location: "Las Vegas, NV",
-    image: "/images/testimonials/kevin-l.png",
+    image: "/images/skyline-drone.png",
     imageAlt: "Portrait of Kevin L., real estate investor from Las Vegas, NV",
     amount: "$150K"
   },
@@ -298,9 +298,9 @@ export default function SecretLandingPage() {
       </div>
 
       {/* Header */}
-      <header className="relative py-6 border-b border-white/[0.06] backdrop-blur-sm bg-[#08090c]/80 sticky top-0 z-50">
+      <header className="relative py-2 md:py-3 border-b border-white/[0.06] backdrop-blur-sm bg-[#08090c]/80 sticky top-0 z-50">
         <div className="max-w-5xl mx-auto px-4 flex justify-center">
-          <div className="relative w-44 h-16 opacity-90 hover:opacity-100 transition-opacity">
+          <div className="relative w-32 h-10 md:w-36 md:h-12 opacity-90 hover:opacity-100 transition-opacity">
             <Image
               src="/images/logo.png"
               alt="Malohn Capital Group"
@@ -313,43 +313,41 @@ export default function SecretLandingPage() {
       </header>
 
       {/* Hero Section */}
-      <section className="relative pt-16 pb-24 overflow-hidden">
+      <section className="relative pt-2 md:pt-6 pb-6 md:pb-10 overflow-hidden">
         {/* Gradient overlays */}
         <div className="absolute inset-0 bg-gradient-to-b from-amber-500/[0.02] via-transparent to-transparent" />
-        
+
         <div className="relative max-w-4xl mx-auto px-4">
           {/* Requirements Badge */}
-          <div className="flex justify-center mb-12">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/[0.03] border border-amber-500/20 backdrop-blur-sm">
-              <Sparkles className="w-4 h-4 text-amber-400/80" />
-              <p className="text-sm text-slate-400">
-                Requires <span className="text-slate-200 font-medium">680+ Credit</span>, 4+ Accounts & Verified Income
+          <div className="flex justify-center mb-3 md:mb-5">
+            <div className="inline-flex items-center gap-2 px-2.5 py-1 rounded-full bg-white/[0.03] border border-amber-500/20 backdrop-blur-sm">
+              <Sparkles className="w-2.5 h-2.5 text-amber-400/80 shrink-0" />
+              <p className="text-[10px] sm:text-xs text-slate-300">
+                680+ Credit and 4+ Open Accounts Preferred
               </p>
             </div>
           </div>
 
           {/* Main Headline */}
-          <div className="text-center mb-16">
-            <h1 className="font-[family-name:var(--font-outfit)] text-4xl md:text-5xl lg:text-6xl font-medium tracking-tight leading-[1.08] mb-6">
-              <span className="text-gradient-gold">ACCESS $50,000–$500,000</span>
+          <div className="text-center mb-4 md:mb-6">
+            <h1 className="font-[family-name:var(--font-outfit)] text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-medium tracking-tight leading-[1.05] mb-2 md:mb-3">
+              <span className="text-gradient-gold">SECURE $50,000–$500,000</span>
               <br />
               <span className="text-slate-100">IN 0% WORKING CAPITAL</span>
             </h1>
-            <h2 className="font-[family-name:var(--font-outfit)] text-xl md:text-2xl lg:text-3xl text-slate-400 font-light tracking-tight">
+            <h2 className="font-[family-name:var(--font-outfit)] text-base sm:text-lg md:text-xl lg:text-2xl text-slate-300 font-light tracking-tight leading-snug">
               TO START OR SCALE YOUR REAL ESTATE BUSINESS
               <br />
-              <span className="border-b-2 border-amber-500/40 pb-1">IN LESS THAN 14 DAYS</span>
+              <span className="border-b-2 border-amber-500/40 pb-0.5">IN 7 - 14 DAYS</span>
             </h2>
           </div>
 
           {/* Video Section */}
           <div className="max-w-3xl mx-auto">
             {/* Video label */}
-            <div className="bg-white/[0.03] border border-white/[0.08] text-slate-300 text-center py-3 px-4 text-xs font-medium tracking-wide flex items-center justify-center gap-2 rounded-lg">
-              <span className="text-base">🔊</span>
-              WATCH THIS VIDEO BELOW TO DISCOVER HOW TO SCALE YOUR REAL ESTATE BUSINESS
+            <div className="bg-white/[0.03] border border-white/[0.08] text-slate-300 text-center py-1.5 px-3 text-[10px] sm:text-[11px] font-medium tracking-wide flex items-center justify-center rounded-lg mb-2">
+              WATCH THE VIDEO BELOW TO SEE HOW THE PROGRAM WORKS
             </div>
-            <div className="mt-4" />
 
             <div className="relative aspect-video bg-gradient-to-br from-[#0c0e12] to-[#08090c] rounded-lg border border-white/[0.08] overflow-hidden shadow-2xl shadow-black/50">
               {/* Video element */}
@@ -359,7 +357,7 @@ export default function SecretLandingPage() {
                 playsInline
                 preload="metadata"
               >
-                <source src="/videos/capital-intro.mp4" type="video/mp4" />
+                <source src="/videos/hero-video.mp4" type="video/mp4" />
               </video>
 
               {/* Play overlay */}
@@ -407,16 +405,16 @@ export default function SecretLandingPage() {
           </div>
 
           {/* Subheadline */}
-          <p className="text-center text-slate-500 max-w-2xl mx-auto mt-12 text-base leading-relaxed">
-            Our Real Estate capital stack program helps you unlock fast, flexible capital for real estate use. No collateral. No property liens. No experience needed.
+          <p className="text-center text-slate-400 max-w-2xl mx-auto mt-8 md:mt-10 text-sm md:text-base leading-relaxed">
+            Our Real Estate working capital program helps you unlock fast, flexible capital. No collateral. No property liens. No missed deals. No experience needed.
           </p>
         </div>
       </section>
 
       {/* Quiz Section */}
-      <section id="quiz" className="relative py-24 bg-gradient-to-b from-[#0c0e12] to-[#08090c]">
+      <section id="quiz" className="relative py-20 md:py-24 bg-gradient-to-b from-[#0c0e12] to-[#08090c]">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_rgba(212,168,83,0.03)_0%,_transparent_70%)]" />
-        
+
         <div className="relative max-w-xl mx-auto px-4">
           {/* Section Header */}
           <div className="text-center mb-12">
@@ -430,7 +428,7 @@ export default function SecretLandingPage() {
 
           {/* Locked State */}
           {!isUnlocked ? (
-            <div className="glass-premium rounded-xl p-12 text-center">
+            <div className="glass-premium rounded-xl p-8 md:p-12 text-center">
               <div className="w-16 h-16 mx-auto mb-6 rounded-full bg-white/[0.03] border border-white/10 flex items-center justify-center">
                 <Lock className="w-6 h-6 text-amber-400/60" />
               </div>
@@ -485,27 +483,24 @@ export default function SecretLandingPage() {
                   </div>
 
                   {/* Options */}
-                  <div className="space-y-3 pl-12">
+                  <div className="space-y-3 md:pl-12">
                     {QUIZ_QUESTIONS[currentQuestion].options.map((option) => (
                       <button
                         key={option.letter}
                         onClick={() => handleAnswer(currentQuestion + 1, option.letter)}
-                        className={`group flex items-center gap-4 w-full px-5 py-4 rounded-lg border text-left transition-all duration-200 ${
-                          answers[currentQuestion + 1] === option.letter 
-                            ? 'bg-amber-500/10 border-amber-500/30' 
-                            : 'bg-white/[0.02] border-white/[0.06] hover:bg-white/[0.04] hover:border-white/[0.12]'
-                        }`}
+                        className={`group flex items-center gap-4 w-full px-5 py-4 rounded-lg border text-left transition-all duration-200 ${answers[currentQuestion + 1] === option.letter
+                          ? 'bg-amber-500/10 border-amber-500/30'
+                          : 'bg-white/[0.02] border-white/[0.06] hover:bg-white/[0.04] hover:border-white/[0.12]'
+                          }`}
                       >
-                        <span className={`w-7 h-7 rounded-md flex items-center justify-center text-xs font-medium transition-colors ${
-                          answers[currentQuestion + 1] === option.letter
-                            ? 'bg-amber-500/20 text-amber-400'
-                            : 'bg-white/5 text-slate-500 group-hover:text-slate-400'
-                        }`}>
+                        <span className={`w-7 h-7 rounded-md flex items-center justify-center text-xs font-medium transition-colors ${answers[currentQuestion + 1] === option.letter
+                          ? 'bg-amber-500/20 text-amber-400'
+                          : 'bg-white/5 text-slate-500 group-hover:text-slate-400'
+                          }`}>
                           {option.letter}
                         </span>
-                        <span className={`text-sm ${
-                          answers[currentQuestion + 1] === option.letter ? 'text-slate-200' : 'text-slate-400'
-                        }`}>
+                        <span className={`text-sm ${answers[currentQuestion + 1] === option.letter ? 'text-slate-200' : 'text-slate-400'
+                          }`}>
                           {option.text}
                         </span>
                       </button>
@@ -540,7 +535,7 @@ export default function SecretLandingPage() {
       {/* Testimonial Section */}
       <section className="relative py-24 overflow-hidden bg-[#08090c]">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_30%_50%,_rgba(212,168,83,0.02)_0%,_transparent_50%)]" />
-        
+
         <div className="relative max-w-6xl mx-auto px-4">
           {/* Section Header */}
           <div className="mb-12">
@@ -623,7 +618,7 @@ export default function SecretLandingPage() {
       {/* Final CTA */}
       <section className="relative py-24 bg-gradient-to-b from-[#08090c] to-[#050507]">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_rgba(212,168,83,0.04)_0%,_transparent_60%)]" />
-        
+
         <div className="relative max-w-2xl mx-auto px-4 text-center">
           <h2 className="font-[family-name:var(--font-outfit)] text-2xl md:text-3xl font-medium text-slate-100 mb-4 tracking-tight">
             Ready to Access Your Capital?
@@ -631,7 +626,7 @@ export default function SecretLandingPage() {
           <p className="text-slate-500 mb-10 text-sm max-w-md mx-auto leading-relaxed">
             Join hundreds of real estate investors who have scaled their portfolios with our 0% working capital program.
           </p>
-          
+
           {isUnlocked ? (
             <a
               href="/schedule"
@@ -648,7 +643,7 @@ export default function SecretLandingPage() {
               Watch Video to Unlock
             </button>
           )}
-          
+
           <p className="text-slate-700 text-xs mt-8 font-[family-name:var(--font-outfit)]">
             Limited spots available. Must meet credit requirements.
           </p>

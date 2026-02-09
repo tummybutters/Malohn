@@ -50,7 +50,7 @@ export default function WorkingCapitalPage() {
     <div className="min-h-screen bg-[#07080b] selection:bg-white/15">
       {/* Hero */}
       <section
-        className="px-6 md:px-12 lg:px-20 pt-28 md:pt-32 pb-16"
+        className="px-6 md:px-12 lg:px-20 pt-32 md:pt-32 pb-16"
         style={{
           background: 'linear-gradient(180deg, #050608 0%, #0a1018 70%, #0b1320 100%)',
         }}
@@ -67,7 +67,7 @@ export default function WorkingCapitalPage() {
             execution timing without compromising the integrity of the capital structuring.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
-            <ActionButton>Schedule a Strategy Call</ActionButton>
+            <ActionButton href="/workingcapital">Schedule a Strategy Call</ActionButton>
             <Link
               href="/capital-solutions"
               className="px-5 py-3 rounded-none border border-white/15 text-white/80 text-sm hover:text-white hover:border-white/30 transition-colors"
@@ -259,7 +259,7 @@ export default function WorkingCapitalPage() {
             Connect with our capital advisory group to review working capital options aligned to your portfolio objectives.
           </p>
           <div className="mt-8 flex justify-center">
-            <ActionButton>Schedule a Strategy Call</ActionButton>
+            <ActionButton href="/workingcapital">Schedule a Strategy Call</ActionButton>
           </div>
         </div>
       </section>

@@ -1,66 +1,66 @@
 import Link from 'next/link'
 import ActionButton from '@/components/ActionButton'
 
-const valuePoints = [
+const benefits = [
   {
-    title: 'Liquidity unlock',
-    body: 'Release capital from stabilized assets while protecting long-term cash flow.',
+    title: 'Asset-based underwriting',
+    body: 'Qualification based on property cash flow rather than personal income documentation.',
   },
   {
-    title: 'Strategic leverage',
-    body: 'Structured for scalable growth with reserves and risk buffers aligned to the cycle.',
+    title: 'Capital efficiency',
+    body: 'Maximize purchasing power while maintaining disciplined leverage and reserve protection.',
   },
   {
-    title: 'Portfolio optionality',
-    body: 'Deploy cash-out proceeds across acquisitions, renovations, or reserve planning.',
+    title: 'Portfolio scalability',
+    body: 'Designed for repeat acquisitions and long-term portfolio expansion strategies.',
   },
 ]
 
-const guardrails = [
-  'Cash flow durability and DSCR coverage review',
-  'Reserve planning aligned to market volatility',
-  'Portfolio-level leverage modeling',
-  'Exit strategy and refinance assumptions',
+const criteria = [
+  'Investment property focus',
+  'DSCR aligned to cash flow durability',
+  'Reserve planning for cycle protection',
+  'Clear portfolio strategy and exit assumptions',
 ]
 
 const faqItems = [
   {
-    q: 'How is DSCR cash-out different from DSCR cash-out loans?',
-    a: 'This solution focuses on the strategic use of cash-out proceeds and portfolio-level leverage planning, not just the loan mechanics.',
+    q: 'How is a DSCR purchase loan structured?',
+    a: 'We align DSCR debt with portfolio objectives, ensuring leverage remains disciplined while the acquisition is financed.',
   },
   {
-    q: 'Can proceeds be used across multiple assets?',
-    a: 'Yes. The structure is designed around portfolio strategy, allowing capital deployment across multiple investments.',
+    q: 'Is personal income required?',
+    a: 'No. Underwriting is primarily driven by property cash flow and asset performance.',
   },
   {
-    q: 'What risks are evaluated?',
-    a: 'We focus on cash flow durability, reserve sufficiency, and leverage behavior through market cycles.',
+    q: 'How fast can a purchase close?',
+    a: 'Timelines vary by documentation readiness and asset complexity, typically within a few weeks.',
   },
 ]
 
-export default function DscrCashOutPage() {
+export default function DscrCashOutLoanPage() {
   return (
     <div className="min-h-screen bg-[#07080b] selection:bg-white/15">
       {/* Hero */}
       <section
-        className="px-6 md:px-12 lg:px-20 pt-28 md:pt-32 pb-16"
+        className="px-6 md:px-12 lg:px-20 pt-32 md:pt-32 pb-16"
         style={{
           background: 'linear-gradient(180deg, #050608 0%, #0a1018 70%, #0b1320 100%)',
         }}
       >
         <div className="max-w-6xl mx-auto">
           <p className="text-[10px] md:text-xs tracking-[0.3em] uppercase text-white/60 font-medium animate-fade-up">
-            DSCR Cash Out
+            DSCR Purchase Loan
           </p>
           <h1 className="mt-4 text-3xl md:text-4xl lg:text-5xl font-light tracking-tight text-white font-serif animate-fade-up delay-100">
-            Strategic liquidity for long-term portfolio growth.
+            First-class DSCR purchase financing for disciplined acquisitions.
           </h1>
           <p className="mt-5 text-sm md:text-base text-white/70 max-w-3xl leading-relaxed animate-fade-up delay-200">
-            DSCR cash-out solutions align liquidity release with disciplined leverage planning. We evaluate cash flow
-            durability, reserve coverage, and portfolio objectives to ensure long-term resilience.
+            Our DSCR purchase loans help investors acquire rental properties with asset-based underwriting and capital structuring
+            built around cash flow durability, reserves, and long-term portfolio performance.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
-            <ActionButton>Schedule a Strategy Call</ActionButton>
+            <ActionButton href="/workingcapital">Schedule a Strategy Call</ActionButton>
             <Link
               href="/capital-solutions"
               className="px-5 py-3 rounded-none border border-white/15 text-white/80 text-sm hover:text-white hover:border-white/30 transition-colors"
@@ -71,22 +71,60 @@ export default function DscrCashOutPage() {
         </div>
       </section>
 
-      {/* Value */}
+      {/* Overview */}
       <section
         className="px-6 md:px-12 lg:px-20 py-18"
         style={{
           background: 'linear-gradient(180deg, #0b1320 0%, #0a0f15 100%)',
         }}
       >
+        <div className="max-w-6xl mx-auto grid gap-12 lg:grid-cols-[1.1fr_0.9fr]">
+          <div>
+            <p className="text-[10px] md:text-xs tracking-[0.28em] uppercase text-white/50 font-medium">Overview</p>
+            <h2 className="mt-4 text-2xl md:text-3xl lg:text-4xl font-light text-white font-serif">
+              Purchase financing designed for portfolio strategy.
+            </h2>
+            <p className="mt-4 text-sm md:text-base text-white/70 leading-relaxed">
+              DSCR purchase loans allow investors to acquire rentals with underwriting based on property cash flow. We evaluate
+              cash flow strength, asset performance, and portfolio objectives before structuring the acquisition.
+            </p>
+          </div>
+          <div className="rounded-none border border-white/15 bg-white/5 p-6 md:p-7">
+            <p className="text-[10px] md:text-xs tracking-[0.28em] uppercase text-white/50 font-medium">Structure Snapshot</p>
+            <div className="mt-6 space-y-4 text-sm text-white/70">
+              <p>
+                <span className="text-white/50">Underwriting:</span> Property cash flow
+              </p>
+              <p>
+                <span className="text-white/50">Primary Use:</span> Acquisition financing
+              </p>
+              <p>
+                <span className="text-white/50">Focus:</span> Long-term portfolio leverage
+              </p>
+              <p>
+                <span className="text-white/50">Discipline:</span> Reserve and risk protections
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Benefits */}
+      <section
+        className="px-6 md:px-12 lg:px-20 py-18"
+        style={{
+          background: 'linear-gradient(180deg, #0a0f15 0%, #07080b 100%)',
+        }}
+      >
         <div className="max-w-6xl mx-auto">
           <div className="max-w-2xl">
-            <p className="text-[10px] md:text-xs tracking-[0.28em] uppercase text-white/50 font-medium">Value Proposition</p>
+            <p className="text-[10px] md:text-xs tracking-[0.28em] uppercase text-white/50 font-medium">Benefits</p>
             <h2 className="mt-4 text-2xl md:text-3xl lg:text-4xl font-light text-white font-serif">
-              Liquidity aligned to disciplined capital architecture.
+              Acquisition financing without compromising structure.
             </h2>
           </div>
           <div className="mt-10 grid gap-6 md:grid-cols-3">
-            {valuePoints.map((item) => (
+            {benefits.map((item) => (
               <div key={item.title} className="rounded-none border border-white/15 bg-white/5 p-6">
                 <h3 className="text-lg font-semibold text-white">{item.title}</h3>
                 <p className="mt-3 text-sm text-white/70 leading-relaxed">{item.body}</p>
@@ -96,28 +134,28 @@ export default function DscrCashOutPage() {
         </div>
       </section>
 
-      {/* Guardrails */}
+      {/* Criteria */}
       <section
         className="px-6 md:px-12 lg:px-20 py-18"
         style={{
-          background: 'linear-gradient(180deg, #0a0f15 0%, #07080b 100%)',
+          background: 'linear-gradient(180deg, #07080b 0%, #0a111b 100%)',
         }}
       >
         <div className="max-w-6xl mx-auto grid gap-12 lg:grid-cols-[1.1fr_0.9fr]">
           <div>
-            <p className="text-[10px] md:text-xs tracking-[0.28em] uppercase text-white/50 font-medium">Risk Discipline</p>
+            <p className="text-[10px] md:text-xs tracking-[0.28em] uppercase text-white/50 font-medium">Investor Criteria</p>
             <h2 className="mt-4 text-2xl md:text-3xl lg:text-4xl font-light text-white font-serif">
-              Guardrails that protect downside.
+              Structured for sophisticated investors.
             </h2>
             <p className="mt-4 text-sm md:text-base text-white/70 leading-relaxed">
-              Our DSCR cash-out approach includes portfolio-level stress testing and reserve planning to ensure leverage
-              remains resilient across market shifts.
+              We prioritize investors with a clear portfolio strategy and disciplined approach to leverage. Capital
+              structures are engineered to support long-term growth with risk awareness.
             </p>
           </div>
           <div className="rounded-none border border-white/15 bg-white/5 p-6 md:p-7">
-            <p className="text-[10px] md:text-xs tracking-[0.28em] uppercase text-white/50 font-medium">Structural Guardrails</p>
+            <p className="text-[10px] md:text-xs tracking-[0.28em] uppercase text-white/50 font-medium">Core Requirements</p>
             <div className="mt-6 space-y-3">
-              {guardrails.map((item) => (
+              {criteria.map((item) => (
                 <div key={item} className="flex items-center gap-3">
                   <span className="h-1.5 w-1.5 rounded-none bg-accent-warm" />
                   <p className="text-sm text-white/80">{item}</p>
@@ -132,31 +170,31 @@ export default function DscrCashOutPage() {
       <section
         className="px-6 md:px-12 lg:px-20 py-18"
         style={{
-          background: 'linear-gradient(180deg, #07080b 0%, #0a111b 100%)',
+          background: 'linear-gradient(180deg, #0a111b 0%, #050608 100%)',
         }}
       >
         <div className="max-w-6xl mx-auto grid gap-10 lg:grid-cols-[1.1fr_0.9fr]">
           <div>
             <p className="text-[10px] md:text-xs tracking-[0.28em] uppercase text-white/50 font-medium">Case Study</p>
             <h2 className="mt-4 text-2xl md:text-3xl lg:text-4xl font-light text-white font-serif">
-              Cash-out structured for multi-cycle durability.
+              Acquisitions executed with disciplined leverage.
             </h2>
             <p className="mt-4 text-sm md:text-base text-white/70 leading-relaxed">
-              An investor group used DSCR cash-out proceeds to secure new acquisitions while maintaining reserve
-              targets and protecting portfolio cash flow across multiple markets.
+              A stabilized rental portfolio needed first-class financing to secure a new acquisition. We structured a DSCR purchase
+              loan that preserved reserve strength and supported the next phase of growth.
             </p>
           </div>
           <div className="rounded-none border border-white/15 bg-white/5 p-6 md:p-7">
             <p className="text-[10px] md:text-xs tracking-[0.28em] uppercase text-white/50 font-medium">Highlights</p>
             <div className="mt-6 space-y-4 text-sm text-white/70">
               <p>
-                <span className="text-white/50">Liquidity Released:</span> $910K
+                <span className="text-white/50">Equity Unlocked:</span> $620K
               </p>
               <p>
-                <span className="text-white/50">Portfolio Size:</span> 11 properties
+                <span className="text-white/50">Closing Timeline:</span> 23 days
               </p>
               <p>
-                <span className="text-white/50">Outcome:</span> 4 acquisitions executed
+                <span className="text-white/50">Outcome:</span> 2 additional acquisitions
               </p>
             </div>
           </div>
@@ -167,14 +205,14 @@ export default function DscrCashOutPage() {
       <section
         className="px-6 md:px-12 lg:px-20 py-18"
         style={{
-          background: 'linear-gradient(180deg, #0a111b 0%, #050608 100%)',
+          background: 'linear-gradient(180deg, #050608 0%, #040507 100%)',
         }}
       >
         <div className="max-w-5xl mx-auto">
           <div className="text-center">
             <p className="text-[10px] md:text-xs tracking-[0.28em] uppercase text-white/50 font-medium">FAQ</p>
             <h2 className="mt-4 text-2xl md:text-3xl lg:text-4xl font-light text-white font-serif">
-              DSCR cash-out structuring questions.
+              DSCR purchase loan questions.
             </h2>
           </div>
           <div className="mt-10 space-y-4">
@@ -192,7 +230,7 @@ export default function DscrCashOutPage() {
       <section
         className="px-6 md:px-12 lg:px-20 py-20"
         style={{
-          background: 'linear-gradient(180deg, #050608 0%, #040507 100%)',
+          background: 'linear-gradient(180deg, #040507 0%, #030405 100%)',
         }}
       >
         <div className="max-w-5xl mx-auto text-center">
@@ -200,13 +238,13 @@ export default function DscrCashOutPage() {
             Capital Advisory
           </p>
           <h2 className="mt-4 text-2xl md:text-3xl lg:text-4xl font-light text-white font-serif">
-            Plan DSCR cash-out liquidity with precision.
+            Evaluate DSCR purchase structuring with confidence.
           </h2>
           <p className="mt-4 text-sm md:text-base text-white/70 leading-relaxed max-w-3xl mx-auto">
-            Connect with our capital advisory group to align cash-out structuring with your portfolio growth strategy.
+            Connect with our capital advisory group to review DSCR purchase strategies aligned to your portfolio objectives.
           </p>
           <div className="mt-8 flex justify-center">
-            <ActionButton>Schedule a Strategy Call</ActionButton>
+            <ActionButton href="/workingcapital">Schedule a Strategy Call</ActionButton>
           </div>
         </div>
       </section>

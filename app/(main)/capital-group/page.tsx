@@ -25,7 +25,7 @@ export default function CapitalGroupPage() {
     <div className="min-h-screen bg-[#07080b] selection:bg-white/15">
       {/* Hero */}
       <section
-        className="pt-28 md:pt-36 pb-16 px-6 md:px-12 lg:px-20 border-b border-white/5 bg-[#050608]"
+        className="pt-32 md:pt-36 pb-16 px-6 md:px-12 lg:px-20 border-b border-white/5 bg-[#050608]"
       >
         <div className="max-w-7xl mx-auto">
           <p className="text-[10px] md:text-xs tracking-[0.3em] uppercase text-white/50 font-medium mb-4 animate-fade-up">
@@ -39,7 +39,7 @@ export default function CapitalGroupPage() {
             investors through disciplined leverage design, risk positioning, and long-term portfolio growth.
           </p>
           <div className="mt-8">
-            <ActionButton>Schedule a Strategy Call</ActionButton>
+            <ActionButton href="/workingcapital">Schedule a Strategy Call</ActionButton>
           </div>
         </div>
       </section>
@@ -119,7 +119,7 @@ export default function CapitalGroupPage() {
             Connect with the capital advisory group.
           </h2>
           <div className="flex justify-center">
-            <ActionButton>Schedule a Strategy Call</ActionButton>
+            <ActionButton href="/workingcapital">Schedule a Strategy Call</ActionButton>
           </div>
         </div>
       </section>

@@ -49,7 +49,7 @@ export default function AboutPage() {
     <div className="min-h-screen bg-[#07080b] selection:bg-white/15">
       {/* Hero */}
       <section
-        className="pt-28 md:pt-36 pb-16 px-6 md:px-12 lg:px-20 border-b border-white/5 bg-[#050608]"
+        className="pt-32 md:pt-36 pb-16 px-6 md:px-12 lg:px-20 border-b border-white/5 bg-[#050608]"
       >
         <div className="max-w-7xl mx-auto">
           <p className="text-[10px] md:text-xs tracking-[0.3em] uppercase text-white/50 font-medium mb-4 animate-fade-up">
@@ -64,7 +64,7 @@ export default function AboutPage() {
             discipline, and sophistication to markets that have long been underserved.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
-            <ActionButton>Schedule a Meeting</ActionButton>
+            <ActionButton href="/workingcapital">Schedule a Meeting</ActionButton>
             <Link
               href="/capital-solutions"
               className="px-5 py-3 rounded-none border border-white/15 text-white/80 text-sm hover:text-white hover:border-white/30 transition-colors"
@@ -181,7 +181,7 @@ export default function AboutPage() {
             Ready to acquire your next property?
           </h2>
           <div className="flex justify-center">
-            <ActionButton>Schedule a Meeting</ActionButton>
+            <ActionButton href="/workingcapital">Schedule a Meeting</ActionButton>
           </div>
         </div>
       </section>

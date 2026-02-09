@@ -7,6 +7,7 @@ import { usePathname } from 'next/navigation'
 import { Menu, X } from 'lucide-react'
 
 export default function Navbar() {
+  // Force rebuild
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isMenuVisible, setIsMenuVisible] = useState(false)
   const pathname = usePathname()
@@ -119,7 +120,7 @@ export default function Navbar() {
 
             {/* CTA Button */}
             <Link
-              href="/schedule"
+              href="/workingcapital"
               className="px-6 py-2 rounded-none bg-white/5 border border-white/10 text-white/90 text-sm font-medium hover:bg-white/10 hover:border-white/20 hover:text-white transition-all duration-200"
             >
               Schedule a Meeting
@@ -129,11 +130,11 @@ export default function Navbar() {
       </nav>
 
       {/* Mobile Navbar */}
-      <nav className="fixed top-4 left-4 right-4 z-50 md:hidden animate-fade-down">
-        <div className="flex items-center justify-between px-4 py-3 rounded-none bg-[#0b111a]/95 border border-white/10 shadow-[0_12px_28px_rgba(0,0,0,0.5)] backdrop-blur-md">
+      <nav className="fixed top-2 left-3 right-3 z-50 md:hidden animate-fade-down sm:top-3 sm:left-4 sm:right-4">
+        <div className="flex items-center justify-between px-3 py-2.5 rounded-none bg-[#0b111a]/95 border border-white/10 shadow-[0_12px_28px_rgba(0,0,0,0.5)] backdrop-blur-md sm:px-4">
           {/* Mobile Logo - Unboxed Link */}
           <Link href="/" className="flex items-center gap-3">
-            <div className="relative w-20 h-20">
+            <div className="relative w-11 h-11 sm:w-12 sm:h-12">
               <Image
                 src="/images/logo.png"
                 alt="Malohn Capital Group"
@@ -141,14 +142,14 @@ export default function Navbar() {
                 className="object-contain"
               />
             </div>
-            <div className="leading-tight">
-              <p className="text-sm font-semibold text-white">Malohn Capital</p>
+            <div className="leading-tight max-w-[132px]">
+              <p className="text-[11px] sm:text-xs font-semibold text-white leading-[1.1]">Malohn Capital Group</p>
             </div>
           </Link>
 
           {/* Mobile Menu Button - Sharp */}
           <button
-            className="flex items-center gap-2 px-3 py-2 rounded-none bg-white/5 border border-white/10 text-white/70 hover:text-white transition-colors active:scale-90"
+            className="flex items-center gap-2 px-2.5 py-1.5 rounded-none bg-white/5 border border-white/10 text-white/70 hover:text-white transition-colors active:scale-90"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             aria-label="Toggle menu"
             aria-expanded={isMenuOpen}
@@ -164,7 +165,7 @@ export default function Navbar() {
                 className={`absolute inset-0 transition-all duration-200 ${isMenuOpen ? 'opacity-100 rotate-0' : 'opacity-0 -rotate-90'}`}
               />
             </span>
-            <span className="text-[10px] uppercase tracking-[0.2em] font-medium">Menu</span>
+            <span className="text-[10px] uppercase tracking-[0.16em] font-medium">Menu</span>
           </button>
         </div>
 
@@ -201,7 +202,7 @@ export default function Navbar() {
                 style={{ transitionDelay: `${allLinks.length * 50}ms` }}
               >
                 <Link
-                  href="/schedule"
+                  href="/workingcapital"
                   className="block w-full px-4 py-3 rounded-none bg-white/10 border border-white/10 text-white text-sm font-medium text-center hover:bg-white/15"
                   onClick={() => setIsMenuOpen(false)}
                 >

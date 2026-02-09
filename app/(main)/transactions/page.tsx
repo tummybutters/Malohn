@@ -399,7 +399,7 @@ export default function TransactionsPage() {
   return (
     <div className="min-h-screen bg-[#07080b] selection:bg-white/15">
       {/* Hero Header - Condensed */}
-      <section className="pt-28 md:pt-36 pb-12 px-6 md:px-12 lg:px-20 border-b border-white/5">
+      <section className="pt-32 md:pt-36 pb-12 px-6 md:px-12 lg:px-20 border-b border-white/5">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row md:items-end justify-between gap-8">
           <div className="max-w-2xl">
             <p className="text-[10px] md:text-xs tracking-[0.3em] uppercase text-white/50 font-medium mb-4 animate-fade-up">

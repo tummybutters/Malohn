@@ -4,7 +4,7 @@ import { siteConfig } from '@/lib/constants'
 import { metadataBase, sharedOpenGraph, sharedTwitter } from '@/lib/seo'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
-import './globals.css'
+import '../globals.css'
 
 const inter = Inter({
   subsets: ['latin'],
