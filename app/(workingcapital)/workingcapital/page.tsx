@@ -3,118 +3,78 @@
 import { useState, useRef, useEffect } from 'react'
 import Image from 'next/image'
 import { Play, ChevronLeft, ChevronRight, Check, Lock, Sparkles } from 'lucide-react'
+import { PopupButton } from '@typeform/embed-react'
 import styles from './SecretLanding.module.css'
 
 const TESTIMONIALS = [
+  // First-Time Investors / Speed & Guidance
   {
     gradient: 'linear-gradient(145deg, rgba(22, 25, 34, 0.9) 0%, rgba(12, 14, 18, 0.95) 100%)',
-    quote: "Malohn Capital helped me secure $350K in working capital. Closed on my first triplex within 3 weeks.",
+    quote: "I was stuck waiting on traditional banks while good deals slipped away. Malohn Capital moved fast—funded my first triplex in 3 weeks. The guidance was incredible.",
     reviewer: "Marcus D.",
     location: "Houston, TX",
-    image: "/images/skyline-drone.png",
-    imageAlt: "Portrait of Marcus D., real estate investor from Houston, TX",
-    amount: "$350K"
+    image: "https://images.unsplash.com/photo-1516455590571-18256e5bb9ff?q=80&w=2670&auto=format&fit=crop", // Brick/Renovation
+    avatar: "/images/testimonials/marcus_d_portrait.png",
+    imageAlt: "Renovated brick triplex in Houston",
+    amount: "$350K",
+    type: "First Deal"
   },
   {
     gradient: 'linear-gradient(145deg, rgba(25, 22, 34, 0.9) 0%, rgba(14, 12, 18, 0.95) 100%)',
-    quote: "The team walked me through every step. Got funded faster than I thought possible.",
+    quote: "As a new investor, I didn't have the track record lenders wanted. They looked at the deal, not just my history. Got funded faster than I thought possible.",
     reviewer: "Jennifer R.",
     location: "Phoenix, AZ",
-    image: "/images/skyline-drone.png",
-    imageAlt: "Portrait of Jennifer R., real estate investor from Phoenix, AZ",
-    amount: "$180K"
-  },
-  {
-    gradient: 'linear-gradient(145deg, rgba(22, 34, 28, 0.9) 0%, rgba(12, 18, 14, 0.95) 100%)',
-    quote: "Finally found capital partners who understand real estate investors. Game changer.",
-    reviewer: "David K.",
-    location: "Atlanta, GA",
-    image: "/images/skyline-drone.png",
-    imageAlt: "Portrait of David K., real estate investor from Atlanta, GA",
-    amount: "$425K"
-  },
-  {
-    gradient: 'linear-gradient(145deg, rgba(34, 28, 22, 0.9) 0%, rgba(18, 14, 12, 0.95) 100%)',
-    quote: "No collateral needed. No property liens. This is how capital should work.",
-    reviewer: "Sarah M.",
-    location: "Dallas, TX",
-    image: "/images/skyline-drone.png",
-    imageAlt: "Portrait of Sarah M., real estate investor from Dallas, TX",
-    amount: "$275K"
-  },
-  {
-    gradient: 'linear-gradient(145deg, rgba(22, 28, 34, 0.9) 0%, rgba(12, 16, 20, 0.95) 100%)',
-    quote: "Scaled from 2 to 8 units in under a year using their capital stack strategy.",
-    reviewer: "Brandon T.",
-    location: "Miami, FL",
-    image: "/images/skyline-drone.png",
-    imageAlt: "Portrait of Brandon T., real estate investor from Miami, FL",
-    amount: "$500K"
-  },
-  {
-    gradient: 'linear-gradient(145deg, rgba(34, 22, 28, 0.9) 0%, rgba(20, 12, 16, 0.95) 100%)',
-    quote: "The 0% working capital changed everything for my portfolio growth.",
-    reviewer: "Michelle W.",
-    location: "Charlotte, NC",
-    image: "/images/skyline-drone.png",
-    imageAlt: "Portrait of Michelle W., real estate investor from Charlotte, NC",
-    amount: "$220K"
+    image: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=2670&auto=format&fit=crop", // Modern Home
+    avatar: "/images/testimonials/jennifer_r_portrait.png",
+    imageAlt: "Modern single-story home in Phoenix",
+    amount: "$180K",
+    type: "New Investor"
   },
   {
     gradient: 'linear-gradient(145deg, rgba(28, 34, 22, 0.9) 0%, rgba(16, 20, 12, 0.95) 100%)',
-    quote: "Professional team. Fast funding. Exactly what I needed to close my deal.",
+    quote: "Professional team that actually understands the BRRRR strategy. They provided the gap funding I needed to close my first rehab without stressing my personal cash.",
     reviewer: "Kevin L.",
     location: "Las Vegas, NV",
-    image: "/images/skyline-drone.png",
-    imageAlt: "Portrait of Kevin L., real estate investor from Las Vegas, NV",
-    amount: "$150K"
+    image: "https://images.unsplash.com/photo-1598228723793-52759bba239c?q=80&w=2670&auto=format&fit=crop", // Rehab Home
+    avatar: "/images/testimonials/kevin_l_portrait.png",
+    imageAlt: "Renovation project in Las Vegas",
+    amount: "$150K",
+    type: "Fix & Flip"
   },
-]
 
-const QUIZ_QUESTIONS = [
+  // Experienced Investors / Scaling & Leverage
   {
-    number: 1,
-    question: "Are you a new or existing real estate investor actively looking for capital to invest?",
-    options: [
-      { letter: 'A', text: 'Yes' },
-      { letter: 'B', text: 'No' },
-    ]
+    gradient: 'linear-gradient(145deg, rgba(22, 34, 28, 0.9) 0%, rgba(12, 18, 14, 0.95) 100%)',
+    quote: "I've done 20+ deals, but liquidity is always the bottleneck. Their unsecured line allowed me to scale from 2 to 8 units in under a year. Game changer for scaling.",
+    reviewer: "Brandon T.",
+    location: "Miami, FL",
+    image: "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?q=80&w=2670&auto=format&fit=crop", // Apartment
+    avatar: "/images/testimonials/brandon_t_portrait.png",
+    imageAlt: "Small apartment building in Miami",
+    amount: "$500K",
+    type: "Portfolio Scale"
   },
   {
-    number: 2,
-    question: "Do you have at least 4 open credit accounts in good standing?",
-    options: [
-      { letter: 'A', text: 'Yes' },
-      { letter: 'B', text: 'No' },
-      { letter: 'C', text: 'Not sure' },
-    ]
+    gradient: 'linear-gradient(145deg, rgba(34, 28, 22, 0.9) 0%, rgba(18, 14, 12, 0.95) 100%)',
+    quote: "No collateral needed. No property liens. This is how capital should work for serious investors. It keeps my equity free for other moves.",
+    reviewer: "Sarah M.",
+    location: "Dallas, TX",
+    image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2670&auto=format&fit=crop", // Modern Villa
+    avatar: "/images/testimonials/sarah_m_portrait.png",
+    imageAlt: "Modern luxury home in Dallas",
+    amount: "$275K",
+    type: "Unsecured"
   },
   {
-    number: 3,
-    question: "Is your current credit score 680 or above?",
-    options: [
-      { letter: 'A', text: 'Yes, 680+' },
-      { letter: 'B', text: 'Between 650-680' },
-      { letter: 'C', text: 'Below 650' },
-    ]
-  },
-  {
-    number: 4,
-    question: "How much capital are you looking to access?",
-    options: [
-      { letter: 'A', text: '$50,000 - $150,000' },
-      { letter: 'B', text: '$150,000 - $300,000' },
-      { letter: 'C', text: '$300,000 - $500,000' },
-    ]
-  },
-  {
-    number: 5,
-    question: "When are you looking to deploy this capital?",
-    options: [
-      { letter: 'A', text: 'Within 30 days' },
-      { letter: 'B', text: '30-90 days' },
-      { letter: 'C', text: '3+ months' },
-    ]
+    gradient: 'linear-gradient(145deg, rgba(22, 28, 34, 0.9) 0%, rgba(12, 16, 20, 0.95) 100%)',
+    quote: "The 0% working capital changed everything for my portfolio growth. I used it for down payments on three separate turn-key properties in one month.",
+    reviewer: "Michelle W.",
+    location: "Charlotte, NC",
+    image: "https://images.unsplash.com/photo-1460317442991-0ec209397118?q=80&w=2670&auto=format&fit=crop", // City/Building
+    avatar: "/images/testimonials/michelle_w_portrait.png",
+    imageAlt: "Multi-unit property in Charlotte",
+    amount: "$220K",
+    type: "Acquisition"
   },
 ]
 
@@ -122,9 +82,7 @@ const VIDEO_UNLOCK_THRESHOLD = 0.35
 
 export default function SecretLandingPage() {
   const [openIndex, setOpenIndex] = useState<number | null>(null)
-  const [currentQuestion, setCurrentQuestion] = useState(0)
-  const [answers, setAnswers] = useState<Record<number, string>>({})
-  const [quizComplete, setQuizComplete] = useState(false)
+  const [scheduleClickLocked, setScheduleClickLocked] = useState(false)
   const carouselRef = useRef<HTMLDivElement>(null)
   const videoRef = useRef<HTMLVideoElement>(null)
   const [isPaused, setIsPaused] = useState(false)
@@ -167,10 +125,22 @@ export default function SecretLandingPage() {
     }
   }, [isUnlocked])
 
+  useEffect(() => {
+    if (isUnlocked && scheduleClickLocked) {
+      setScheduleClickLocked(false)
+    }
+  }, [isUnlocked, scheduleClickLocked])
+
   const handlePlayVideo = () => {
     if (videoRef.current) {
       videoRef.current.play()
     }
+  }
+
+  const handleScheduleMeetingClick = () => {
+    if (isUnlocked) return
+    setScheduleClickLocked(true)
+    videoRef.current?.scrollIntoView({ behavior: 'smooth', block: 'center' })
   }
 
   // Auto-scroll carousel
@@ -271,23 +241,8 @@ export default function SecretLandingPage() {
     }
   }
 
-  const handleAnswer = (questionNum: number, answer: string) => {
-    setAnswers(prev => ({ ...prev, [questionNum]: answer }))
-
-    if (questionNum < QUIZ_QUESTIONS.length) {
-      setTimeout(() => {
-        if (questionNum === QUIZ_QUESTIONS.length) {
-          setQuizComplete(true)
-        } else {
-          setCurrentQuestion(questionNum)
-        }
-      }, 300)
-    } else {
-      setQuizComplete(true)
-    }
-  }
-
-  const progress = ((currentQuestion + 1) / QUIZ_QUESTIONS.length) * 100
+  const remainingUnlockPercent = Math.max(0, Math.ceil((VIDEO_UNLOCK_THRESHOLD - videoProgress) * 100))
+  const watchedPercent = Math.round(videoProgress * 100)
 
   return (
     <div className="min-h-screen bg-deep text-slate-50 selection:bg-amber-500/25 relative">
@@ -342,6 +297,8 @@ export default function SecretLandingPage() {
             </h2>
           </div>
 
+
+
           {/* Video Section */}
           <div className="max-w-3xl mx-auto">
             {/* Video label */}
@@ -349,7 +306,7 @@ export default function SecretLandingPage() {
               WATCH THE VIDEO BELOW TO SEE HOW THE PROGRAM WORKS
             </div>
 
-	            <div className="relative aspect-video bg-gradient-to-br from-[#0c0e12] to-[#08090c] rounded-lg border border-white/[0.08] overflow-hidden shadow-2xl shadow-black/50">
+            <div className="relative aspect-video bg-gradient-to-br from-[#0c0e12] to-[#08090c] rounded-lg border border-white/[0.08] overflow-hidden shadow-2xl shadow-black/50">
               {/* Video element */}
               <video
                 ref={videoRef}
@@ -395,148 +352,47 @@ export default function SecretLandingPage() {
                   </span>
                 </div>
               )}
-	              {isUnlocked && (
-	                <div className="absolute top-4 right-4 bg-amber-500/20 backdrop-blur-md border border-amber-500/30 rounded-full px-3 py-1.5 flex items-center gap-2">
-	                  <Check className="w-3 h-3 text-amber-400" />
-	                  <span className="text-xs text-amber-200 font-[family-name:var(--font-outfit)]">Unlocked</span>
-	                </div>
-	              )}
-	            </div>
-	            <div className="mt-3 flex justify-center">
-	              <a
-	                href="/schedule"
-	                className="btn-primary inline-flex items-center justify-center rounded-lg px-8 py-3 text-sm tracking-[0.04em] font-[family-name:var(--font-outfit)]"
-	              >
-	                Schedule a Meeting
-	              </a>
-	            </div>
-	          </div>
-
-          {/* Subheadline */}
-          <p className="text-center text-slate-400 max-w-2xl mx-auto mt-8 md:mt-10 text-sm md:text-base leading-relaxed">
-            Our Real Estate working capital program helps you unlock fast, flexible capital. No collateral. No property liens. No missed deals. No experience needed.
-          </p>
-        </div>
-      </section>
-
-      {/* Quiz Section */}
-      <section id="quiz" className="relative py-20 md:py-24 bg-gradient-to-b from-[#0c0e12] to-[#08090c]">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_rgba(212,168,83,0.03)_0%,_transparent_70%)]" />
-
-        <div className="relative max-w-xl mx-auto px-4">
-          {/* Section Header */}
-          <div className="text-center mb-12">
-            <span className="inline-block text-xs uppercase tracking-[0.25em] text-amber-400/60 mb-4 font-[family-name:var(--font-outfit)]">
-              Get Started
-            </span>
-            <h2 className="font-[family-name:var(--font-outfit)] text-2xl md:text-4xl font-medium text-slate-100 tracking-tight">
-              BOOK A CALL & FUND YOUR FUTURE
-            </h2>
-          </div>
-
-          {/* Locked State */}
-          {!isUnlocked ? (
-            <div className="glass-premium rounded-xl p-8 md:p-12 text-center">
-              <div className="w-16 h-16 mx-auto mb-6 rounded-full bg-white/[0.03] border border-white/10 flex items-center justify-center">
-                <Lock className="w-6 h-6 text-amber-400/60" />
-              </div>
-              <h3 className="font-[family-name:var(--font-cormorant)] text-xl text-slate-200 mb-2">
-                Watch the Video to Continue
-              </h3>
-              <p className="text-slate-500 text-sm mb-8 max-w-xs mx-auto">
-                Please watch at least 35% of the presentation to unlock your application.
-              </p>
-              <div className="max-w-xs mx-auto">
-                <div className="flex justify-between text-xs text-slate-600 mb-2 font-[family-name:var(--font-outfit)]">
-                  <span>Progress</span>
-                  <span>{Math.round(videoProgress * 100)}% / 35%</span>
-                </div>
-                <div className="h-1.5 bg-white/5 rounded-full overflow-hidden">
-                  <div
-                    className="h-full bg-gradient-to-r from-amber-400/50 to-amber-500/50 rounded-full transition-all duration-300"
-                    style={{ width: `${(videoProgress / VIDEO_UNLOCK_THRESHOLD) * 100}%` }}
-                  />
-                </div>
-              </div>
-            </div>
-          ) : (
-            <div className="glass-premium rounded-xl p-8 md:p-10">
-              {/* Progress Bar */}
-              <div className="h-0.5 bg-white/5 rounded-full mb-8 overflow-hidden">
-                <div
-                  className="h-full bg-gradient-to-r from-amber-400 to-amber-500 rounded-full transition-all duration-500"
-                  style={{ width: `${quizComplete ? 100 : progress}%` }}
-                />
-              </div>
-
-              {/* Logo badge */}
-              <div className="flex items-center gap-3 mb-8">
-                <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-amber-500/20 to-amber-600/10 border border-amber-500/20 flex items-center justify-center">
-                  <span className="font-[family-name:var(--font-cormorant)] text-amber-400 font-semibold text-lg">M</span>
-                </div>
-                <span className="text-xs text-slate-600 uppercase tracking-wider font-[family-name:var(--font-outfit)]">Malohn Capital</span>
-              </div>
-
-              {!quizComplete ? (
-                <div className="space-y-6">
-                  {/* Current Question */}
-                  <div className="flex items-start gap-4">
-                    <span className="flex-shrink-0 w-8 h-8 rounded-lg bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-amber-400 font-medium text-sm font-[family-name:var(--font-outfit)]">
-                      {currentQuestion + 1}
-                    </span>
-                    <p className="text-slate-300 pt-1 leading-relaxed font-light">
-                      {QUIZ_QUESTIONS[currentQuestion].question}
-                      <span className="text-amber-400/80 ml-1">*</span>
-                    </p>
-                  </div>
-
-                  {/* Options */}
-                  <div className="space-y-3 md:pl-12">
-                    {QUIZ_QUESTIONS[currentQuestion].options.map((option) => (
-                      <button
-                        key={option.letter}
-                        onClick={() => handleAnswer(currentQuestion + 1, option.letter)}
-                        className={`group flex items-center gap-4 w-full px-5 py-4 rounded-lg border text-left transition-all duration-200 ${answers[currentQuestion + 1] === option.letter
-                          ? 'bg-amber-500/10 border-amber-500/30'
-                          : 'bg-white/[0.02] border-white/[0.06] hover:bg-white/[0.04] hover:border-white/[0.12]'
-                          }`}
-                      >
-                        <span className={`w-7 h-7 rounded-md flex items-center justify-center text-xs font-medium transition-colors ${answers[currentQuestion + 1] === option.letter
-                          ? 'bg-amber-500/20 text-amber-400'
-                          : 'bg-white/5 text-slate-500 group-hover:text-slate-400'
-                          }`}>
-                          {option.letter}
-                        </span>
-                        <span className={`text-sm ${answers[currentQuestion + 1] === option.letter ? 'text-slate-200' : 'text-slate-400'
-                          }`}>
-                          {option.text}
-                        </span>
-                      </button>
-                    ))}
-                  </div>
-                </div>
-              ) : (
-                /* Quiz Complete */
-                <div className="text-center py-6">
-                  <div className="w-16 h-16 mx-auto mb-6 rounded-full bg-gradient-to-br from-amber-500/20 to-amber-600/10 border border-amber-500/30 flex items-center justify-center">
-                    <Check className="w-7 h-7 text-amber-400" />
-                  </div>
-                  <h3 className="font-[family-name:var(--font-cormorant)] text-2xl text-slate-100 mb-3">
-                    You May Qualify
-                  </h3>
-                  <p className="text-slate-500 mb-8 text-sm leading-relaxed">
-                    Based on your responses, you could be eligible for up to $500,000 in working capital.
-                  </p>
-                  <a
-                    href="/schedule"
-                    className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-gradient-to-r from-amber-400 to-amber-500 text-[#08090c] font-medium text-sm rounded-lg hover:shadow-lg hover:shadow-amber-500/20 transition-all duration-300 font-[family-name:var(--font-outfit)]"
-                  >
-                    Book Your Strategy Call
-                  </a>
+              {isUnlocked && (
+                <div className="absolute top-4 right-4 bg-amber-500/20 backdrop-blur-md border border-amber-500/30 rounded-full px-3 py-1.5 flex items-center gap-2">
+                  <Check className="w-3 h-3 text-amber-400" />
+                  <span className="text-xs text-amber-200 font-[family-name:var(--font-outfit)]">Unlocked</span>
                 </div>
               )}
             </div>
-          )}
+
+          </div>
+
+          {/* Subheadline */}
+          <p className="text-center text-slate-200 max-w-2xl mx-auto mt-8 md:mt-10 text-lg md:text-2xl leading-tight tracking-tight mb-8 font-[family-name:var(--font-outfit)]">
+            SCHEDULE A CALL AND
+            <br />
+            FUND YOUR FUTURE
+          </p>
+
+          <div className="flex flex-col items-center mb-8">
+            {isUnlocked ? (
+              <PopupButton
+                id="lGiCs1cM"
+                className="btn-primary inline-flex items-center justify-center rounded-lg px-8 py-3 text-sm tracking-[0.04em] font-[family-name:var(--font-outfit)]"
+              >
+                Schedule a Meeting
+              </PopupButton>
+            ) : (
+              <button
+                type="button"
+                onClick={handleScheduleMeetingClick}
+                className="inline-flex items-center justify-center gap-2 rounded-lg px-8 py-3 text-sm tracking-[0.04em] border border-white/[0.12] bg-white/[0.03] text-slate-200 hover:bg-white/[0.06] transition-colors font-[family-name:var(--font-outfit)]"
+              >
+                <Lock className="w-4 h-4 text-amber-400" />
+                Schedule a Meeting
+              </button>
+            )}
+            {!isUnlocked && scheduleClickLocked && (
+              <p className="text-center text-xs text-amber-300/80 mt-3 font-[family-name:var(--font-outfit)]">
+                Watch {remainingUnlockPercent}% more of the video to unlock scheduling ({watchedPercent}% watched).
+              </p>
+            )}
+          </div>
         </div>
       </section>
 
@@ -601,10 +457,28 @@ export default function SecretLandingPage() {
                     <div className="absolute top-4 right-4 bg-black/40 backdrop-blur-sm border border-white/[0.08] rounded-full px-3 py-1 text-[11px] uppercase tracking-wider text-amber-400/80 font-[family-name:var(--font-outfit)]">
                       {item.amount} Funded
                     </div>
+
+                    {/* Type Badge (Bottom Left of Image) */}
+                    <div className="absolute bottom-4 left-4 bg-black/40 backdrop-blur-sm border border-white/[0.08] rounded-full px-3 py-1 text-[10px] uppercase tracking-wider text-white/70 font-[family-name:var(--font-outfit)]">
+                      {item.type}
+                    </div>
+
                     <div className={styles.collageReview}>
-                      <p className="text-slate-200 font-light leading-relaxed">&ldquo;{item.quote}&rdquo;</p>
-                      <div className={styles.collageReviewer}>
-                        {item.reviewer} — {item.location}
+                      <p className="text-slate-200 font-light leading-relaxed mb-4">&ldquo;{item.quote}&rdquo;</p>
+
+                      <div className="flex items-center gap-3">
+                        <div className="relative w-10 h-10 rounded-full overflow-hidden border border-white/20 shrink-0">
+                          <Image
+                            src={item.avatar}
+                            alt={item.reviewer}
+                            fill
+                            className="object-cover"
+                          />
+                        </div>
+                        <div className="flex flex-col">
+                          <span className="text-sm font-medium text-slate-100">{item.reviewer}</span>
+                          <span className="text-xs text-slate-500">{item.location}</span>
+                        </div>
                       </div>
                     </div>
                   </button>
@@ -636,12 +510,12 @@ export default function SecretLandingPage() {
           </p>
 
           {isUnlocked ? (
-            <a
-              href="/schedule"
+            <PopupButton
+              id="lGiCs1cM"
               className="inline-flex items-center justify-center gap-2 px-10 py-4 bg-gradient-to-r from-amber-400 to-amber-500 text-[#08090c] font-medium rounded-lg hover:shadow-xl hover:shadow-amber-500/20 transition-all duration-300 font-[family-name:var(--font-outfit)]"
             >
               Book Your Free Strategy Call
-            </a>
+            </PopupButton>
           ) : (
             <button
               disabled

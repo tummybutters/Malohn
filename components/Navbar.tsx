@@ -120,7 +120,7 @@ export default function Navbar() {
 
             {/* CTA Button */}
             <Link
-              href="/workingcapital"
+              href="https://form.typeform.com/to/lGiCs1cM"
               className="px-6 py-2 rounded-none bg-white/5 border border-white/10 text-white/90 text-sm font-medium hover:bg-white/10 hover:border-white/20 hover:text-white transition-all duration-200"
             >
               Schedule a Meeting
@@ -202,7 +202,7 @@ export default function Navbar() {
                 style={{ transitionDelay: `${allLinks.length * 50}ms` }}
               >
                 <Link
-                  href="/workingcapital"
+                  href="https://form.typeform.com/to/lGiCs1cM"
                   className="block w-full px-4 py-3 rounded-none bg-white/10 border border-white/10 text-white text-sm font-medium text-center hover:bg-white/15"
                   onClick={() => setIsMenuOpen(false)}
                 >

@@ -130,7 +130,7 @@ const transactions = [
     amount: '$150,000',
     imageUrl: 'https://images.unsplash.com/photo-1516455590571-18256e5bb9ff?q=80&w=2670&auto=format&fit=crop', // Brick/Renovation
     metrics: [
-      { label: 'Term', value: '9 Mo', icon: <Calendar /> },
+      { label: 'Term', value: '12 Mo', icon: <Calendar /> },
       { label: 'Usage', value: 'Rehab', icon: <Layers /> },
       { label: 'Funding', value: '3 Days', icon: <Activity /> },
     ]
@@ -186,7 +186,7 @@ const transactions = [
     amount: '$900,000',
     imageUrl: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=2670&auto=format&fit=crop', // Modern Miami Home
     metrics: [
-      { label: 'Term', value: '6 Mo', icon: <Calendar /> },
+      { label: 'Term', value: '36 Mo', icon: <Calendar /> },
       { label: 'Type', value: 'Unsecured', icon: <Layers /> },
       { label: 'Speed', value: '24 Hrs', icon: <Activity /> },
     ]
@@ -228,9 +228,9 @@ const transactions = [
     amount: '$450,000',
     imageUrl: 'https://images.unsplash.com/photo-1531835551805-16d864c8d311?q=80&w=2670&auto=format&fit=crop', // Construction
     metrics: [
-      { label: 'Term', value: '12 Mo', icon: <Calendar /> },
-      { label: 'Position', value: '2nd', icon: <Layers /> },
-      { label: 'Rate', value: '10%', icon: <Activity /> },
+      { label: 'Term', value: '84 Mo', icon: <Calendar /> },
+      { label: 'Type', value: 'Unsecured', icon: <Layers /> },
+      { label: 'Rate', value: '8%', icon: <Activity /> },
     ]
   },
 ]
@@ -517,7 +517,7 @@ export default function TransactionsPage() {
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-3xl font-serif text-white mb-6">Start your next transaction.</h2>
           <div className="flex justify-center gap-4">
-            <ActionButton>Submit a Deal</ActionButton>
+            <ActionButton href="/workingcapital">Access Capital</ActionButton>
             <Link href="/capital-solutions" className="px-6 py-3 border border-white/20 text-white text-sm uppercase tracking-wider hover:bg-white hover:text-black transition-colors duration-300">
               View Programs
             </Link>

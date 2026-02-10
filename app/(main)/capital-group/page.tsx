@@ -88,21 +88,62 @@ export default function CapitalGroupPage() {
 
           <div className="lg:col-span-7 flex flex-col justify-center">
             {/* Team Section Integrated */}
-            <div className="border border-white/10 bg-[#07080b] p-8 relative">
-              <div className="absolute top-0 right-0 p-4">
-                <span className="text-6xl font-serif text-white/5 font-bold">01</span>
+            <div className="space-y-6">
+              <div className="border border-white/10 bg-[#07080b] p-8 relative group hover:border-accent-warm/30 transition-all duration-300">
+                <div className="flex flex-col md:flex-row gap-8 items-center md:items-start">
+                  <div className="relative w-32 h-32 md:w-40 md:h-40 shrink-0 rounded-full overflow-hidden border-2 border-white/10 group-hover:border-accent-warm/50 transition-colors">
+                    <img
+                      src="/images/miles-malohn.png"
+                      alt="Miles Malohn"
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  <div className="text-center md:text-left">
+                    <p className="text-[10px] uppercase tracking-[0.2em] text-accent-warm mb-2">Managing Partner</p>
+                    <h3 className="text-2xl font-serif text-white mb-3">Miles Malohn</h3>
+                    <p className="text-sm text-white/60 leading-relaxed max-w-xl">
+                      Miles leads the firm's strategic direction and capital structuring initiatives. With extensive experience in real estate financing and investment strategies, he focuses on delivering tailored capital solutions that empower investors to scale their portfolios efficiently.
+                    </p>
+                  </div>
+                </div>
               </div>
-              <p className="text-[10px] uppercase tracking-[0.2em] text-white/40 mb-6">Capital Group</p>
-              <h3 className="text-2xl font-serif text-white mb-4">Leadership team in formation.</h3>
-              <p className="text-sm text-white/60 leading-relaxed max-w-xl">
-                We are assembling a full advisory roster. Updates and introductions will be shared here as the
-                capital group expands.
-              </p>
 
-              <div className="mt-8 pt-6 border-t border-white/5">
-                <p className="text-xs text-white/30 text-center">
-                  Additional partners and advisors to be announced.
-                </p>
+              <div className="border border-white/10 bg-[#07080b] p-8 relative group hover:border-accent-warm/30 transition-all duration-300">
+                <div className="flex flex-col md:flex-row gap-8 items-center md:items-start">
+                  <div className="relative w-32 h-32 md:w-40 md:h-40 shrink-0 rounded-full overflow-hidden border-2 border-white/10 group-hover:border-accent-warm/50 transition-colors">
+                    <img
+                      src="/images/jeff-barak.png"
+                      alt="Jeff Barak"
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  <div className="text-center md:text-left">
+                    <p className="text-[10px] uppercase tracking-[0.2em] text-accent-warm mb-2">Director of Capital Markets</p>
+                    <h3 className="text-2xl font-serif text-white mb-3">Jeff Barak</h3>
+                    <p className="text-sm text-white/60 leading-relaxed max-w-xl">
+                      Jeff oversees capital market relationships and debt placement strategies. His expertise in structuring complex transactions ensures that clients access the most competitive leverage terms available in the market.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="border border-white/10 bg-[#07080b] p-8 relative group hover:border-accent-warm/30 transition-all duration-300">
+                <div className="flex flex-col md:flex-row gap-8 items-center md:items-start">
+                  <div className="relative w-32 h-32 md:w-40 md:h-40 shrink-0 rounded-full overflow-hidden border-2 border-white/10 group-hover:border-accent-warm/50 transition-colors">
+                    <img
+                      src="/images/lucas-rabbani.png"
+                      alt="Lucas Rabbani"
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  <div className="text-center md:text-left">
+                    <p className="text-[10px] uppercase tracking-[0.2em] text-accent-warm mb-2">Director of Capital Advisory</p>
+                    <h3 className="text-2xl font-serif text-white mb-3">Lucas Rabbani</h3>
+                    <p className="text-sm text-white/60 leading-relaxed max-w-xl">
+                      Lucas specializes in client advisory and portfolio analysis. He works closely with investors to align their capital stacks with long-term growth objectives, providing clear guidance on execution and risk management.
+                    </p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
