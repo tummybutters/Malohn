@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import ActionButton from '@/components/ActionButton'
+import HeroVideo from '@/components/home/HeroVideo'
 import { ArrowRight, Play, FileCheck, Percent, Home, Key, Calendar, Layers, Zap, Shield, User, Banknote } from 'lucide-react'
 import { FocusCards } from '@/components/ui/FocusCards'
 import { TiltCard } from '@/components/ui/TiltCard'
@@ -47,15 +48,10 @@ export default function ServicesPage() {
           {/* Center Video */}
           <div className="absolute inset-0 flex items-center justify-center px-4">
             <div className="relative w-[92%] md:w-[74%] aspect-[16/9] rounded-none bg-bg-card border border-white/10 overflow-hidden shadow-2xl shadow-black/40 animate-fade-up delay-300">
-              <video
-                autoPlay
-                muted
-                playsInline
-                loop
+              <HeroVideo
+                src="/videos/NYC_Sunrise_Drone_Shot_Video.mp4"
                 className="h-full w-full object-cover"
-              >
-                <source src="/videos/NYC_Sunrise_Drone_Shot_Video.mp4" type="video/mp4" />
-              </video>
+              />
               <div
                 aria-hidden="true"
                 className="absolute inset-0 bg-gradient-to-t from-black/40 via-black/10 to-transparent"

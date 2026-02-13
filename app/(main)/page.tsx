@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import ActionButton from '@/components/ActionButton'
 import FormSubmitButton from '@/components/FormSubmitButton'
 import AutoScrollCarousel from '@/components/home/AutoScrollCarousel'
+import HeroVideo from '@/components/home/HeroVideo'
 import StatsStrip from '@/components/home/StatsStrip'
 import { Play } from 'lucide-react'
 
@@ -63,15 +64,10 @@ export default function HomePage() {
         <div className="w-full border-y border-white/10 bg-[#0a0f15] relative group">
           <div className="absolute inset-0 bg-black/20 pointer-events-none z-10" />
 
-          <video
-            autoPlay
-            muted
-            playsInline
-            loop
+          <HeroVideo
+            src="/videos/hero-video.mp4"
             className="w-full h-[50vh] md:h-[70vh] object-cover opacity-80"
-          >
-            <source src="/videos/hero-video.mp4" type="video/mp4" />
-          </video>
+          />
 
           {/* Technical Overlays */}
           <div className="absolute bottom-0 left-0 p-8 z-20 hidden md:block">
