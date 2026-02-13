@@ -296,9 +296,9 @@ export default function SecretLandingPage() {
       </div>
 
       {/* Header */}
-      <header className="relative py-2 md:py-3 border-b border-white/[0.06] backdrop-blur-sm bg-[#08090c]/80 sticky top-0 z-50">
+      <header className="relative py-1 md:py-1.5 border-b border-white/[0.06] backdrop-blur-sm bg-[#08090c]/80 sticky top-0 z-50">
         <div className="max-w-5xl mx-auto px-4 flex justify-center">
-          <div className="relative w-32 h-10 md:w-36 md:h-12 opacity-90 hover:opacity-100 transition-opacity">
+          <div className="relative w-24 h-8 md:w-28 md:h-9 opacity-90 hover:opacity-100 transition-opacity">
             <Image
               src="/images/logo.png"
               alt="Malohn Capital Group"
@@ -311,13 +311,13 @@ export default function SecretLandingPage() {
       </header>
 
       {/* Hero Section */}
-      <section className="relative pt-2 md:pt-6 pb-6 md:pb-10 overflow-hidden">
+      <section className="relative pt-1 md:pt-2 pb-4 md:pb-6 overflow-hidden">
         {/* Gradient overlays */}
         <div className="absolute inset-0 bg-gradient-to-b from-amber-500/[0.02] via-transparent to-transparent" />
 
         <div className="relative max-w-4xl mx-auto px-4">
           {/* Requirements Badge */}
-          <div className="flex justify-center mb-3 md:mb-5">
+          <div className="flex justify-center mb-2 md:mb-3">
             <div className="inline-flex items-center gap-2 px-2.5 py-1 rounded-full bg-white/[0.03] border border-amber-500/20 backdrop-blur-sm">
               <Sparkles className="w-2.5 h-2.5 text-amber-400/80 shrink-0" />
               <p className="text-[10px] sm:text-xs text-slate-300">
@@ -327,13 +327,13 @@ export default function SecretLandingPage() {
           </div>
 
           {/* Main Headline */}
-          <div className="text-center mb-4 md:mb-6">
-            <h1 className="font-[family-name:var(--font-outfit)] text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-medium tracking-tight leading-[1.05] mb-2 md:mb-3">
+          <div className="text-center mb-3 md:mb-4">
+            <h1 className="font-[family-name:var(--font-outfit)] text-xl sm:text-2xl md:text-3xl lg:text-4xl font-medium tracking-tight leading-[1.05] mb-1.5 md:mb-2">
               <span className="text-gradient-gold">SECURE $50,000–$500,000</span>
               <br />
               <span className="text-slate-100">IN 0% WORKING CAPITAL</span>
             </h1>
-            <h2 className="font-[family-name:var(--font-outfit)] text-base sm:text-lg md:text-xl lg:text-2xl text-slate-300 font-light tracking-tight leading-snug">
+            <h2 className="font-[family-name:var(--font-outfit)] text-sm sm:text-base md:text-lg lg:text-xl text-slate-300 font-light tracking-tight leading-snug">
               START OR SCALE YOUR REAL ESTATE BUSINESS
               <br />
               <span className="border-b-2 border-amber-500/40 pb-0.5">IN 7 - 14 DAYS</span>
@@ -405,17 +405,7 @@ export default function SecretLandingPage() {
 
           </div>
 
-          {/* Subheadline */}
-          <p className="text-center text-slate-200 max-w-2xl mx-auto mt-8 md:mt-10 text-lg md:text-2xl leading-tight tracking-tight mb-8 font-[family-name:var(--font-outfit)]">
-            SCHEDULE A CALL AND
-            <br />
-            FUND YOUR FUTURE
-          </p>
-          <p className="text-center text-slate-400 max-w-2xl mx-auto -mt-4 mb-8 text-sm md:text-base leading-relaxed">
-            Our Real Estate working capital program helps you unlock fast, flexible capital. No collateral. No property liens. No missed deals. No experience needed.
-          </p>
-
-          <div className="flex flex-col items-center mb-8">
+          <div className="flex flex-col items-center mt-4 mb-5">
             {isUnlocked ? (
               <div onClick={handleTypeformOpen}>
                 <PopupButton
@@ -424,7 +414,7 @@ export default function SecretLandingPage() {
                   transitiveSearchParams
                   className="btn-primary inline-flex items-center justify-center rounded-lg px-8 py-3 text-sm tracking-[0.04em] font-[family-name:var(--font-outfit)]"
                 >
-                  Schedule a Meeting
+                  SCHEDULE A CALL
                 </PopupButton>
               </div>
             ) : (
@@ -434,7 +424,7 @@ export default function SecretLandingPage() {
                 className="inline-flex items-center justify-center gap-2 rounded-lg px-8 py-3 text-sm tracking-[0.04em] border border-white/[0.12] bg-white/[0.03] text-slate-200 hover:bg-white/[0.06] transition-colors font-[family-name:var(--font-outfit)]"
               >
                 <Lock className="w-4 h-4 text-amber-400" />
-                Schedule a Meeting
+                SCHEDULE A CALL
               </button>
             )}
             {!isUnlocked && scheduleClickLocked && (
@@ -443,6 +433,13 @@ export default function SecretLandingPage() {
               </p>
             )}
           </div>
+
+          <p className="text-center text-slate-200 max-w-2xl mx-auto text-base md:text-xl leading-tight tracking-tight mb-2 font-[family-name:var(--font-outfit)]">
+            (FUND YOUR FUTURE)
+          </p>
+          <p className="text-center text-slate-400 max-w-2xl mx-auto mb-6 text-sm md:text-base leading-relaxed">
+            Our real estate working capital program helps you secure fast, flexible funding in 7-14 days. No collateral required and no property liens.
+          </p>
         </div>
       </section>
 
