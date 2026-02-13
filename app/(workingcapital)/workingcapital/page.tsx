@@ -322,7 +322,7 @@ export default function SecretLandingPage() {
               <span className="text-slate-100">IN 0% WORKING CAPITAL</span>
             </h1>
             <h2 className="font-[family-name:var(--font-outfit)] text-base sm:text-lg md:text-xl lg:text-2xl text-slate-300 font-light tracking-tight leading-snug">
-              TO START OR SCALE YOUR REAL ESTATE BUSINESS
+              START OR SCALE YOUR REAL ESTATE BUSINESS
               <br />
               <span className="border-b-2 border-amber-500/40 pb-0.5">IN 7 - 14 DAYS</span>
             </h2>
