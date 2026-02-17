@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useRef, useEffect, useCallback, memo } from 'react'
+import { useState, useRef, useEffect, memo } from 'react'
 import Image from 'next/image'
 import { Play, ChevronLeft, ChevronRight, Check, Lock, Sparkles } from 'lucide-react'
 import { Widget } from '@typeform/embed-react'
@@ -86,20 +86,14 @@ const TESTIMONIALS = [
 
 const VIDEO_UNLOCK_THRESHOLD = 0.35
 
-type TypeformSubmitPayload = {
-  responseId?: string
-}
-
 const SchedulerEmbed = memo(function SchedulerEmbed({
   typeformId,
   isOpen,
   schedulerRef,
-  onSubmit,
 }: {
   typeformId: string
   isOpen: boolean
   schedulerRef: React.RefObject<HTMLDivElement>
-  onSubmit: (payload?: TypeformSubmitPayload) => void
 }) {
   return (
     <div
@@ -123,7 +117,6 @@ const SchedulerEmbed = memo(function SchedulerEmbed({
           className="w-full"
           transitiveSearchParams
           hideFooter
-          onSubmit={onSubmit}
           inlineOnMobile
           lazy={false}
         />
@@ -140,7 +133,6 @@ export default function SecretLandingPage() {
   const carouselRef = useRef<HTMLDivElement>(null)
   const videoRef = useRef<HTMLVideoElement>(null)
   const schedulerRef = useRef<HTMLDivElement>(null)
-  const hasHandledTypeformSubmitRef = useRef(false)
   const [isPaused, setIsPaused] = useState(false)
   const [videoProgress, setVideoProgress] = useState(0)
   const [isUnlocked, setIsUnlocked] = useState(false)
@@ -252,29 +244,6 @@ export default function SecretLandingPage() {
       schedulerRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' })
     })
   }
-
-  const handleTypeformSubmit = useCallback((payload?: TypeformSubmitPayload) => {
-    if (typeof window === 'undefined' || hasHandledTypeformSubmitRef.current) return
-
-    hasHandledTypeformSubmitRef.current = true
-
-    const currentUrl = new URL(window.location.href)
-    const thankYouUrl = new URL('/workingcapital/thank-you', window.location.origin)
-
-    currentUrl.searchParams.forEach((value, key) => {
-      thankYouUrl.searchParams.set(key, value)
-    })
-
-    thankYouUrl.searchParams.set('src', 'typeform')
-    thankYouUrl.searchParams.set('submission_token', `${Date.now()}`)
-
-    if (payload?.responseId) {
-      thankYouUrl.searchParams.set('tf_response_id', payload.responseId)
-    }
-
-    window.sessionStorage.setItem('wc_typeform_submitted', '1')
-    window.location.assign(thankYouUrl.toString())
-  }, [])
 
   // Auto-scroll carousel
   useEffect(() => {
@@ -545,7 +514,6 @@ export default function SecretLandingPage() {
             typeformId={TYPEFORM_ID}
             isOpen={isSchedulerOpen}
             schedulerRef={schedulerRef}
-            onSubmit={handleTypeformSubmit}
           />
         </div>
       </section>
