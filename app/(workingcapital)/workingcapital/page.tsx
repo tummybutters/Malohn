@@ -352,7 +352,7 @@ export default function SecretLandingPage() {
                   event.preventDefault()
                   event.stopPropagation()
                 }}
-                className="absolute top-0 right-0 z-20 h-24 w-24 bg-[#08090c]/95 border-l border-b border-white/[0.08] flex items-center justify-center pointer-events-auto select-none"
+                className="absolute top-[3px] right-[3px] z-20 h-[91px] w-[91px] bg-[#08090c]/95 border-l border-b border-white/[0.08] flex items-center justify-center pointer-events-auto select-none"
               >
                 <div className="relative w-12 h-12">
                   <Image
