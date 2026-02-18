@@ -84,10 +84,10 @@ const TESTIMONIALS = [
   },
 ]
 
-const VIDEO_UNLOCK_THRESHOLD = 0.35
+const VIDEO_UNLOCK_THRESHOLD = 0.3
 const VSL_DRIVE_FILE_ID = '1G4vYk4u5FIeMbrsEiS00pFFXKv94QTtC'
 const VSL_PREVIEW_URL = `https://drive.google.com/file/d/${VSL_DRIVE_FILE_ID}/preview`
-const WATCH_TIMER_SECONDS = 40
+const VSL_DURATION_SECONDS = 273
 
 const SchedulerEmbed = memo(function SchedulerEmbed({
   typeformId,
@@ -140,6 +140,8 @@ export default function SecretLandingPage() {
   const [videoProgress, setVideoProgress] = useState(0)
   const [isUnlocked, setIsUnlocked] = useState(false)
   const [isVideoPlaying, setIsVideoPlaying] = useState(false)
+  const watchedMsRef = useRef(0)
+  const lastTickRef = useRef<number | null>(null)
 
   const trackMetaEvent = (eventName: string, params?: Record<string, unknown>) => {
     if (typeof window === 'undefined' || typeof window.fbq !== 'function') return
@@ -150,25 +152,38 @@ export default function SecretLandingPage() {
     window.fbq('trackCustom', eventName)
   }
 
-  // Simulate watched progress for the embedded VSL.
-  // Drive preview iframe does not provide playback progress callbacks.
+  // Track active watch-session time for embedded VSL.
+  // Drive preview iframe does not expose playback progress events.
   useEffect(() => {
-    if (!isVideoPlaying) return
+    if (!isVideoPlaying || isUnlocked) return
+    lastTickRef.current = Date.now()
 
-    const startedAt = Date.now()
     const interval = window.setInterval(() => {
-      const elapsed = (Date.now() - startedAt) / 1000
-      const progress = Math.min(elapsed / WATCH_TIMER_SECONDS, 1)
+      const now = Date.now()
+      if (!lastTickRef.current) {
+        lastTickRef.current = now
+        return
+      }
+
+      const delta = now - lastTickRef.current
+      lastTickRef.current = now
+
+      if (document.visibilityState === 'visible' && document.hasFocus()) {
+        watchedMsRef.current += delta
+      }
+
+      const progress = Math.min(watchedMsRef.current / (VSL_DURATION_SECONDS * 1000), 1)
       setVideoProgress(progress)
       if (progress >= VIDEO_UNLOCK_THRESHOLD) {
         setIsUnlocked(true)
+        setIsVideoPlaying(false)
       }
     }, 250)
 
     return () => {
       window.clearInterval(interval)
     }
-  }, [isVideoPlaying])
+  }, [isVideoPlaying, isUnlocked])
 
   useEffect(() => {
     if (isUnlocked && scheduleClickLocked) {
@@ -199,6 +214,9 @@ export default function SecretLandingPage() {
 
   const handlePlayVideo = () => {
     setIsVideoPlaying(true)
+    if (!lastTickRef.current) {
+      lastTickRef.current = Date.now()
+    }
   }
 
   const handleScheduleMeetingClick = () => {
