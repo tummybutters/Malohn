@@ -341,6 +341,28 @@ export default function SecretLandingPage() {
                 allow="autoplay; fullscreen; picture-in-picture"
                 allowFullScreen
               />
+              {/* Block Google Drive "open in new window" control */}
+              <div
+                aria-hidden="true"
+                onClick={(event) => {
+                  event.preventDefault()
+                  event.stopPropagation()
+                }}
+                onPointerDown={(event) => {
+                  event.preventDefault()
+                  event.stopPropagation()
+                }}
+                className="absolute top-0 right-0 z-20 h-24 w-24 bg-[#08090c]/95 border-l border-b border-white/[0.08] flex items-center justify-center pointer-events-auto select-none"
+              >
+                <div className="relative w-12 h-12">
+                  <Image
+                    src="/images/logo.png"
+                    alt=""
+                    fill
+                    className="object-contain opacity-85"
+                  />
+                </div>
+              </div>
             </div>
 
           </div>
