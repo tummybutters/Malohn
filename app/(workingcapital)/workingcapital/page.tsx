@@ -2,7 +2,7 @@
 
 import { useState, useRef, useEffect, memo } from 'react'
 import Image from 'next/image'
-import { Play, ChevronLeft, ChevronRight, Check, Lock, Sparkles } from 'lucide-react'
+import { Play, ChevronLeft, ChevronRight, Sparkles } from 'lucide-react'
 import { Widget } from '@typeform/embed-react'
 import styles from './SecretLanding.module.css'
 
@@ -84,10 +84,8 @@ const TESTIMONIALS = [
   },
 ]
 
-const VIDEO_UNLOCK_THRESHOLD = 0.3
 const VSL_DRIVE_FILE_ID = '1G4vYk4u5FIeMbrsEiS00pFFXKv94QTtC'
 const VSL_PREVIEW_URL = `https://drive.google.com/file/d/${VSL_DRIVE_FILE_ID}/preview`
-const VSL_DURATION_SECONDS = 273
 
 const SchedulerEmbed = memo(function SchedulerEmbed({
   typeformId,
@@ -131,17 +129,12 @@ const SchedulerEmbed = memo(function SchedulerEmbed({
 export default function SecretLandingPage() {
   const TYPEFORM_ID = 'lGiCs1cM'
   const [openIndex, setOpenIndex] = useState<number | null>(null)
-  const [scheduleClickLocked, setScheduleClickLocked] = useState(false)
   const [isSchedulerOpen, setIsSchedulerOpen] = useState(false)
   const carouselRef = useRef<HTMLDivElement>(null)
   const videoContainerRef = useRef<HTMLDivElement>(null)
   const schedulerRef = useRef<HTMLDivElement>(null)
   const [isPaused, setIsPaused] = useState(false)
-  const [videoProgress, setVideoProgress] = useState(0)
-  const [isUnlocked, setIsUnlocked] = useState(false)
   const [isVideoPlaying, setIsVideoPlaying] = useState(false)
-  const watchedMsRef = useRef(0)
-  const lastTickRef = useRef<number | null>(null)
 
   const trackMetaEvent = (eventName: string, params?: Record<string, unknown>) => {
     if (typeof window === 'undefined' || typeof window.fbq !== 'function') return
@@ -151,45 +144,6 @@ export default function SecretLandingPage() {
     }
     window.fbq('trackCustom', eventName)
   }
-
-  // Track active watch-session time for embedded VSL.
-  // Drive preview iframe does not expose playback progress events.
-  useEffect(() => {
-    if (!isVideoPlaying || isUnlocked) return
-    lastTickRef.current = Date.now()
-
-    const interval = window.setInterval(() => {
-      const now = Date.now()
-      if (!lastTickRef.current) {
-        lastTickRef.current = now
-        return
-      }
-
-      const delta = now - lastTickRef.current
-      lastTickRef.current = now
-
-      if (document.visibilityState === 'visible' && document.hasFocus()) {
-        watchedMsRef.current += delta
-      }
-
-      const progress = Math.min(watchedMsRef.current / (VSL_DURATION_SECONDS * 1000), 1)
-      setVideoProgress(progress)
-      if (progress >= VIDEO_UNLOCK_THRESHOLD) {
-        setIsUnlocked(true)
-        setIsVideoPlaying(false)
-      }
-    }, 250)
-
-    return () => {
-      window.clearInterval(interval)
-    }
-  }, [isVideoPlaying, isUnlocked])
-
-  useEffect(() => {
-    if (isUnlocked && scheduleClickLocked) {
-      setScheduleClickLocked(false)
-    }
-  }, [isUnlocked, scheduleClickLocked])
 
   useEffect(() => {
     if (typeof document === 'undefined') return
@@ -214,20 +168,9 @@ export default function SecretLandingPage() {
 
   const handlePlayVideo = () => {
     setIsVideoPlaying(true)
-    if (!lastTickRef.current) {
-      lastTickRef.current = Date.now()
-    }
-  }
-
-  const handleScheduleMeetingClick = () => {
-    if (isUnlocked) return
-    setScheduleClickLocked(true)
-    videoContainerRef.current?.scrollIntoView({ behavior: 'smooth', block: 'center' })
   }
 
   const handleTypeformOpen = () => {
-    if (!isUnlocked) return
-
     trackMetaEvent('ScheduleMeetingClick', { page: '/workingcapital' })
     setIsSchedulerOpen(true)
     requestAnimationFrame(() => {
@@ -333,9 +276,6 @@ export default function SecretLandingPage() {
     }
   }
 
-  const remainingUnlockPercent = Math.max(0, Math.ceil((VIDEO_UNLOCK_THRESHOLD - videoProgress) * 100))
-  const watchedPercent = Math.round(videoProgress * 100)
-
   return (
     <div className="min-h-screen bg-deep text-slate-50 selection:bg-amber-500/25 relative">
       {/* Ambient background effects */}
@@ -427,71 +367,23 @@ export default function SecretLandingPage() {
                 </button>
               )}
 
-              {/* Progress bar */}
-              <div className="absolute bottom-0 left-0 right-0 h-1 bg-white/10">
-                <div
-                  className="h-full bg-gradient-to-r from-amber-400 to-amber-500 transition-all duration-300"
-                  style={{ width: `${videoProgress * 100}%` }}
-                />
-                <div
-                  className="absolute top-0 h-full w-0.5 bg-white/40"
-                  style={{ left: `${VIDEO_UNLOCK_THRESHOLD * 100}%` }}
-                />
-              </div>
-
-              {/* Unlock badge */}
-              {!isUnlocked && videoProgress > 0 && (
-                <div className="absolute top-4 right-4 bg-black/60 backdrop-blur-md border border-white/10 rounded-full px-3 py-1.5 flex items-center gap-2">
-                  <Lock className="w-3 h-3 text-amber-400" />
-                  <span className="text-xs text-slate-300 font-[family-name:var(--font-outfit)]">
-                    {Math.round((VIDEO_UNLOCK_THRESHOLD - videoProgress) * 100)}% more to unlock
-                  </span>
-                </div>
-              )}
-              {isUnlocked && (
-                <div className="absolute top-4 right-4 bg-amber-500/20 backdrop-blur-md border border-amber-500/30 rounded-full px-3 py-1.5 flex items-center gap-2">
-                  <Check className="w-3 h-3 text-amber-400" />
-                  <span className="text-xs text-amber-200 font-[family-name:var(--font-outfit)]">Unlocked</span>
-                </div>
-              )}
             </div>
 
           </div>
 
           <div className="flex flex-col items-center mt-[75px] md:mt-1.5 mb-3">
-            {isUnlocked ? (
-              <button
-                type="button"
-                onClick={handleTypeformOpen}
-                className="btn-primary inline-flex flex-col items-center justify-center rounded-lg px-8 py-3 font-[family-name:var(--font-outfit)]"
-              >
-                <span className="text-[10px] sm:text-[11px] tracking-[0.12em] uppercase leading-none">
-                  FUND YOUR FUTURE
-                </span>
-                <span className="mt-1 text-sm tracking-[0.04em] leading-none">
-                  SCHEDULE A CALL
-                </span>
-              </button>
-            ) : (
-              <button
-                type="button"
-                onClick={handleScheduleMeetingClick}
-                className="btn-primary inline-flex flex-col items-center justify-center rounded-lg px-8 py-3 font-[family-name:var(--font-outfit)]"
-              >
-                <span className="text-[10px] sm:text-[11px] tracking-[0.12em] uppercase leading-none">
-                  FUND YOUR FUTURE
-                </span>
-                <span className="mt-1 inline-flex items-center gap-2 text-sm tracking-[0.04em] leading-none">
-                  <Lock className="w-4 h-4 text-[#08090c]" />
-                  SCHEDULE A CALL
-                </span>
-              </button>
-            )}
-            {!isUnlocked && scheduleClickLocked && (
-              <p className="text-center text-xs text-amber-300/80 mt-3 font-[family-name:var(--font-outfit)]">
-                Watch {remainingUnlockPercent}% more of the video to unlock scheduling ({watchedPercent}% watched).
-              </p>
-            )}
+            <button
+              type="button"
+              onClick={handleTypeformOpen}
+              className="btn-primary inline-flex flex-col items-center justify-center rounded-lg px-8 py-3 font-[family-name:var(--font-outfit)]"
+            >
+              <span className="text-[10px] sm:text-[11px] tracking-[0.12em] uppercase leading-none">
+                FUND YOUR FUTURE
+              </span>
+              <span className="mt-1 text-sm tracking-[0.04em] leading-none">
+                SCHEDULE A CALL
+              </span>
+            </button>
           </div>
 
           <p className="text-center text-slate-400 max-w-2xl mx-auto mb-4 text-sm md:text-base leading-relaxed">
@@ -619,23 +511,13 @@ export default function SecretLandingPage() {
             Join hundreds of real estate investors who have scaled their portfolios with our 0% working capital program.
           </p>
 
-          {isUnlocked ? (
-            <button
-              type="button"
-              onClick={handleTypeformOpen}
-              className="inline-flex items-center justify-center gap-2 px-10 py-4 bg-gradient-to-r from-amber-400 to-amber-500 text-[#08090c] font-medium rounded-lg hover:shadow-xl hover:shadow-amber-500/20 transition-all duration-300 font-[family-name:var(--font-outfit)]"
-            >
-              Book Your Free Strategy Call
-            </button>
-          ) : (
-            <button
-              disabled
-              className="inline-flex items-center justify-center gap-2 px-10 py-4 bg-white/5 text-slate-600 border border-white/10 rounded-lg cursor-not-allowed font-[family-name:var(--font-outfit)]"
-            >
-              <Lock className="w-4 h-4" />
-              Watch Video to Unlock
-            </button>
-          )}
+          <button
+            type="button"
+            onClick={handleTypeformOpen}
+            className="inline-flex items-center justify-center gap-2 px-10 py-4 bg-gradient-to-r from-amber-400 to-amber-500 text-[#08090c] font-medium rounded-lg hover:shadow-xl hover:shadow-amber-500/20 transition-all duration-300 font-[family-name:var(--font-outfit)]"
+          >
+            Book Your Free Strategy Call
+          </button>
 
           <p className="text-slate-700 text-xs mt-8 font-[family-name:var(--font-outfit)]">
             Limited spots available. Must meet credit requirements.
