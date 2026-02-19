@@ -66,7 +66,7 @@ export default function Navbar() {
             </div>
           </Link>
 
-          <div className="h-4 w-px bg-white/10 mx-4" />
+          <div className="h-4 w-px bg-white/10 mx-3" />
 
           {/* Left Links */}
           <div className="flex items-center">
@@ -89,13 +89,13 @@ export default function Navbar() {
                         }`}
                     />
                   </Link>
-                  {index < leftLinks.length - 1 && <div className="h-3.5 w-px bg-white/10" />}
+                  {index < leftLinks.length - 1 && <div className="h-3.5 w-px bg-white/10 mx-1" />}
                 </div>
               )
             })}
           </div>
 
-          <div className="h-4 w-px bg-white/10 mx-4" />
+          <div className="h-4 w-px bg-white/10 mx-3" />
 
           {/* Right Links */}
           <div className="flex items-center">
@@ -118,12 +118,12 @@ export default function Navbar() {
                         }`}
                     />
                   </Link>
-                  {index < rightLinks.length - 1 && <div className="h-3.5 w-px bg-white/10" />}
+                  {index < rightLinks.length - 1 && <div className="h-3.5 w-px bg-white/10 mx-1" />}
                 </div>
               )
             })}
 
-            <div className="h-7 w-px bg-white/10 mx-3" />
+            <div className="h-4 w-px bg-white/10 mx-3" />
 
             <Link
               href="https://form.typeform.com/to/lGiCs1cM"
