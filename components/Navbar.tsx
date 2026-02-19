@@ -13,17 +13,29 @@ export default function Navbar() {
 
   const leftLinks = [
     { href: '/', label: 'Home' },
+    { href: '/services', label: 'Services' },
     { href: '/capital-solutions', label: 'Capital Solutions' },
-    { href: '/transactions', label: 'Transactions' },
-    { href: '/client-success', label: 'Client Success' },
   ]
 
   const rightLinks = [
+    { href: '/transactions', label: 'Transactions' },
+    { href: '/client-success', label: 'Client Success' },
     { href: '/about', label: 'About' },
     { href: '/capital-group', label: 'Capital Group' },
   ]
 
   const allLinks = [...leftLinks, ...rightLinks]
+  const solutionLinks = allLinks.filter((link) =>
+    ['/services', '/capital-solutions'].includes(link.href)
+  )
+  const companyLinks = allLinks.filter((link) =>
+    ['/', '/transactions', '/client-success', '/about', '/capital-group'].includes(link.href)
+  )
+
+  const isLinkActive = (href: string) => {
+    if (href === '/') return pathname === '/'
+    return pathname === href || pathname.startsWith(`${href}/`)
+  }
 
   useEffect(() => {
     if (isMenuOpen) {
@@ -41,86 +53,81 @@ export default function Navbar() {
     <>
       {/* Desktop Navbar - Refined Technical Look */}
       <nav className="fixed top-6 left-0 right-0 z-50 hidden md:flex justify-center animate-fade-down">
-        <div className="flex items-center px-6 py-3 rounded-none bg-[#0b111a]/95 border border-white/10 shadow-[0_14px_30px_rgba(0,0,0,0.55)] backdrop-blur-md">
-
-          {/* Left Links */}
-          <div className="flex items-center">
-            {leftLinks.map((link) => {
-              const isActive = pathname === link.href
-              return (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  className="relative px-5 py-1 group"
-                >
-                  <span className={`relative z-10 text-sm font-medium transition-colors duration-300 ${isActive ? 'text-white' : 'text-white/60 group-hover:text-white'
-                    }`}>
-                    {link.label}
-                  </span>
-                  {/* Underline */}
-                  <span
-                    className={`absolute bottom-0 left-5 right-5 h-[1px] transition-all duration-300 ease-out origin-left ${isActive
-                      ? 'bg-accent-warm scale-x-100'
-                      : 'bg-accent-warm/70 scale-x-0 group-hover:scale-x-100'
-                      }`}
-                  />
-                </Link>
-              )
-            })}
-          </div>
-
-          {/* Divider 1 */}
-          <div className="h-4 w-px bg-white/10 mx-6" />
-
-          {/* Center Logo - Unboxed */}
-          <Link href="/" className="relative mx-0 group">
-            <div
-              className="relative w-40 h-16 opacity-90 group-hover:opacity-100 transition-opacity"
-            >
+        <div className="flex items-center px-4 py-2.5 rounded-none bg-[#0b111a]/95 border border-white/10 shadow-[0_14px_30px_rgba(0,0,0,0.55)] backdrop-blur-md">
+          {/* Logo - Left aligned */}
+          <Link href="/" className="relative group">
+            <div className="relative w-32 h-12 opacity-90 group-hover:opacity-100 transition-opacity">
               <Image
                 src="/images/logo.png"
                 alt="Malohn Capital Group"
                 fill
-                className="object-contain scale-[1.2]"
+                className="object-contain scale-[1.15]"
               />
             </div>
           </Link>
 
-          {/* Divider 2 */}
-          <div className="h-4 w-px bg-white/10 mx-6" />
+          <div className="h-4 w-px bg-white/10 mx-4" />
+
+          {/* Left Links */}
+          <div className="flex items-center">
+            {leftLinks.map((link, index) => {
+              const isActive = isLinkActive(link.href)
+              return (
+                <div key={link.href} className="flex items-center">
+                  <Link
+                    href={link.href}
+                    className="relative px-3 py-0.5 group"
+                  >
+                    <span className={`relative z-10 text-[11px] font-medium transition-colors duration-300 ${isActive ? 'text-white' : 'text-white/60 group-hover:text-white'
+                      }`}>
+                      {link.label}
+                    </span>
+                    <span
+                      className={`absolute bottom-0 left-3 right-3 h-[1px] transition-all duration-300 ease-out origin-left ${isActive
+                        ? 'bg-accent-warm scale-x-100'
+                        : 'bg-accent-warm/70 scale-x-0 group-hover:scale-x-100'
+                        }`}
+                    />
+                  </Link>
+                  {index < leftLinks.length - 1 && <div className="h-3.5 w-px bg-white/10" />}
+                </div>
+              )
+            })}
+          </div>
+
+          <div className="h-4 w-px bg-white/10 mx-4" />
 
           {/* Right Links */}
           <div className="flex items-center">
-            {rightLinks.map((link) => {
-              const isActive = pathname === link.href
+            {rightLinks.map((link, index) => {
+              const isActive = isLinkActive(link.href)
               return (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  className="relative px-5 py-1 group"
-                >
-                  <span className={`relative z-10 text-sm font-medium transition-colors duration-300 ${isActive ? 'text-white' : 'text-white/60 group-hover:text-white'
-                    }`}>
-                    {link.label}
-                  </span>
-                  {/* Underline */}
-                  <span
-                    className={`absolute bottom-0 left-5 right-5 h-[1px] transition-all duration-300 ease-out origin-left ${isActive
-                      ? 'bg-accent-warm scale-x-100'
-                      : 'bg-accent-warm/70 scale-x-0 group-hover:scale-x-100'
-                      }`}
-                  />
-                </Link>
+                <div key={link.href} className="flex items-center">
+                  <Link
+                    href={link.href}
+                    className="relative px-3 py-0.5 group"
+                  >
+                    <span className={`relative z-10 text-[11px] font-medium transition-colors duration-300 ${isActive ? 'text-white' : 'text-white/60 group-hover:text-white'
+                      }`}>
+                      {link.label}
+                    </span>
+                    <span
+                      className={`absolute bottom-0 left-3 right-3 h-[1px] transition-all duration-300 ease-out origin-left ${isActive
+                        ? 'bg-accent-warm scale-x-100'
+                        : 'bg-accent-warm/70 scale-x-0 group-hover:scale-x-100'
+                        }`}
+                    />
+                  </Link>
+                  {index < rightLinks.length - 1 && <div className="h-3.5 w-px bg-white/10" />}
+                </div>
               )
             })}
 
-            {/* Vertical Divider before CTA */}
-            <div className="h-8 w-px bg-white/10 mx-5" />
+            <div className="h-7 w-px bg-white/10 mx-3" />
 
-            {/* CTA Button */}
             <Link
               href="https://form.typeform.com/to/lGiCs1cM"
-              className="px-6 py-2 rounded-none bg-white/5 border border-white/10 text-white/90 text-sm font-medium hover:bg-white/10 hover:border-white/20 hover:text-white transition-all duration-200"
+              className="px-4 py-1.5 rounded-none bg-white/5 border border-white/10 text-white/90 text-[11px] font-medium hover:bg-white/10 hover:border-white/20 hover:text-white transition-all duration-200"
             >
               Schedule a Meeting
             </Link>
@@ -131,9 +138,8 @@ export default function Navbar() {
       {/* Mobile Navbar */}
       <nav className="fixed top-2 left-3 right-3 z-50 md:hidden animate-fade-down sm:top-3 sm:left-4 sm:right-4">
         <div className="flex items-center justify-between px-3 py-2.5 rounded-none bg-[#0b111a]/95 border border-white/10 shadow-[0_12px_28px_rgba(0,0,0,0.5)] backdrop-blur-md sm:px-4">
-          {/* Mobile Logo - Unboxed Link */}
           <Link href="/" className="flex items-center gap-3">
-            <div className="relative w-11 h-11 sm:w-12 sm:h-12">
+            <div className="relative w-9 h-9 sm:w-10 sm:h-10">
               <Image
                 src="/images/logo.png"
                 alt="Malohn Capital Group"
@@ -142,11 +148,10 @@ export default function Navbar() {
               />
             </div>
             <div className="leading-tight max-w-[132px]">
-              <p className="text-[11px] sm:text-xs font-semibold text-white leading-[1.1]">Malohn Capital Group</p>
+              <p className="text-[10px] sm:text-[11px] font-semibold text-white leading-[1.1]">Malohn Capital Group</p>
             </div>
           </Link>
 
-          {/* Mobile Menu Button - Sharp */}
           <button
             className="flex items-center gap-2 px-2.5 py-1.5 rounded-none bg-white/5 border border-white/10 text-white/70 hover:text-white transition-colors active:scale-90"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -168,15 +173,15 @@ export default function Navbar() {
           </button>
         </div>
 
-        {/* Mobile Menu Dropdown */}
         {isMenuVisible && (
           <div
             id="mobile-menu"
             className={`mt-2 p-4 rounded-none bg-[#101826] border border-white/10 shadow-[0_20px_45px_rgba(0,0,0,0.55)] transition-all duration-200 ease-[cubic-bezier(0.16,1,0.3,1)] ${isMenuOpen ? 'opacity-100 translate-y-0 scale-100 pointer-events-auto' : 'opacity-0 -translate-y-2 scale-[0.98] pointer-events-none'}`}
           >
             <div className="flex flex-col gap-1">
-              {allLinks.map((link, i) => {
-                const isActive = pathname === link.href
+              <p className="px-4 pt-1 pb-1 text-[10px] uppercase tracking-[0.2em] text-white/40">Solutions</p>
+              {solutionLinks.map((link, i) => {
+                const isActive = isLinkActive(link.href)
                 return (
                   <div
                     key={link.href}
@@ -196,9 +201,32 @@ export default function Navbar() {
                   </div>
                 )
               })}
+              <p className="mt-3 px-4 pt-1 pb-1 text-[10px] uppercase tracking-[0.2em] text-white/40">Company</p>
+              {companyLinks.map((link, i) => {
+                const isActive = isLinkActive(link.href)
+                const offset = solutionLinks.length + i
+                return (
+                  <div
+                    key={link.href}
+                    className={`transition-all duration-200 ${isMenuOpen ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-2'}`}
+                    style={{ transitionDelay: `${offset * 50}ms` }}
+                  >
+                    <Link
+                      href={link.href}
+                      className={`block px-4 py-3 rounded-none text-sm font-medium transition-all duration-200 border-l-2 ${isActive
+                        ? 'bg-white/5 text-white border-accent-warm'
+                        : 'text-white/60 border-transparent hover:text-white hover:bg-white/5 hover:border-white/20'
+                        }`}
+                      onClick={() => setIsMenuOpen(false)}
+                    >
+                      {link.label}
+                    </Link>
+                  </div>
+                )
+              })}
               <div
                 className={`mt-4 pt-4 border-t border-white/10 transition-all duration-200 ${isMenuOpen ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-2'}`}
-                style={{ transitionDelay: `${allLinks.length * 50}ms` }}
+                style={{ transitionDelay: `${(solutionLinks.length + companyLinks.length) * 50}ms` }}
               >
                 <Link
                   href="https://form.typeform.com/to/lGiCs1cM"
@@ -213,6 +241,5 @@ export default function Navbar() {
         )}
       </nav>
     </>
-
   )
 }

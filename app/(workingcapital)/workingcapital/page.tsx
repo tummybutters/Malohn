@@ -2,7 +2,7 @@
 
 import { useState, useRef, useEffect, memo } from 'react'
 import Image from 'next/image'
-import { ChevronLeft, ChevronRight, Sparkles } from 'lucide-react'
+import { ChevronLeft, ChevronRight, Play, Sparkles, X } from 'lucide-react'
 import { Widget } from '@typeform/embed-react'
 import styles from './SecretLanding.module.css'
 
@@ -87,6 +87,30 @@ const TESTIMONIALS = [
 const VSL_DRIVE_FILE_ID = '1G4vYk4u5FIeMbrsEiS00pFFXKv94QTtC'
 const VSL_PREVIEW_URL = `https://drive.google.com/file/d/${VSL_DRIVE_FILE_ID}/preview`
 
+const CLIENT_SUCCESS_VIDEOS = [
+  {
+    title: 'Bryce Fleming',
+    metric: '$290,000 in Working Capital',
+    location: 'Secured in 11 days',
+    poster: '/images/testimonials/marcus_d_portrait.png',
+    videoId: '1n25cOMBvQhcyIpbZMjzCteAbz5iPZIXC',
+  },
+  {
+    title: 'Charlie',
+    metric: '$320,000 in Working Capital',
+    location: 'Approved across two rounds in a few weeks',
+    poster: '/images/testimonials/brandon_t_portrait.png',
+    videoId: '1I8mGmFKryP6vEKrdRhBB4v7fcpEDBgx1',
+  },
+  {
+    title: 'Jason',
+    metric: '$125,000 in 0% Working Capital',
+    location: 'Secured in 8 days',
+    poster: '/images/testimonials/jennifer_r_portrait.png',
+    videoId: '1wWfVhdTSTDKBv_SaRWRz0bTE63QfW0rm',
+  },
+]
+
 const SchedulerEmbed = memo(function SchedulerEmbed({
   typeformId,
   isOpen,
@@ -130,6 +154,7 @@ export default function SecretLandingPage() {
   const TYPEFORM_ID = 'lGiCs1cM'
   const [openIndex, setOpenIndex] = useState<number | null>(null)
   const [isSchedulerOpen, setIsSchedulerOpen] = useState(false)
+  const [activeStoryVideo, setActiveStoryVideo] = useState<(typeof CLIENT_SUCCESS_VIDEOS)[number] | null>(null)
   const carouselRef = useRef<HTMLDivElement>(null)
   const schedulerRef = useRef<HTMLDivElement>(null)
   const [isPaused, setIsPaused] = useState(false)
@@ -163,6 +188,26 @@ export default function SecretLandingPage() {
       appendedLinks.forEach((link) => link.remove())
     }
   }, [])
+
+  useEffect(() => {
+    if (typeof document === 'undefined') return
+
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') setActiveStoryVideo(null)
+    }
+
+    if (activeStoryVideo) {
+      document.body.style.overflow = 'hidden'
+      window.addEventListener('keydown', onKeyDown)
+    } else {
+      document.body.style.overflow = ''
+    }
+
+    return () => {
+      document.body.style.overflow = ''
+      window.removeEventListener('keydown', onKeyDown)
+    }
+  }, [activeStoryVideo])
 
   const handleTypeformOpen = () => {
     trackMetaEvent('ScheduleMeetingClick', { page: '/workingcapital' })
@@ -394,6 +439,60 @@ export default function SecretLandingPage() {
         </div>
       </section>
 
+      {/* Mini Client Success Video Section */}
+      <section className="relative py-8 md:py-10 border-y border-white/[0.06] bg-[#07090d]/80">
+        <div className="max-w-5xl mx-auto px-4">
+          <div className="flex items-center justify-between gap-4 mb-4">
+            <p className="text-[10px] uppercase tracking-[0.18em] text-amber-400/55 font-[family-name:var(--font-outfit)]">
+              Client Success
+            </p>
+            <span className="text-[11px] text-slate-500">Tap to watch</span>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+            {CLIENT_SUCCESS_VIDEOS.map((story) => (
+              <button
+                key={story.title}
+                type="button"
+                onClick={() => setActiveStoryVideo(story)}
+                className="group text-left border border-white/[0.08] bg-[#0b0d11]/90 hover:border-amber-400/25 transition-colors"
+              >
+                <div className="p-3 flex items-center gap-3">
+                  <div className="relative w-12 h-12 rounded-full overflow-hidden border border-white/15 shrink-0">
+                    <Image
+                      src={story.poster}
+                      alt={story.title}
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
+                  <div className="min-w-0">
+                    <p className="text-xs text-slate-100 font-medium leading-tight">{story.title}</p>
+                    <p className="text-[11px] text-amber-300/75 leading-tight mt-0.5">{story.metric}</p>
+                    <p className="text-[11px] text-slate-500 leading-tight mt-0.5">{story.location}</p>
+                  </div>
+                </div>
+
+                <div className="relative aspect-video border-t border-white/[0.08] overflow-hidden bg-black">
+                  <iframe
+                    title={`${story.title} Client Success Video`}
+                    src={`https://drive.google.com/file/d/${story.videoId}/preview`}
+                    className="w-full h-full opacity-80 group-hover:opacity-95 transition-opacity pointer-events-none"
+                    allow="autoplay; fullscreen"
+                    loading="lazy"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-black/10 to-transparent" />
+                  <div className="absolute bottom-3 right-3 inline-flex items-center gap-2 bg-black/55 border border-white/20 px-2.5 py-1 text-[11px] text-slate-100">
+                    <Play className="w-3.5 h-3.5 text-amber-300" />
+                    Watch Story
+                  </div>
+                </div>
+              </button>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Testimonial Section */}
       <section className="relative py-24 overflow-hidden bg-[#08090c]">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_30%_50%,_rgba(212,168,83,0.02)_0%,_transparent_50%)]" />
@@ -540,6 +639,45 @@ export default function SecretLandingPage() {
           </p>
         </div>
       </footer>
+
+      {activeStoryVideo && (
+        <div
+          className="fixed inset-0 z-[120] bg-black/80 backdrop-blur-sm p-4 md:p-8 flex items-center justify-center"
+          onClick={() => setActiveStoryVideo(null)}
+          role="dialog"
+          aria-modal="true"
+          aria-label="Client success video"
+        >
+          <div
+            className="relative w-full max-w-4xl max-h-[90vh] overflow-hidden border border-white/10 bg-[#08090c]"
+            onClick={(event) => event.stopPropagation()}
+          >
+            <button
+              type="button"
+              onClick={() => setActiveStoryVideo(null)}
+              className="absolute top-2 right-2 z-10 w-9 h-9 border border-white/20 bg-black/50 text-slate-200 hover:text-white hover:border-white/35 transition-colors flex items-center justify-center"
+              aria-label="Close video"
+            >
+              <X className="w-4 h-4" />
+            </button>
+
+            <div className="px-4 py-3 border-b border-white/10">
+              <p className="text-sm text-slate-100 font-medium">{activeStoryVideo.title}</p>
+              <p className="text-xs text-slate-400">{activeStoryVideo.metric}</p>
+            </div>
+
+            <div className="aspect-video bg-black">
+              <iframe
+                title={`${activeStoryVideo.title} Client Success Video`}
+                src={`https://drive.google.com/file/d/${activeStoryVideo.videoId}/preview`}
+                className="w-full h-full"
+                allow="autoplay; fullscreen"
+                loading="eager"
+              />
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   )
 }
