@@ -24,7 +24,7 @@ type InvestorOutcome = {
 
 const INVESTOR_OUTCOMES: InvestorOutcome[] = [
   {
-    name: 'Bryce Fleming',
+    name: 'Bryce',
     title: 'Real Estate Investor (Texas)',
     strategy: 'BRRRR strategy | Full time real estate professional',
     amount: '$290,000 in Working Capital',

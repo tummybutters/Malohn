@@ -89,7 +89,7 @@ const VSL_PREVIEW_URL = `https://drive.google.com/file/d/${VSL_DRIVE_FILE_ID}/pr
 
 const CLIENT_SUCCESS_VIDEOS = [
   {
-    title: 'Bryce Fleming',
+    title: 'Bryce',
     metric: '$290,000 in Working Capital',
     location: 'Secured in 11 days',
     poster: '/images/testimonials/marcus_d_portrait.png',
