@@ -324,9 +324,9 @@ export default function SecretLandingPage() {
       </div>
 
       {/* Header */}
-      <header className="relative py-0.5 md:py-1 border-b border-white/[0.06] backdrop-blur-sm bg-[#08090c]/80 sticky top-0 z-50">
+      <header className="relative py-[14px] md:py-[12px] border-b border-white/[0.06] backdrop-blur-sm bg-[#08090c]/80 sticky top-0 z-50">
         <div className="max-w-5xl mx-auto px-4 flex justify-center">
-          <div className="relative w-24 h-8 md:w-28 md:h-9 opacity-90 hover:opacity-100 transition-opacity">
+          <div className="relative w-36 h-12 md:w-40 md:h-[52px] opacity-90 hover:opacity-100 transition-opacity">
             <Image
               src="/images/logo.png"
               alt="Malohn Capital Group"
