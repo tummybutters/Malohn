@@ -112,14 +112,14 @@ export default function CapitalGroupPage() {
                 <div className="flex flex-col md:flex-row gap-8 items-center md:items-start">
                   <div className="relative w-32 h-32 md:w-40 md:h-40 shrink-0 rounded-full overflow-hidden border-2 border-white/10 group-hover:border-accent-warm/50 transition-colors">
                     <img
-                      src="/images/jeff-barak.png"
-                      alt="Jeff Barak"
+                      src="/images/vlad-ciobanu.jpg"
+                      alt="Vlad Ciobanu"
                       className="w-full h-full object-cover object-top"
                     />
                   </div>
                   <div className="text-center md:text-left">
                     <p className="text-[10px] uppercase tracking-[0.2em] text-accent-warm mb-2">Director of Capital Markets</p>
-                    <h3 className="text-2xl font-serif text-white mb-3">Jeff Barak</h3>
+                    <h3 className="text-2xl font-serif text-white mb-3">Vlad Ciobanu</h3>
                     <p className="text-sm text-white/60 leading-relaxed max-w-xl">
                       Jeff oversees capital market relationships and debt placement strategies. His expertise in structuring complex transactions ensures that clients access the most competitive leverage terms available in the market.
                     </p>

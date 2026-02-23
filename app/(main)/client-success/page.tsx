@@ -44,7 +44,7 @@ const INVESTOR_OUTCOMES: InvestorOutcome[] = [
     quote: '"Without the capital I was able to secure, I would have failed."',
     before: 'Cash tied up in renovations and down payments, forcing long gaps between deals and keeping him working as a technician.',
     after: 'Running multiple BRRRR projects simultaneously with available working capital and operating as a full time real estate investor.',
-    videoId: '1n25cOMBvQhcyIpbZMjzCteAbz5iPZIXC',
+    videoId: 'o6bwujd87k',
     proofStats: [
       { label: 'Capital Accessed', value: '$290K' },
       { label: 'Funding Speed', value: '11 Days' },
@@ -74,7 +74,7 @@ const INVESTOR_OUTCOMES: InvestorOutcome[] = [
     quote: '"Momentum. You gave me the revolving capital I needed to scale my flipping business."',
     before: 'Limited to one flip at a time using personal cash while working a 9-to-5.',
     after: 'Running multiple flips simultaneously with revolving working capital and scaling his business full time.',
-    videoId: '1I8mGmFKryP6vEKrdRhBB4v7fcpEDBgx1',
+    videoId: 'chii35ppsx',
     proofStats: [
       { label: 'Capital Accessed', value: '$320K' },
       { label: 'Approval Rounds', value: '2 Rounds' },
@@ -101,7 +101,7 @@ const INVESTOR_OUTCOMES: InvestorOutcome[] = [
     quote: '"I went from wanting to be a real estate investor to actually being one."',
     before: 'Waiting to save capital without access to deal structuring or off market opportunities.',
     after: 'Portfolio owner with a repeatable acquisition strategy using strategic working capital and deal structuring guidance.',
-    videoId: '1wWfVhdTSTDKBv_SaRWRz0bTE63QfW0rm',
+    videoId: '51971ywvc0',
     proofStats: [
       { label: 'Capital Accessed', value: '$125K at 0%' },
       { label: 'Funding Speed', value: '8 Days' },
@@ -140,10 +140,11 @@ function VideoFrame({ name, videoId }: { name: string; videoId: string }) {
   return (
     <div className="aspect-video border border-white/10 bg-black overflow-hidden">
       <iframe
-        src={`https://drive.google.com/file/d/${videoId}/preview`}
+        src={`https://fast.wistia.net/embed/iframe/${videoId}?seo=false&videoFoam=true`}
         title={`${name} Investor Outcome Video`}
         className="w-full h-full"
-        allow="autoplay; fullscreen"
+        allow="autoplay; fullscreen; picture-in-picture"
+        allowFullScreen
       />
     </div>
   )
@@ -235,11 +236,11 @@ function OutcomeProofStack({ outcome }: { outcome: InvestorOutcome }) {
 
           <div className="grid md:grid-cols-2 gap-4">
             <div className="border border-white/10 bg-[#050608] p-4">
-              <p className="text-[10px] uppercase tracking-wider text-white/40 mb-2">What Changed: Before</p>
+              <p className="text-[10px] uppercase tracking-wider text-white/40 mb-2">Constraints Before Capital</p>
               <p className="text-sm text-white/70 leading-relaxed">{outcome.before}</p>
             </div>
             <div className="border border-accent-warm/35 bg-accent-warm/[0.05] p-4">
-              <p className="text-[10px] uppercase tracking-wider text-accent-warm/90 mb-2">What Changed: After</p>
+              <p className="text-[10px] uppercase tracking-wider text-accent-warm/90 mb-2">Expansion After Capital</p>
               <p className="text-sm text-white/85 leading-relaxed">{outcome.after}</p>
             </div>
           </div>
@@ -265,8 +266,7 @@ export default function ClientSuccessPage() {
             Investor Capital Outcomes
           </h1>
           <p className="mt-6 text-sm md:text-base text-white/60 max-w-3xl leading-relaxed animate-fade-up delay-200">
-            Scroll down to review video stories and real investor outcomes from nationwide markets.
-            Each case uses the same high-clarity proof-stack layout for consistent scanning.
+            Review documented investor outcomes and verified case studies from markets nationwide. Each file is structured in a standardized format to ensure clarity, comparability, and transparency.
           </p>
         </div>
       </section>
@@ -281,7 +281,7 @@ export default function ClientSuccessPage() {
                   <h2 className="text-2xl md:text-3xl font-serif text-white">{outcome.name}</h2>
                 </div>
                 <div className="text-right">
-                  <span className="block text-xs font-mono text-white/40">CASE {String(index + 1).padStart(2, '0')}</span>
+                  <span className="block text-xs font-mono text-white/40">CASE FILE {String(index + 1).padStart(2, '0')}</span>
                 </div>
               </div>
 

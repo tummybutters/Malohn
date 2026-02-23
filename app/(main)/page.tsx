@@ -182,8 +182,8 @@ export default function HomePage() {
             {[
               { q: 'What qualifies for a strategy call?', a: 'Active investors looking to deploy capital in the next 7-90 days.' },
               { q: 'Do you work with new investors?', a: 'Yes, we work with new and seasoned investors provided there is a clear strategy and strong credit profile.' },
-              { q: 'How fast can we fund?', a: 'Working capital can be funded in as soon as 7-14 days. Typical DSCR funding timelines are 7-21 days.' },
-              { q: 'How much can we fund?', a: 'We can fund $50 to $500k in working capital for your first round and $10M+ in DSCR loans.' },
+              { q: 'How fast is the capital funded?', a: 'Working capital can be funded in as soon as 7-14 days. Typical DSCR funding timelines are 7-21 days.' },
+              { q: 'How much capital can be deployed?', a: 'We can structure $50K to $500K in working capital for your first round and $10M+ in DSCR loans.' },
             ].map((faq) => (
               <div key={faq.q} className="bg-[#050608] p-6 flex flex-col md:flex-row gap-4 md:items-center justify-between group hover:bg-[#0a0f15] transition-colors">
                 <p className="text-white font-medium">{faq.q}</p>

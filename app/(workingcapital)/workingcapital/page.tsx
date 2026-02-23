@@ -84,8 +84,8 @@ const TESTIMONIALS = [
   },
 ]
 
-const VSL_DRIVE_FILE_ID = '1G4vYk4u5FIeMbrsEiS00pFFXKv94QTtC'
-const VSL_PREVIEW_URL = `https://drive.google.com/file/d/${VSL_DRIVE_FILE_ID}/preview`
+const VSL_WISTIA_ID = 'pznzsyy6fg'
+const VSL_PREVIEW_URL = `https://fast.wistia.net/embed/iframe/${VSL_WISTIA_ID}?seo=false&videoFoam=true`
 
 const CLIENT_SUCCESS_VIDEOS = [
   {
@@ -93,21 +93,21 @@ const CLIENT_SUCCESS_VIDEOS = [
     metric: '$290,000 in Working Capital',
     location: 'Secured in 11 days',
     poster: '/images/testimonials/marcus_d_portrait.png',
-    videoId: '1n25cOMBvQhcyIpbZMjzCteAbz5iPZIXC',
+    videoId: 'o6bwujd87k',
   },
   {
     title: 'Charlie',
     metric: '$320,000 in Working Capital',
     location: 'Approved across two rounds in a few weeks',
     poster: '/images/testimonials/brandon_t_portrait.png',
-    videoId: '1I8mGmFKryP6vEKrdRhBB4v7fcpEDBgx1',
+    videoId: 'chii35ppsx',
   },
   {
     title: 'Jason',
     metric: '$125,000 in 0% Working Capital',
     location: 'Secured in 8 days',
     poster: '/images/testimonials/jennifer_r_portrait.png',
-    videoId: '1wWfVhdTSTDKBv_SaRWRz0bTE63QfW0rm',
+    videoId: '51971ywvc0',
   },
 ]
 
@@ -326,7 +326,7 @@ export default function SecretLandingPage() {
       {/* Header */}
       <header className="relative py-0.5 md:py-1 border-b border-white/[0.06] backdrop-blur-sm bg-[#08090c]/80 sticky top-0 z-50">
         <div className="max-w-5xl mx-auto px-4 flex justify-center">
-          <div className="relative w-20 h-7 md:w-24 md:h-8 opacity-90 hover:opacity-100 transition-opacity">
+          <div className="relative w-24 h-8 md:w-28 md:h-9 opacity-90 hover:opacity-100 transition-opacity">
             <Image
               src="/images/logo.png"
               alt="Malohn Capital Group"
@@ -345,7 +345,7 @@ export default function SecretLandingPage() {
 
         <div className="relative max-w-5xl mx-auto px-4">
           {/* Requirements Badge */}
-          <div className="flex justify-center mb-1.5 md:mb-2">
+          <div className="flex justify-center mb-3 md:mb-2">
             <div className="inline-flex items-center gap-2 px-2.5 py-1 rounded-full bg-white/[0.03] border border-amber-500/20 backdrop-blur-sm">
               <Sparkles className="w-2.5 h-2.5 text-amber-400/80 shrink-0" />
               <p className="text-[10px] sm:text-xs text-slate-300">
@@ -355,13 +355,13 @@ export default function SecretLandingPage() {
           </div>
 
           {/* Main Headline */}
-          <div className="text-center mb-2 md:mb-3">
-            <h1 className="font-[family-name:var(--font-outfit)] text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-medium tracking-tight leading-[1.05] mb-1.5 md:mb-2">
+          <div className="text-center mb-4 md:mb-3">
+            <h1 className="font-[family-name:var(--font-outfit)] text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-medium tracking-tight leading-[1.05] mb-2.5 md:mb-2">
               <span className="text-gradient-gold">SECURE $50,000–$500,000</span>
               <br />
               <span className="text-slate-100">IN 0% WORKING CAPITAL</span>
             </h1>
-            <h2 className="max-w-4xl mx-auto font-[family-name:var(--font-outfit)] text-base sm:text-lg md:text-xl lg:text-2xl text-slate-300 font-light tracking-tight leading-snug">
+            <h2 className="max-w-4xl mx-auto font-[family-name:var(--font-outfit)] text-base sm:text-lg md:text-xl lg:text-2xl text-slate-300 font-light tracking-tight leading-[1.2] sm:leading-snug px-1">
               START OR SCALE YOUR REAL ESTATE BUSINESS
               <br />
               <span className="border-b-2 border-amber-500/40 pb-0.5">IN 7 - 14 DAYS</span>
@@ -371,10 +371,10 @@ export default function SecretLandingPage() {
 
 
           {/* Video Section */}
-          <div className="max-w-[680px] mx-auto mt-[75px] md:mt-0">
+          <div className="max-w-[680px] mx-auto mt-4 md:mt-0">
             {/* Video label */}
             <div className="bg-white/[0.03] border border-white/[0.08] text-slate-300 text-center py-1 px-3 text-[10px] sm:text-[11px] font-medium tracking-wide flex items-center justify-center rounded-lg mb-1.5">
-              WATCH THE VIDEO BELOW TO SEE HOW THE PROGRAM WORKS
+              WATCH HOW INVESTORS UNLOCK CAPITAL AND SCALE FAST
             </div>
 
             <div className="relative aspect-video bg-gradient-to-br from-[#0c0e12] to-[#08090c] rounded-lg border border-white/[0.08] overflow-hidden shadow-2xl shadow-black/50">
@@ -386,33 +386,11 @@ export default function SecretLandingPage() {
                 allow="autoplay; fullscreen; picture-in-picture"
                 allowFullScreen
               />
-              {/* Block Google Drive "open in new window" control */}
-              <div
-                aria-hidden="true"
-                onClick={(event) => {
-                  event.preventDefault()
-                  event.stopPropagation()
-                }}
-                onPointerDown={(event) => {
-                  event.preventDefault()
-                  event.stopPropagation()
-                }}
-                className="absolute top-[3px] right-[3px] z-20 h-[91px] w-[91px] bg-[#08090c]/95 border-l border-b border-white/[0.08] flex items-center justify-center pointer-events-auto select-none"
-              >
-                <div className="relative w-12 h-12">
-                  <Image
-                    src="/images/logo.png"
-                    alt=""
-                    fill
-                    className="object-contain opacity-85"
-                  />
-                </div>
-              </div>
             </div>
 
           </div>
 
-          <div className="flex flex-col items-center mt-[75px] md:mt-1.5 mb-3">
+          <div className="flex flex-col items-center mt-5 md:mt-1.5 mb-3">
             <button
               type="button"
               onClick={handleTypeformOpen}
@@ -428,7 +406,7 @@ export default function SecretLandingPage() {
           </div>
 
           <p className="text-center text-slate-400 max-w-2xl mx-auto mb-4 text-sm md:text-base leading-relaxed">
-            Our real estate working capital program helps you secure fast, flexible funding in 7-14 days. No collateral required and no property liens.
+            Secure fast, flexible working capital in 7-14 days. No collateral, no property liens.
           </p>
 
           <SchedulerEmbed
@@ -466,9 +444,9 @@ export default function SecretLandingPage() {
                 <div className="relative aspect-video border-t border-white/[0.08] overflow-hidden bg-black">
                   <iframe
                     title={`${story.title} Client Success Video`}
-                    src={`https://drive.google.com/file/d/${story.videoId}/preview`}
+                    src={`https://fast.wistia.net/embed/iframe/${story.videoId}?seo=false&videoFoam=true`}
                     className="w-full h-full opacity-80 group-hover:opacity-95 transition-opacity pointer-events-none"
-                    allow="autoplay; fullscreen"
+                    allow="autoplay; fullscreen; picture-in-picture"
                     loading="lazy"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-black/10 to-transparent" />
@@ -659,9 +637,9 @@ export default function SecretLandingPage() {
             <div className="aspect-video bg-black">
               <iframe
                 title={`${activeStoryVideo.title} Client Success Video`}
-                src={`https://drive.google.com/file/d/${activeStoryVideo.videoId}/preview`}
+                src={`https://fast.wistia.net/embed/iframe/${activeStoryVideo.videoId}?seo=false&videoFoam=true`}
                 className="w-full h-full"
-                allow="autoplay; fullscreen"
+                allow="autoplay; fullscreen; picture-in-picture"
                 loading="eager"
               />
             </div>
