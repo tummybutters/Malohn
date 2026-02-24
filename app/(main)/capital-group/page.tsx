@@ -121,7 +121,7 @@ export default function CapitalGroupPage() {
                     <p className="text-[10px] uppercase tracking-[0.2em] text-accent-warm mb-2">Director of Capital Markets</p>
                     <h3 className="text-2xl font-serif text-white mb-3">Vlad Ciobanu</h3>
                     <p className="text-sm text-white/60 leading-relaxed max-w-xl">
-                      Jeff oversees capital market relationships and debt placement strategies. His expertise in structuring complex transactions ensures that clients access the most competitive leverage terms available in the market.
+                      Vlad oversees capital market relationships and debt placement strategies. His expertise in structuring complex transactions ensures that clients access the most competitive leverage terms available in the market.
                     </p>
                   </div>
                 </div>
