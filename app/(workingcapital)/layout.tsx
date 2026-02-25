@@ -66,7 +66,7 @@ export default function SecretLandingLayout({
             }
           `}
         </Script>
-        <Script id="meta-pixel-workingcapital" strategy="afterInteractive">
+        <Script id="meta-pixel-workingcapital" strategy="beforeInteractive">
           {`
             !function(f,b,e,v,n,t,s)
             {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
