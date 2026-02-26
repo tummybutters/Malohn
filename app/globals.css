@@ -1,0 +1,249 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Dark theme backgrounds */
+  --bg-primary: #0A0B0D;
+  --bg-secondary: #0F1217;
+  --bg-tertiary: #141A22;
+  --bg-card: #0F151F;
+
+  /* Accent colors */
+  --accent-primary: #0B1F3A;
+  --accent-light: #163A63;
+  --accent-warm: #B08A3C;
+
+  /* Text colors */
+  --text-primary: #F5F7FA;
+  --text-secondary: #D6DDE6;
+  --text-muted: #9AA6B2;
+  --text-light: #6F7B88;
+
+  /* Borders */
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --border-medium: rgba(255, 255, 255, 0.16);
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+body {
+  font-family: var(--font-inter), system-ui, sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Glassmorphic utilities - optimized for dark theme */
+@layer utilities {
+  .glass {
+    background: rgba(15, 19, 27, 0.72);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+  }
+
+  .glass-light {
+    background: rgba(20, 26, 36, 0.6);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.07);
+  }
+
+  .glass-dark {
+    background: rgba(8, 12, 18, 0.95);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* Smooth scroll for carousels */
+.scroll-smooth {
+  scroll-behavior: smooth;
+}
+
+/* Animation for gradient backgrounds */
+@keyframes gradient-shift {
+
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+.animate-gradient {
+  background-size: 200% 200%;
+  animation: gradient-shift 8s ease infinite;
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-down {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-scale-in {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes fade-scale-out {
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+}
+
+.animate-fade-up {
+  opacity: 0;
+  animation: fade-up 0.5s ease forwards;
+  will-change: opacity, transform;
+}
+
+.animate-fade-down {
+  opacity: 0;
+  animation: fade-down 0.6s ease forwards;
+  will-change: opacity, transform;
+}
+
+.animate-fade-scale-in {
+  opacity: 0;
+  animation: fade-scale-in 0.3s ease forwards;
+  will-change: opacity, transform;
+}
+
+.animate-fade-scale-out {
+  opacity: 1;
+  animation: fade-scale-out 0.3s ease forwards;
+  will-change: opacity, transform;
+}
+
+.delay-100 {
+  animation-delay: 0.1s;
+}
+
+.delay-200 {
+  animation-delay: 0.2s;
+}
+
+.delay-300 {
+  animation-delay: 0.3s;
+}
+
+.delay-400 {
+  animation-delay: 0.4s;
+}
+
+.delay-500 {
+  animation-delay: 0.5s;
+}
+
+.delay-600 {
+  animation-delay: 0.6s;
+}
+
+.delay-700 {
+  animation-delay: 0.7s;
+}
+
+.tx-grid {
+  position: relative;
+}
+
+.tx-item {
+  will-change: transform;
+}
+
+.tx-enter {
+  animation: fade-scale-in 0.3s ease forwards;
+}
+
+.tx-exit {
+  animation: fade-scale-out 0.3s ease forwards;
+}
+
+.tilt-card {
+  --tilt-x: 0deg;
+  --tilt-y: 0deg;
+  transform: perspective(1000px) rotateX(var(--tilt-x)) rotateY(var(--tilt-y));
+  transform-style: preserve-3d;
+  transition: transform 140ms ease;
+}
+
+.tilt-card-glow {
+  transform: translateZ(75px);
+  transform-style: preserve-3d;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-fade-up,
+  .animate-fade-down,
+  .animate-fade-scale-in,
+  .animate-fade-scale-out,
+  .tx-enter,
+  .tx-exit {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+
+  .tilt-card {
+    transition: none;
+    transform: none;
+  }
+}
