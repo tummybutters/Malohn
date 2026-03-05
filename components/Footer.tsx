@@ -55,7 +55,7 @@ export default function Footer() {
             <ul className="space-y-3 text-sm text-white/70">
               <li>{footerLinks.contact.phone}</li>
               <li>{footerLinks.contact.email}</li>
-              <li>{footerLinks.contact.address}</li>
+              <li className="whitespace-pre-line">{footerLinks.contact.address}</li>
             </ul>
           </div>
         </div>
