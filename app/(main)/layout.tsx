@@ -21,7 +21,7 @@ const playfair = Playfair_Display({
   weight: ['500', '600', '700'],
 })
 
-const FAVICON_VERSION = '20260308'
+const FAVICON_VERSION = '20260309'
 
 export const metadata: Metadata = {
   metadataBase,
