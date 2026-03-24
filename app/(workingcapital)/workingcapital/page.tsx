@@ -312,6 +312,17 @@ export default function SecretLandingPage() {
       page: '/workingcapital',
       ...trackingFields,
     })
+
+    // Beacon fallback: ensures the Lead event reaches Facebook even if
+    // Typeform redirects the browser before the pixel request completes.
+    if (typeof navigator !== 'undefined' && navigator.sendBeacon) {
+      const params = new URLSearchParams({
+        id: '916265341147153',
+        ev: 'Lead',
+        noscript: '1',
+      })
+      navigator.sendBeacon(`https://www.facebook.com/tr?${params.toString()}`)
+    }
   }
 
   // Auto-scroll carousel
