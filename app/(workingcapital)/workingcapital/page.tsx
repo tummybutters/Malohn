@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useRef, useEffect, memo } from 'react'
+import { useState, useRef, useEffect, memo, useCallback } from 'react'
 import Image from 'next/image'
 import { ChevronLeft, ChevronRight, Play, Sparkles, X } from 'lucide-react'
 import { Widget } from '@typeform/embed-react'
@@ -103,6 +103,24 @@ const readCookieValue = (cookieName: string): string | undefined => {
   }
 }
 
+const trackMetaEvent = (eventName: string, params?: Record<string, unknown>) => {
+  if (typeof window === 'undefined' || typeof window.fbq !== 'function') return
+  if (params) {
+    window.fbq('trackCustom', eventName, params)
+    return
+  }
+  window.fbq('trackCustom', eventName)
+}
+
+const trackMetaStandardEvent = (eventName: string, params?: Record<string, unknown>) => {
+  if (typeof window === 'undefined' || typeof window.fbq !== 'function') return
+  if (params) {
+    window.fbq('track', eventName, params)
+    return
+  }
+  window.fbq('track', eventName)
+}
+
 const CLIENT_SUCCESS_VIDEOS = [
   {
     title: 'Bryce',
@@ -130,12 +148,14 @@ const CLIENT_SUCCESS_VIDEOS = [
 const SchedulerEmbed = memo(function SchedulerEmbed({
   typeformId,
   isOpen,
+  isReady,
   schedulerRef,
   hiddenFields,
   onSubmit,
 }: {
   typeformId: string
   isOpen: boolean
+  isReady: boolean
   schedulerRef: React.RefObject<HTMLDivElement>
   hiddenFields?: Record<string, string>
   onSubmit?: () => void
@@ -146,7 +166,7 @@ const SchedulerEmbed = memo(function SchedulerEmbed({
       aria-hidden={!isOpen}
       className={`mx-auto w-full max-w-[520px] transition-opacity duration-200 ${
         isOpen
-          ? 'relative opacity-100 mt-4 pointer-events-auto visible'
+          ? 'relative mt-4 opacity-100 pointer-events-auto visible scroll-mt-24 md:scroll-mt-28'
           : 'fixed -left-[9999px] top-0 opacity-0 pointer-events-none invisible'
       }`}
     >
@@ -156,17 +176,22 @@ const SchedulerEmbed = memo(function SchedulerEmbed({
             Schedule Your Call
           </p>
         </div>
-        <Widget
-          id={typeformId}
-          style={{ width: '100%', height: '620px' }}
-          className="w-full"
-          transitiveSearchParams
-          hidden={hiddenFields}
-          onSubmit={onSubmit}
-          hideFooter
-          inlineOnMobile
-          lazy={false}
-        />
+        {isReady ? (
+          <Widget
+            id={typeformId}
+            style={{ width: '100%', height: '620px' }}
+            className="w-full"
+            transitiveSearchParams
+            hidden={hiddenFields}
+            onSubmit={onSubmit}
+            hideFooter
+            lazy={false}
+          />
+        ) : (
+          <div className="flex h-[620px] items-center justify-center px-6 text-center text-sm text-slate-400">
+            Loading secure scheduler...
+          </div>
+        )}
       </div>
     </div>
   )
@@ -181,24 +206,7 @@ export default function SecretLandingPage() {
   const schedulerRef = useRef<HTMLDivElement>(null)
   const [isPaused, setIsPaused] = useState(false)
   const [trackingFields, setTrackingFields] = useState<Record<string, string>>({})
-
-  const trackMetaEvent = (eventName: string, params?: Record<string, unknown>) => {
-    if (typeof window === 'undefined' || typeof window.fbq !== 'function') return
-    if (params) {
-      window.fbq('trackCustom', eventName, params)
-      return
-    }
-    window.fbq('trackCustom', eventName)
-  }
-
-  const trackMetaStandardEvent = (eventName: string, params?: Record<string, unknown>) => {
-    if (typeof window === 'undefined' || typeof window.fbq !== 'function') return
-    if (params) {
-      window.fbq('track', eventName, params)
-      return
-    }
-    window.fbq('track', eventName)
-  }
+  const [isTrackingReady, setIsTrackingReady] = useState(false)
 
   useEffect(() => {
     if (typeof document === 'undefined') return
@@ -224,57 +232,65 @@ export default function SecretLandingPage() {
   useEffect(() => {
     if (typeof window === 'undefined') return
 
-    const currentUrl = new URL(window.location.href)
-    const trackingFieldsCandidate: TrackingFields = {}
+    try {
+      const currentUrl = new URL(window.location.href)
+      const trackingFieldsCandidate: TrackingFields = {}
 
-    TRACKING_KEYS.forEach((key) => {
-      const value = currentUrl.searchParams.get(key)
-      if (value) trackingFieldsCandidate[key] = value
-    })
+      TRACKING_KEYS.forEach((key) => {
+        const value = currentUrl.searchParams.get(key)
+        if (value) trackingFieldsCandidate[key] = value
+      })
 
-    const cookieFbp = readCookieValue('_fbp')
-    const cookieFbc = readCookieValue('_fbc')
-    if (!trackingFieldsCandidate.fbp && cookieFbp) trackingFieldsCandidate.fbp = cookieFbp
-    if (!trackingFieldsCandidate.fbc && cookieFbc) trackingFieldsCandidate.fbc = cookieFbc
+      const cookieFbp = readCookieValue('_fbp')
+      const cookieFbc = readCookieValue('_fbc')
+      if (!trackingFieldsCandidate.fbp && cookieFbp) trackingFieldsCandidate.fbp = cookieFbp
+      if (!trackingFieldsCandidate.fbc && cookieFbc) trackingFieldsCandidate.fbc = cookieFbc
 
-    if (!trackingFieldsCandidate.fbc && trackingFieldsCandidate.fbclid) {
-      trackingFieldsCandidate.fbc = `fb.1.${Date.now()}.${trackingFieldsCandidate.fbclid}`
-    }
+      if (!trackingFieldsCandidate.fbc && trackingFieldsCandidate.fbclid) {
+        trackingFieldsCandidate.fbc = `fb.1.${Date.now()}.${trackingFieldsCandidate.fbclid}`
+      }
 
-    const persistedRaw = window.localStorage.getItem(TRACKING_STORAGE_KEY)
-    if (persistedRaw) {
+      const persistedRaw = window.localStorage.getItem(TRACKING_STORAGE_KEY)
+      if (persistedRaw) {
+        try {
+          const persisted = JSON.parse(persistedRaw) as TrackingFields
+          TRACKING_KEYS.forEach((key) => {
+            if (!trackingFieldsCandidate[key] && persisted[key]) {
+              trackingFieldsCandidate[key] = persisted[key]
+            }
+          })
+        } catch {
+          // Ignore malformed storage.
+        }
+      }
+
+      TRACKING_KEYS.forEach((key) => {
+        const value = trackingFieldsCandidate[key]
+        if (!value) return
+        if (!currentUrl.searchParams.get(key)) {
+          currentUrl.searchParams.set(key, value)
+        }
+      })
+
       try {
-        const persisted = JSON.parse(persistedRaw) as TrackingFields
-        TRACKING_KEYS.forEach((key) => {
-          if (!trackingFieldsCandidate[key] && persisted[key]) {
-            trackingFieldsCandidate[key] = persisted[key]
-          }
-        })
+        window.localStorage.setItem(TRACKING_STORAGE_KEY, JSON.stringify(trackingFieldsCandidate))
       } catch {
-        // Ignore malformed storage.
+        // Ignore storage failures and continue rendering the scheduler.
       }
-    }
 
-    TRACKING_KEYS.forEach((key) => {
-      const value = trackingFieldsCandidate[key]
-      if (!value) return
-      if (!currentUrl.searchParams.get(key)) {
-        currentUrl.searchParams.set(key, value)
+      const nextUrl = currentUrl.toString()
+      if (nextUrl !== window.location.href) {
+        window.history.replaceState({}, '', nextUrl)
       }
-    })
 
-    window.localStorage.setItem(TRACKING_STORAGE_KEY, JSON.stringify(trackingFieldsCandidate))
-
-    const nextUrl = currentUrl.toString()
-    if (nextUrl !== window.location.href) {
-      window.history.replaceState({}, '', nextUrl)
+      setTrackingFields(
+        Object.fromEntries(
+          TRACKING_KEYS.map((key) => [key, trackingFieldsCandidate[key]]).filter(([, value]) => Boolean(value))
+        ) as Record<string, string>
+      )
+    } finally {
+      setIsTrackingReady(true)
     }
-
-    setTrackingFields(
-      Object.fromEntries(
-        TRACKING_KEYS.map((key) => [key, trackingFieldsCandidate[key]]).filter(([, value]) => Boolean(value))
-      ) as Record<string, string>
-    )
   }, [])
 
   useEffect(() => {
@@ -297,15 +313,15 @@ export default function SecretLandingPage() {
     }
   }, [activeStoryVideo])
 
-  const handleTypeformOpen = () => {
+  const handleTypeformOpen = useCallback(() => {
     trackMetaEvent('ScheduleMeetingClick', { page: '/workingcapital' })
     setIsSchedulerOpen(true)
     requestAnimationFrame(() => {
       schedulerRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' })
     })
-  }
+  }, [])
 
-  const handleTypeformSubmit = () => {
+  const handleTypeformSubmit = useCallback(() => {
     trackMetaEvent('ScheduleMeetingSubmitted', { page: '/workingcapital' })
     trackMetaStandardEvent('Lead', {
       content_name: 'Working Capital Strategy Call',
@@ -323,7 +339,7 @@ export default function SecretLandingPage() {
       })
       navigator.sendBeacon(`https://www.facebook.com/tr?${params.toString()}`)
     }
-  }
+  }, [trackingFields])
 
   // Auto-scroll carousel
   useEffect(() => {
@@ -520,6 +536,7 @@ export default function SecretLandingPage() {
           <SchedulerEmbed
             typeformId={TYPEFORM_ID}
             isOpen={isSchedulerOpen}
+            isReady={isTrackingReady}
             schedulerRef={schedulerRef}
             hiddenFields={trackingFields}
             onSubmit={handleTypeformSubmit}
