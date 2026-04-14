@@ -402,23 +402,37 @@ export default function SecretLandingPage() {
           </div>
 
           {/* Main Headline */}
-          <div className="text-center mb-4 md:mb-3">
-            <h1 className="font-[family-name:var(--font-outfit)] text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-medium tracking-tight leading-[1.37] md:leading-[1.26] mb-4 md:mb-3">
+          <div className="lg:hidden text-center mb-4 md:mb-3">
+            <h1 className="font-[family-name:var(--font-outfit)] text-2xl sm:text-3xl md:text-4xl font-medium tracking-tight leading-[1.37] md:leading-[1.26] mb-4 md:mb-3">
               <span className="text-gradient-gold">SECURE $50,000–$500,000</span>
               <br />
-              <span className="text-slate-100">IN 0% WORKING CAPITAL</span>
+              <span className="text-slate-100">IN WORKING CAPITAL</span>
             </h1>
-            <h2 className="max-w-4xl mx-auto font-[family-name:var(--font-outfit)] text-base sm:text-lg md:text-xl lg:text-2xl text-slate-300 font-light tracking-tight leading-[1.82] sm:leading-[1.58] md:leading-[1.36] px-1">
+            <h2 className="max-w-4xl mx-auto font-[family-name:var(--font-outfit)] text-base sm:text-lg md:text-xl text-slate-300 font-light tracking-tight leading-[1.82] sm:leading-[1.58] md:leading-[1.36] px-1">
               START OR SCALE YOUR REAL ESTATE BUSINESS
               <br />
               <span className="border-b-2 border-amber-500/40 pb-0.5">IN 7 - 14 DAYS</span>
             </h2>
           </div>
 
+          <div className="hidden lg:flex flex-col items-center text-center mb-3">
+            <div className="w-fit max-w-full mx-auto">
+              <h1 className="w-fit mx-auto font-[family-name:var(--font-outfit)] text-[2.55rem] xl:text-[2.75rem] 2xl:text-[2.95rem] font-medium tracking-tight leading-[1.02] whitespace-nowrap mb-2">
+                <span className="text-gradient-gold">SECURE $50,000–$500,000</span>
+                <span className="text-slate-100 ml-[0.14em]">IN WORKING CAPITAL</span>
+              </h1>
+              <h2 className="w-fit mx-auto font-[family-name:var(--font-outfit)] text-[1.65rem] xl:text-[1.8rem] 2xl:text-[1.9rem] text-slate-300 font-light tracking-tight leading-[1.08] whitespace-nowrap">
+                <span className="inline-block border-b-2 border-amber-500/40 pb-1">
+                  START OR SCALE YOUR REAL ESTATE BUSINESS IN 7 - 14 DAYS
+                </span>
+              </h2>
+            </div>
+          </div>
+
 
 
           {/* Video Section */}
-          <div className="max-w-[680px] mx-auto mt-4 md:mt-0">
+          <div className="max-w-[680px] lg:max-w-[620px] mx-auto mt-4 md:mt-0">
             {/* Video label */}
             <div className="bg-white/[0.03] border border-white/[0.08] text-slate-300 text-center py-1 px-3 text-[10px] sm:text-[11px] font-medium tracking-wide flex items-center justify-center rounded-lg mb-1.5">
               WATCH HOW INVESTORS UNLOCK CAPITAL AND SCALE FAST
