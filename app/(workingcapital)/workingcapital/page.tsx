@@ -1,9 +1,8 @@
 'use client'
 
-import { useState, useRef, useEffect, memo, useCallback } from 'react'
+import { useState, useRef, useEffect, useCallback } from 'react'
 import Image from 'next/image'
 import { ChevronLeft, ChevronRight, Play, Sparkles, X } from 'lucide-react'
-import { Widget } from '@typeform/embed-react'
 import styles from './SecretLanding.module.css'
 
 declare global {
@@ -86,6 +85,7 @@ const TESTIMONIALS = [
 
 const VSL_WISTIA_ID = '51971ywvc0'
 const VSL_PREVIEW_URL = `https://fast.wistia.net/embed/iframe/${VSL_WISTIA_ID}?seo=false&videoFoam=true`
+const BOOKING_URL = 'https://book.malohncapital.com/book-call-page'
 const TRACKING_STORAGE_KEY = 'wc_tracking_params_v1'
 const TRACKING_KEYS = ['fbclid', 'fbc', 'fbp', 'utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content'] as const
 
@@ -145,89 +145,12 @@ const CLIENT_SUCCESS_VIDEOS = [
   },
 ]
 
-const SchedulerEmbed = memo(function SchedulerEmbed({
-  typeformId,
-  isOpen,
-  isReady,
-  schedulerRef,
-  hiddenFields,
-  onSubmit,
-}: {
-  typeformId: string
-  isOpen: boolean
-  isReady: boolean
-  schedulerRef: React.RefObject<HTMLDivElement>
-  hiddenFields?: Record<string, string>
-  onSubmit?: () => void
-}) {
-  return (
-    <div
-      ref={schedulerRef}
-      aria-hidden={!isOpen}
-      className={`mx-auto w-full max-w-[520px] transition-opacity duration-200 ${
-        isOpen
-          ? 'relative mt-4 opacity-100 pointer-events-auto visible scroll-mt-24 md:scroll-mt-28'
-          : 'fixed -left-[9999px] top-0 opacity-0 pointer-events-none invisible'
-      }`}
-    >
-      <div className="rounded-xl border border-white/[0.12] bg-[#0b0d11] shadow-2xl shadow-black/50 overflow-hidden">
-        <div className="px-4 py-3 border-b border-white/[0.08] bg-white/[0.02]">
-          <p className="text-xs tracking-[0.08em] uppercase text-slate-300 font-[family-name:var(--font-outfit)]">
-            Schedule Your Call
-          </p>
-        </div>
-        {isReady ? (
-          <Widget
-            id={typeformId}
-            style={{ width: '100%', height: '620px' }}
-            className="w-full"
-            transitiveSearchParams
-            hidden={hiddenFields}
-            onSubmit={onSubmit}
-            hideFooter
-            lazy={false}
-          />
-        ) : (
-          <div className="flex h-[620px] items-center justify-center px-6 text-center text-sm text-slate-400">
-            Loading secure scheduler...
-          </div>
-        )}
-      </div>
-    </div>
-  )
-})
-
 export default function SecretLandingPage() {
-  const TYPEFORM_ID = 'lGiCs1cM'
   const [openIndex, setOpenIndex] = useState<number | null>(null)
-  const [isSchedulerOpen, setIsSchedulerOpen] = useState(false)
   const [activeStoryVideo, setActiveStoryVideo] = useState<(typeof CLIENT_SUCCESS_VIDEOS)[number] | null>(null)
   const carouselRef = useRef<HTMLDivElement>(null)
-  const schedulerRef = useRef<HTMLDivElement>(null)
   const [isPaused, setIsPaused] = useState(false)
   const [trackingFields, setTrackingFields] = useState<Record<string, string>>({})
-  const [isTrackingReady, setIsTrackingReady] = useState(false)
-
-  useEffect(() => {
-    if (typeof document === 'undefined') return
-
-    const preconnectTargets = ['https://form.typeform.com', 'https://embed.typeform.com']
-    const appendedLinks: HTMLLinkElement[] = []
-
-    preconnectTargets.forEach((href) => {
-      if (document.querySelector(`link[rel="preconnect"][href="${href}"]`)) return
-      const link = document.createElement('link')
-      link.rel = 'preconnect'
-      link.href = href
-      link.crossOrigin = 'anonymous'
-      document.head.appendChild(link)
-      appendedLinks.push(link)
-    })
-
-    return () => {
-      appendedLinks.forEach((link) => link.remove())
-    }
-  }, [])
 
   useEffect(() => {
     if (typeof window === 'undefined') return
@@ -289,7 +212,7 @@ export default function SecretLandingPage() {
         ) as Record<string, string>
       )
     } finally {
-      setIsTrackingReady(true)
+      // Continue rendering even if storage or URL mutation fails.
     }
   }, [])
 
@@ -313,15 +236,8 @@ export default function SecretLandingPage() {
     }
   }, [activeStoryVideo])
 
-  const handleTypeformOpen = useCallback(() => {
+  const handleBookingCtaClick = useCallback(() => {
     trackMetaEvent('ScheduleMeetingClick', { page: '/workingcapital' })
-    setIsSchedulerOpen(true)
-    requestAnimationFrame(() => {
-      schedulerRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' })
-    })
-  }, [])
-
-  const handleTypeformSubmit = useCallback(() => {
     trackMetaEvent('ScheduleMeetingSubmitted', { page: '/workingcapital' })
     trackMetaStandardEvent('Lead', {
       content_name: 'Working Capital Strategy Call',
@@ -339,6 +255,13 @@ export default function SecretLandingPage() {
       })
       navigator.sendBeacon(`https://www.facebook.com/tr?${params.toString()}`)
     }
+
+    const destinationUrl = new URL(BOOKING_URL)
+    Object.entries(trackingFields).forEach(([key, value]) => {
+      if (value) destinationUrl.searchParams.set(key, value)
+    })
+
+    window.location.assign(destinationUrl.toString())
   }, [trackingFields])
 
   // Auto-scroll carousel
@@ -517,7 +440,7 @@ export default function SecretLandingPage() {
           <div className="flex flex-col items-center mt-[45px] md:mt-1.5 mb-3">
             <button
               type="button"
-              onClick={handleTypeformOpen}
+              onClick={handleBookingCtaClick}
               className="btn-primary inline-flex flex-col items-center justify-center rounded-lg px-8 py-3 font-[family-name:var(--font-outfit)]"
             >
               <span className="text-[10px] sm:text-[11px] tracking-[0.12em] uppercase leading-none">
@@ -533,14 +456,6 @@ export default function SecretLandingPage() {
             Secure fast, flexible working capital in 7-14 days. No collateral, no property liens.
           </p>
 
-          <SchedulerEmbed
-            typeformId={TYPEFORM_ID}
-            isOpen={isSchedulerOpen}
-            isReady={isTrackingReady}
-            schedulerRef={schedulerRef}
-            hiddenFields={trackingFields}
-            onSubmit={handleTypeformSubmit}
-          />
         </div>
       </section>
 
@@ -703,7 +618,7 @@ export default function SecretLandingPage() {
 
           <button
             type="button"
-            onClick={handleTypeformOpen}
+            onClick={handleBookingCtaClick}
             className="inline-flex items-center justify-center gap-2 px-10 py-4 bg-gradient-to-r from-amber-400 to-amber-500 text-[#08090c] font-medium rounded-lg hover:shadow-xl hover:shadow-amber-500/20 transition-all duration-300 font-[family-name:var(--font-outfit)]"
           >
             Book Your Free Strategy Call

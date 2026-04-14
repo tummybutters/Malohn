@@ -126,7 +126,7 @@ export default function Navbar() {
             <div className="h-4 w-px bg-white/10 mx-3" />
 
             <Link
-              href="https://form.typeform.com/to/lGiCs1cM"
+              href="https://book.malohncapital.com/book-call-page"
               className="px-4 py-1.5 rounded-none bg-white/5 border border-white/10 text-white/90 text-[11px] font-medium hover:bg-white/10 hover:border-white/20 hover:text-white transition-all duration-200"
             >
               Schedule a Meeting
@@ -229,7 +229,7 @@ export default function Navbar() {
                 style={{ transitionDelay: `${(solutionLinks.length + companyLinks.length) * 50}ms` }}
               >
                 <Link
-                  href="https://form.typeform.com/to/lGiCs1cM"
+                  href="https://book.malohncapital.com/book-call-page"
                   className="block w-full px-4 py-3 rounded-none bg-white/10 border border-white/10 text-white text-sm font-medium text-center hover:bg-white/15"
                   onClick={() => setIsMenuOpen(false)}
                 >

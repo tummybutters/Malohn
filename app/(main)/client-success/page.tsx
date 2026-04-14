@@ -368,7 +368,7 @@ export default function ClientSuccessPage() {
             Book a strategy call to see what\'s possible.
           </p>
           <div className="flex justify-center gap-4 flex-wrap">
-            <ActionButton href="https://form.typeform.com/to/lGiCs1cM">Book Strategy Call</ActionButton>
+            <ActionButton href="https://book.malohncapital.com/book-call-page">Book Strategy Call</ActionButton>
             <Link
               href="/transactions"
               className="px-6 py-3 border border-white/15 text-white/60 text-sm hover:text-white hover:border-white transition-colors duration-300"
