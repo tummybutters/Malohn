@@ -83,7 +83,7 @@ const TESTIMONIALS = [
   },
 ]
 
-const VSL_WISTIA_ID = '51971ywvc0'
+const VSL_WISTIA_ID = 'azqs2mfij3'
 const VSL_PREVIEW_URL = `https://fast.wistia.net/embed/iframe/${VSL_WISTIA_ID}?seo=false&videoFoam=true`
 const BOOKING_URL = 'https://book.malohncapital.com/book-call-page'
 const TRACKING_STORAGE_KEY = 'wc_tracking_params_v1'
