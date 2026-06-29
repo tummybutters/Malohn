@@ -2,15 +2,16 @@ import Link from 'next/link'
 import ActionButton from '@/components/ActionButton'
 import { Coins, Building2, Landmark, Layers, ShieldCheck, Zap, TrendingUp } from 'lucide-react'
 import { FocusCards } from '@/components/ui/FocusCards'
+import { bookingLinks } from '@/lib/constants'
 
 const solutions = [
   {
     title: 'Working Capital',
     description: 'Investment focused, unsecured liquidity and credit for down payments, renovations, reserves, bridge loans, and execution timing.',
-    href: '/workingcapital',
+    href: bookingLinks.workingCapital,
     icon: <Coins className="w-10 h-10" />,
     action: (
-      <Link href="/workingcapital" className="text-sm font-medium text-accent-warm hover:text-[#d8b773] transition-colors">
+      <Link href={bookingLinks.workingCapital} className="text-sm font-medium text-accent-warm hover:text-[#d8b773] transition-colors">
         Explore Working Capital -&gt;
       </Link>
     )
@@ -18,16 +19,24 @@ const solutions = [
   {
     title: 'DSCR Purchase Loan',
     description: 'Asset based underwriting designed to recycle equity without personal income constraints.',
-    href: '/capital-solutions/dscr-cash-out-loan',
+    href: bookingLinks.dscrPartner,
     icon: <Building2 className="w-10 h-10" />,
-    action: <span className="text-sm font-medium text-accent-warm">Explore DSCR Purchase -&gt;</span>
+    action: (
+      <Link href={bookingLinks.dscrPartner} className="text-sm font-medium text-accent-warm hover:text-[#d8b773] transition-colors">
+        Explore DSCR Purchase -&gt;
+      </Link>
+    )
   },
   {
     title: 'DSCR Cash Out',
     description: 'Structured capital that unlocks liquidity while protecting long term portfolio performance.',
-    href: '/capital-solutions/dscr-cash-out',
+    href: bookingLinks.dscrPartner,
     icon: <Landmark className="w-10 h-10" />,
-    action: <span className="text-sm font-medium text-accent-warm">Explore DSCR Refinance -&gt;</span>
+    action: (
+      <Link href={bookingLinks.dscrPartner} className="text-sm font-medium text-accent-warm hover:text-[#d8b773] transition-colors">
+        Explore DSCR Refinance -&gt;
+      </Link>
+    )
   },
 ]
 
@@ -176,7 +185,7 @@ export default function CapitalSolutionsPage() {
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-3xl md:text-4xl font-serif text-white mb-6">Precision financing for your next deal.</h2>
           <div className="flex justify-center gap-6">
-            <ActionButton href="/workingcapital">Get a Strategy Review</ActionButton>
+            <ActionButton href={bookingLinks.workingCapital}>Get a Strategy Review</ActionButton>
             <Link
               href="/transactions"
               className="px-6 py-3 border border-white/15 text-white/60 text-sm hover:text-white hover:border-white transition-colors duration-300"

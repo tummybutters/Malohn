@@ -3,6 +3,7 @@
 import { useState, useRef, useEffect, useCallback } from 'react'
 import Image from 'next/image'
 import { ChevronLeft, ChevronRight, Play, Sparkles, X } from 'lucide-react'
+import { bookingLinks } from '@/lib/constants'
 import styles from './SecretLanding.module.css'
 
 declare global {
@@ -85,7 +86,7 @@ const TESTIMONIALS = [
 
 const VSL_WISTIA_ID = 'azqs2mfij3'
 const VSL_PREVIEW_URL = `https://fast.wistia.net/embed/iframe/${VSL_WISTIA_ID}?seo=false&videoFoam=true`
-const BOOKING_URL = 'https://book.malohncapital.com/book-call-page'
+const BOOKING_URL = bookingLinks.workingCapital
 const TRACKING_STORAGE_KEY = 'wc_tracking_params_v1'
 const TRACKING_KEYS = ['fbclid', 'fbc', 'fbp', 'utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content'] as const
 

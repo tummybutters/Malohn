@@ -2,6 +2,7 @@ import Link from 'next/link'
 import ActionButton from '@/components/ActionButton'
 import { FocusCards } from '@/components/ui/FocusCards'
 import { Layers, TrendingUp, Target, ShieldCheck } from 'lucide-react'
+import { bookingLinks } from '@/lib/constants'
 
 const separators = [
   {
@@ -64,7 +65,7 @@ export default function AboutPage() {
             discipline, and sophistication to markets that have long been underserved.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
-            <ActionButton href="/workingcapital">Schedule a Meeting</ActionButton>
+            <ActionButton href={bookingLinks.workingCapital}>Schedule a Meeting</ActionButton>
             <Link
               href="/capital-solutions"
               className="px-5 py-3 rounded-none border border-white/15 text-white/80 text-sm hover:text-white hover:border-white/30 transition-colors"
@@ -181,7 +182,7 @@ export default function AboutPage() {
             Ready to acquire your next property?
           </h2>
           <div className="flex justify-center">
-            <ActionButton href="/workingcapital">Schedule a Meeting</ActionButton>
+            <ActionButton href={bookingLinks.workingCapital}>Schedule a Meeting</ActionButton>
           </div>
         </div>
       </section>

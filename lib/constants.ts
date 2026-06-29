@@ -6,6 +6,12 @@ export const siteConfig = {
   ogImage: "/images/logo.png",
 }
 
+export const bookingLinks = {
+  scheduleWidget: "https://booking.malohncapital.com/widget/booking/v9Ym5kDbuoWdT50Ylh95",
+  workingCapital: "https://book.malohncapital.com/working-capital",
+  dscrPartner: "https://dscr.investorpropertyloan.com/?partner=MALOHN",
+} as const
+
 export const navLinks = [
   { href: "/", label: "Home" },
   { href: "/capital-solutions", label: "Capital Solutions" },
@@ -13,7 +19,7 @@ export const navLinks = [
   { href: "/client-success", label: "Client Success" },
   { href: "/about", label: "About" },
   { href: "/capital-group", label: "Capital Group" },
-  { href: "/workingcapital", label: "Schedule a Meeting" },
+  { href: bookingLinks.scheduleWidget, label: "Schedule a Meeting" },
 ]
 
 export const stats = [

@@ -1,6 +1,7 @@
 import ActionButton from '@/components/ActionButton'
 import { FocusCards } from '@/components/ui/FocusCards'
 import { Building2, ShieldCheck, Zap } from 'lucide-react'
+import { bookingLinks } from '@/lib/constants'
 
 const pillars = [
   {
@@ -39,7 +40,7 @@ export default function CapitalGroupPage() {
             investors through disciplined leverage design, risk positioning, and long-term portfolio growth.
           </p>
           <div className="mt-8">
-            <ActionButton href="/workingcapital">Schedule a Strategy Call</ActionButton>
+            <ActionButton href={bookingLinks.workingCapital}>Schedule a Strategy Call</ActionButton>
           </div>
         </div>
       </section>
@@ -160,7 +161,7 @@ export default function CapitalGroupPage() {
             Connect with the capital advisory group.
           </h2>
           <div className="flex justify-center">
-            <ActionButton href="/workingcapital">Schedule a Strategy Call</ActionButton>
+            <ActionButton href={bookingLinks.workingCapital}>Schedule a Strategy Call</ActionButton>
           </div>
         </div>
       </section>

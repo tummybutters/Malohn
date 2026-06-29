@@ -5,6 +5,7 @@ import Link from 'next/link'
 import ActionButton from '@/components/ActionButton'
 import { TransactionCard } from '@/components/ui/TransactionCard'
 import { Percent, Activity, Layers, Calendar, DollarSign, TrendingUp } from 'lucide-react'
+import { bookingLinks } from '@/lib/constants'
 import { cn } from '@/lib/utils'
 
 const transactions = [
@@ -517,7 +518,7 @@ export default function TransactionsPage() {
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-3xl font-serif text-white mb-6">Start your next transaction.</h2>
           <div className="flex justify-center gap-4">
-            <ActionButton href="/workingcapital">Access Capital</ActionButton>
+            <ActionButton href={bookingLinks.workingCapital}>Access Capital</ActionButton>
             <Link href="/capital-solutions" className="px-6 py-3 border border-white/20 text-white text-sm uppercase tracking-wider hover:bg-white hover:text-black transition-colors duration-300">
               View Programs
             </Link>

@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import ActionButton from '@/components/ActionButton'
+import { bookingLinks } from '@/lib/constants'
 
 const useCases = [
   'Bridge down payments for acquisitions',
@@ -67,7 +68,7 @@ export default function WorkingCapitalPage() {
             execution timing without compromising the integrity of the capital structuring.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
-            <ActionButton href="/workingcapital">Schedule a Strategy Call</ActionButton>
+            <ActionButton href={bookingLinks.workingCapital}>Schedule a Strategy Call</ActionButton>
             <Link
               href="/capital-solutions"
               className="px-5 py-3 rounded-none border border-white/15 text-white/80 text-sm hover:text-white hover:border-white/30 transition-colors"
@@ -259,7 +260,7 @@ export default function WorkingCapitalPage() {
             Connect with our capital advisory group to review working capital options aligned to your portfolio objectives.
           </p>
           <div className="mt-8 flex justify-center">
-            <ActionButton href="/workingcapital">Schedule a Strategy Call</ActionButton>
+            <ActionButton href={bookingLinks.workingCapital}>Schedule a Strategy Call</ActionButton>
           </div>
         </div>
       </section>

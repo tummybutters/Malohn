@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import ActionButton from '@/components/ActionButton'
+import { bookingLinks } from '@/lib/constants'
 
 const valuePoints = [
   {
@@ -60,7 +61,7 @@ export default function DscrCashOutPage() {
             durability, reserve coverage, and portfolio objectives to ensure long-term resilience.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
-            <ActionButton href="/workingcapital">Schedule a Strategy Call</ActionButton>
+            <ActionButton href={bookingLinks.workingCapital}>Schedule a Strategy Call</ActionButton>
             <Link
               href="/capital-solutions"
               className="px-5 py-3 rounded-none border border-white/15 text-white/80 text-sm hover:text-white hover:border-white/30 transition-colors"
@@ -206,7 +207,7 @@ export default function DscrCashOutPage() {
             Connect with our capital advisory group to align cash-out structuring with your portfolio growth strategy.
           </p>
           <div className="mt-8 flex justify-center">
-            <ActionButton href="/workingcapital">Schedule a Strategy Call</ActionButton>
+            <ActionButton href={bookingLinks.workingCapital}>Schedule a Strategy Call</ActionButton>
           </div>
         </div>
       </section>
