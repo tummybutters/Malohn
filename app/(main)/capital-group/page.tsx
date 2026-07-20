@@ -128,24 +128,6 @@ export default function CapitalGroupPage() {
                 </div>
               </div>
 
-              <div className="border border-white/10 bg-[#07080b] p-8 relative group hover:border-accent-warm/30 transition-all duration-300">
-                <div className="flex flex-col md:flex-row gap-8 items-center md:items-start">
-                  <div className="relative w-32 h-32 md:w-40 md:h-40 shrink-0 rounded-full overflow-hidden border-2 border-white/10 group-hover:border-accent-warm/50 transition-colors">
-                    <img
-                      src="/images/lucas-rabbani.png"
-                      alt="Lucas Rabbani"
-                      className="w-full h-full object-cover object-top"
-                    />
-                  </div>
-                  <div className="text-center md:text-left">
-                    <p className="text-[10px] uppercase tracking-[0.2em] text-accent-warm mb-2">Director of Capital Advisory</p>
-                    <h3 className="text-2xl font-serif text-white mb-3">Lucas Rabbani</h3>
-                    <p className="text-sm text-white/60 leading-relaxed max-w-xl">
-                      Lucas specializes in client advisory and portfolio analysis. He works closely with investors to align their capital stacks with long-term growth objectives, providing clear guidance on execution and risk management.
-                    </p>
-                  </div>
-                </div>
-              </div>
             </div>
           </div>
         </div>
