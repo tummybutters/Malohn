@@ -85,6 +85,11 @@ export default function Footer() {
           </p>
         </div>
 
+        <nav aria-label="Legal" className="mt-6 flex justify-center gap-6 text-sm">
+          <Link href="/privacy-policy" className="text-white/60 hover:text-white transition-colors">Privacy Policy</Link>
+          <Link href="/terms-of-service" className="text-white/60 hover:text-white transition-colors">Terms of Service</Link>
+        </nav>
+
         {/* Disclaimer */}
         <p className="mt-8 text-xs text-white/40 text-center max-w-3xl mx-auto leading-relaxed">
           This website is for informational purposes only. All investments involve risk.

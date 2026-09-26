@@ -659,6 +659,10 @@ export default function SecretLandingPage() {
           <p className="text-slate-700 text-xs font-[family-name:var(--font-outfit)]">
             © 2026 Malohn Capital Group. All rights reserved.
           </p>
+          <nav aria-label="Legal" className="mt-4 flex justify-center gap-5 text-xs font-[family-name:var(--font-outfit)]">
+            <a href="/privacy-policy" className="text-slate-400 hover:text-amber-300">Privacy Policy</a>
+            <a href="/terms-of-service" className="text-slate-400 hover:text-amber-300">Terms of Service</a>
+          </nav>
           <p className="text-slate-800 text-[11px] mt-3 max-w-md mx-auto leading-relaxed">
             This is not an offer to lend. All loans subject to credit approval. Terms and conditions apply.
           </p>

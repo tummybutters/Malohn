@@ -78,6 +78,7 @@ export default function RootLayout({
       <body className={`${inter.variable} ${playfair.variable} bg-bg-primary text-text-primary min-h-screen`}>
         <Script id="meta-pixel-main" strategy="beforeInteractive">
           {`
+            if (navigator.globalPrivacyControl !== true) {
             !function(f,b,e,v,n,t,s)
             {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
             n.callMethod.apply(n,arguments):n.queue.push(arguments)};
@@ -88,17 +89,9 @@ export default function RootLayout({
             'https://connect.facebook.net/en_US/fbevents.js');
             fbq('init', '916265341147153');
             fbq('track', 'PageView');
+            }
           `}
         </Script>
-        <noscript>
-          <img
-            height="1"
-            width="1"
-            style={{ display: 'none' }}
-            src="https://www.facebook.com/tr?id=916265341147153&ev=PageView&noscript=1"
-            alt=""
-          />
-        </noscript>
         <Navbar />
         <main>{children}</main>
         <Footer />
