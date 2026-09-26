@@ -68,6 +68,7 @@ export default function SecretLandingLayout({
         </Script>
         <Script id="meta-pixel-workingcapital" strategy="beforeInteractive">
           {`
+            if (navigator.globalPrivacyControl !== true) {
             !function(f,b,e,v,n,t,s)
             {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
             n.callMethod.apply(n,arguments):n.queue.push(arguments)};
@@ -78,17 +79,9 @@ export default function SecretLandingLayout({
             'https://connect.facebook.net/en_US/fbevents.js');
             fbq('init', '916265341147153');
             fbq('track', 'PageView');
+            }
           `}
         </Script>
-        <noscript>
-          <img
-            height="1"
-            width="1"
-            style={{ display: 'none' }}
-            src="https://www.facebook.com/tr?id=916265341147153&ev=PageView&noscript=1"
-            alt=""
-          />
-        </noscript>
         {children}
       </body>
     </html>
