@@ -96,9 +96,9 @@ export default function TermsOfServicePage() {
       <section id="sms">
         <h2>SMS messaging terms</h2>
         <p>
-          <strong>Program description.</strong> Malohn Capital Group sends text
-          messages to people who provide their mobile number through our website
-          forms or booking pages and check the box consenting to receive texts.
+          <strong>Program description.</strong> Malohn Capital Group may send text
+          messages to people who provide their mobile number and separately
+          consent to receive texts.
           Messages include appointment confirmations and reminders, rescheduling
           updates, updates about your inquiry or engagement, and customer
           support. If you separately opted in to marketing messages, we may also
